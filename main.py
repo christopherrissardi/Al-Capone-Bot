@@ -785,10 +785,11 @@ async def ping(ctx):
 
     await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
+    
+ #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
-async def traduzir(ctx, phrase, *, lang):    
+async def traduzir(ctx):    
     embed = discord.Embed(
         title='',
         colour=29695
@@ -798,9 +799,30 @@ async def traduzir(ctx, phrase, *, lang):
 
     phrase_translate = translator.translate(f"{phrase}", dest=lang)
 
-    embed.add_field(name="➢ TEXTO TRADUZIDO", value=f"{phrase_translate.text}", inline=False)
+    embed.add_field(name="➢ COMO TRADUZIR?", value=f"{phrase_translate.text}", inline=False)
+    
+    embed.add_field(name='', value='Utilize /traduzir "TEXTO" LÍNGUA (Ex: en, es, pt)', inline=False)
 
     embed.set_author(name=f'TRADUÇÃO DE MENSAGENS - UTILIZE /traduzir "texto a ser traduzido"', icon_url='')
+
+    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+
+    await ctx.send(embed=embed)
+    
+    #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
+
+@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
+async def traduzir(ctx, phrase, *, lang):    
+    embed = discord.Embed(
+        title='TRADUÇÃO DE MENSAGENS - UTILIZE /traduzir "texto a ser traduzido"',
+        colour=29695
+    )
+
+    translator = Translator()
+
+    phrase_translate = translator.translate(f"{phrase}", dest=lang)
+
+    embed.add_field(name="➢ TEXTO TRADUZIDO", value=f"{phrase_translate.text}", inline=False)
 
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
