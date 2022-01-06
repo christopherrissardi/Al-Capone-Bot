@@ -795,15 +795,7 @@ async def traduzir(ctx):
         colour=29695
     )
 
-    translator = Translator()
-
-    phrase_translate = translator.translate(f"{phrase}", dest=lang)
-
-    embed.add_field(name="➢ COMO TRADUZIR?", value=f"{phrase_translate.text}", inline=False)
-    
-    embed.add_field(name='', value='Utilize /traduzir "TEXTO" LÍNGUA (Ex: en, es, pt)', inline=False)
-
-    embed.set_author(name=f'TRADUÇÃO DE MENSAGENS - UTILIZE /traduzir "texto a ser traduzido"', icon_url='')
+    embed.add_field(name="➢ COMO TRADUZIR?", value='TRADUÇÃO DE MENSAGENS - UTILIZE /traduzir "TEXTO" LÍNGUA (Ex: en, es, pt)', inline=False)
 
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
