@@ -176,62 +176,6 @@ async def telefone(ctx):
 
     await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝑃𝐿𝐴𝐶𝐴]-------------------------------------------------------------#
-
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑃𝐿𝐴𝐶𝐴
-async def placa(ctx):
-    embed = discord.Embed(
-        title='',
-        description='A Consulta por ***PLACA*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***placa!***',
-        colour=6646071
-    )
-
-    embed.add_field(name="➢ PLACA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ SITUAÇÃO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ MARCA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ MODELO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ COR", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ ANO - FABRICAÇÃO.", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ ANO - MODELO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ MUNICIPIO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ ESTADO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ CHASSI", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ RENAVAM", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ FATURADO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ UF - FATURADO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ MUNICÍPIO - FABRICAÇÃO.", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ ESTADO - FABRICAÇÃO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ SEGMENTO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ SUB SEGMENTO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ GRUPO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ COMBUSTÍVEL", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ POTÊNCIA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ CILINDRADAS", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ CAPACIDADE DE CARGA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ NACIONALIDADE", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ LINHA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ CARROCERIA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ EIXO TRASEIRO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ MOTOR", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ TIPO DE PESSOA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ TIPO DE VEÍCULO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ QUANTIDADE DE PASSAGEIROS", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ ID IMPORTADORA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ DI", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ REGISTRO DI", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ UNIDADE LOCAL SRF", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ ÚLTIMA ATUALIZAÇÃO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ NOME DO PROPRIETÁRIO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ CPF/CNPJ DO PROPRIETÁRIO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ PLACA MODELO ANTIGO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="➢ PLACA MODELO NOVO", value='SEM INFORMAÇÃO', inline=False)
-
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE PLACAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
-    await ctx.send(embed=embed)
-
 #--------------------------------------------------------[𝐶𝑁𝑃𝐽]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑁𝑃𝐽
@@ -784,26 +728,8 @@ async def ping(ctx):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
-
     
- #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
-
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
-async def traduzir(ctx):    
-    embed = discord.Embed(
-        title='',
-        colour=29695
-    )
-    
-    embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/languages-1891105-1598018.png")
-
-    embed.add_field(name="➢ COMANDO PARA TRADUÇÃO", value='**/tradutor "Texto" LÍNGUA (Exemplo: en, es, pt)**', inline=False)
-
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
-    await ctx.send(embed=embed)
-    
-    #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
+#--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
 async def tradutor(ctx, phrase, *, lang):    
@@ -824,7 +750,7 @@ async def tradutor(ctx, phrase, *, lang):
    
     await ctx.send(embed=embed)
     
-    #--------------------------------------------------------[GIT]-------------------------------------------------------------#
+#--------------------------------------------------------[GIT]-------------------------------------------------------------#
     
 @client.command()
 async def git(ctx):
