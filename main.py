@@ -788,7 +788,7 @@ async def ping(ctx):
     #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
-async def traduzir(ctx, phrase):    
+async def traduzir(ctx, phrase, *, lang):    
     embed = discord.Embed(
         title='',
         colour=29695
@@ -796,7 +796,7 @@ async def traduzir(ctx, phrase):
 
     translator = Translator()
 
-    phrase_translate = translator.translate(f"{phrase}", dest='en')
+    phrase_translate = translator.translate(f"{phrase}", dest=lang)
 
     embed.add_field(name="➢ TEXTO TRADUZIDO", value=f"{phrase_translate.text}", inline=False)
 
