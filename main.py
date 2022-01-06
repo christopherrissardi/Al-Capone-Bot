@@ -800,8 +800,6 @@ async def traduzir(ctx):
     embed.add_field(name="", value='***/tradutor "Texto" SELECIONE UMA LÍNGUA (Exemplo: en, es, pt)***', inline=False)
 
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-    
-    embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤ➢ COMANDO PARA TRADUÇÃOㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
 
     await ctx.send(embed=embed)
     
