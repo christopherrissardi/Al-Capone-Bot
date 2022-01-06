@@ -725,34 +725,7 @@ async def feriados(ctx, feriados):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 ##GERADORES
     
 @client.command()
@@ -815,41 +788,23 @@ async def ping(ctx):
     #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
-async def traduzir(ctx, phrase):
+async def traduzir(ctx, phrase):    
+    embed = discord.Embed(
+        title='',
+        colour=29695
+    )
+
     translator = Translator()
-    
-    try:
-        error = "Não é possível traduzir"
-        embed = discord.Embed(
-            title='⚠️ TRADUÇÃO INVÁLIDA ⚠️',
-            description='',
-            colour=16766976
-        )
 
-        embed.set_author(name='', icon_url='')
+    phrase_translate = translator.translate(f"{phrase}", dest='en')
 
-        await ctx.send(embed=embed)
+    embed.add_field(name="➢ TEXTO TRADUZIDO", value=f"{phrase_translate.text}", inline=False)
 
-        return
-    except Exception:
-        pass
-
-        embed = discord.Embed(
-            title='',
-            colour=58879
-        )
-
-    embed.add_field(name="➢ TRADUÇÃO PARA INGLÊS", value=translator.translate(phrase, dest='en'), inline=False)
-
-    embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤTRADUÇÃO DE MENSAGENSㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
+    embed.set_author(name=f'TRADUÇÃO DE MENSAGENS - UTILIZE /traduzir "texto a ser traduzido"', icon_url='')
 
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
-
-
-
-
 
 
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
