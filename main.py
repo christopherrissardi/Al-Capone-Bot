@@ -2,6 +2,7 @@ import discord
 import json
 import requests
 import os
+from googletrans import Translator
 from typing import Text
 from discord.ext import commands
 
@@ -811,7 +812,40 @@ async def ping(ctx):
 
     await ctx.send(embed=embed)
 
+    #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
+@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
+async def feriados(ctx, phrase):
+    translator = Translator()
+    
+    try:
+        error = "Não é possível traduzir"
+        embed = discord.Embed(
+            title='⚠️ TRADUÇÃO INVÁLIDA ⚠️',
+            description='',
+            colour=16766976
+        )
+
+        embed.set_author(name='', icon_url='')
+
+        await ctx.send(embed=embed)
+
+        return
+    except Exception:
+        pass
+
+        embed = discord.Embed(
+            title='',
+            colour=58879
+        )
+
+    embed.add_field(name="➢ TRADUÇÃO PARA INGLÊS", value=translator.translate(phrase, dest='en'), inline=False)
+
+    embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤTRADUÇÃO DE MENSAGENSㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
+
+    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+
+    await ctx.send(embed=embed)
 
 
 
