@@ -823,8 +823,7 @@ async def tradutor(ctx, phrase, *, lang):
     embed.add_field(name="", value=f"***{phrase_translate.text}***", inline=False)
 
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-    
-    embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤTEXTO TRADUZIDO PARA {lang}ㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
+   
 
     await ctx.send(embed=embed)
 
