@@ -794,8 +794,10 @@ async def traduzir(ctx):
         title='',
         colour=29695
     )
+    
+    embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/languages-1891105-1598018.png")
 
-    embed.add_field(name="➢ COMO TRADUZIR?", value='TRADUÇÃO DE MENSAGENS - UTILIZE /traduzir "TEXTO" LÍNGUA (Ex: en, es, pt)', inline=False)
+    embed.add_field(name="➢ COMO TRADUZIR?", value='Utilize o comando /tradutor "Texto" SELECIONE UMA LÍNGUA (Exemplo: en, es, pt)', inline=False)
 
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -806,9 +808,11 @@ async def traduzir(ctx):
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
 async def tradutor(ctx, phrase, *, lang):    
     embed = discord.Embed(
-        title='TRADUÇÃO DE MENSAGENS - UTILIZE /traduzir "texto a ser traduzido"',
+        title='',
         colour=29695
     )
+    
+    embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/languages-1891105-1598018.png")
 
     translator = Translator()
 
@@ -817,6 +821,8 @@ async def tradutor(ctx, phrase, *, lang):
     embed.add_field(name="➢ TEXTO TRADUZIDO", value=f"{phrase_translate.text}", inline=False)
 
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    
+    embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤTRADUÇÃO DE MENSAGENSㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
 
     await ctx.send(embed=embed)
 
