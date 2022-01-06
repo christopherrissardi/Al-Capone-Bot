@@ -824,9 +824,4 @@ async def tradutor(ctx, phrase, *, lang):
    
     await ctx.send(embed=embed)
 
-@client.command()
-async def join(ctx):
-    channel = ctx.message.author.voice.voice_channel
-    await client.join_voice_channel(channel)
-
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
