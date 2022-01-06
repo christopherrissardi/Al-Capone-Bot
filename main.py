@@ -797,7 +797,7 @@ async def traduzir(ctx):
     
     embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/languages-1891105-1598018.png")
 
-    embed.add_field(name="", value='***Utilize o comando /tradutor "Texto" SELECIONE UMA LÍNGUA (Exemplo: en, es, pt)***', inline=False)
+    embed.add_field(name="➢ COMANDO", value='***/tradutor "Texto" SELECIONE UMA LÍNGUA (Exemplo: en, es, pt)***', inline=False)
     
     embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤ➢ COMO TRADUZIR?ㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
 
