@@ -820,11 +820,11 @@ async def tradutor(ctx, phrase, *, lang):
 
     phrase_translate = translator.translate(f"{phrase}", dest=lang)
 
-    embed.add_field(name="➢ TEXTO TRADUZIDO", value=f"{phrase_translate.text}", inline=False)
+    embed.add_field(name="", value=f"***{phrase_translate.text}***", inline=False)
 
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     
-    embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤTRADUÇÃO DE MENSAGENSㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
+    embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤTEXTO TRADUZIDO PARA {lang}ㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
 
     await ctx.send(embed=embed)
 
