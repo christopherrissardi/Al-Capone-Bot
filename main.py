@@ -796,7 +796,7 @@ async def traduzir(ctx, phrase, *, lang):
 
     translator = Translator()
 
-    phrase_translate = translator.translate(f"{phrase}", dest=lang if lang != null else "en")
+    phrase_translate = translator.translate(f"{phrase}", dest=lang if lang != "en" else "en")
 
     embed.add_field(name="➢ TEXTO TRADUZIDO", value=f"{phrase_translate.text}", inline=False)
 
