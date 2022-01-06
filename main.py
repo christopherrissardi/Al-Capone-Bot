@@ -815,7 +815,7 @@ async def ping(ctx):
     #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
-async def feriados(ctx, phrase):
+async def traduzir(ctx, phrase):
     translator = Translator()
     
     try:
