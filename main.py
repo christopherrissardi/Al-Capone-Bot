@@ -797,7 +797,7 @@ async def traduzir(ctx):
     
     embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/languages-1891105-1598018.png")
 
-    embed.add_field(name="➢ COMANDO PARA TRADUÇÃO", value='**/tradutor "Texto" SELECIONE UMA LÍNGUA (Exemplo: en, es, pt)**', inline=False)
+    embed.add_field(name="➢ COMANDO PARA TRADUÇÃO", value='**/tradutor "Texto" LÍNGUA (Exemplo: en, es, pt)**', inline=False)
 
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -818,7 +818,7 @@ async def tradutor(ctx, phrase, *, lang):
     
     embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/languages-1891105-1598018.png")
 
-    embed.add_field(name=f"➢ TEXTO TRADUZIDO PARA {lang}", value=f"\n\n***{phrase_translate.text}***", inline=False)
+    embed.add_field(name=f"➢ TEXTO TRADUZIDO PARA {lang.upper()}", value=f"{phrase_translate.text}", inline=False)
 
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
    
