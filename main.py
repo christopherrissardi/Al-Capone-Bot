@@ -835,7 +835,7 @@ async def git(ctx):
     
     embed.set_thumbnail(url="https://img.icons8.com/ios-glyphs/60/ffffff/github.png")
 
-    embed.add_field(name=f"LINKS", value=f"el Marlboro#8779: https://github.com/victorftrdba \nALIEN#7278: https://github.com/ALIENxp", inline=False)
+    embed.add_field(name=f"LINKS", value=f"💣 Discord el Marlboro#8779: https://github.com/victorftrdba \n💣 Discord ALIEN#7278: https://github.com/ALIENxp", inline=False)
 
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
    
