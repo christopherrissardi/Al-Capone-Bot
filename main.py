@@ -732,7 +732,7 @@ async def ping(ctx):
 #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
-async def tradutor(ctx, phrase, *, lang):    
+async def traduzir(ctx, phrase, *, lang):    
     embed = discord.Embed(
         title='',
         colour=29695
