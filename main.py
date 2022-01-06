@@ -823,5 +823,22 @@ async def tradutor(ctx, phrase, *, lang):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
    
     await ctx.send(embed=embed)
+    
+    #--------------------------------------------------------[GIT]-------------------------------------------------------------#
+    
+@client.command()
+async def git(ctx):
+    embed = discord.Embed(
+        title='',
+        colour=29695
+    )
+    
+    embed.set_thumbnail(url="https://img.icons8.com/ios-glyphs/60/ffffff/github.png")
+
+    embed.add_field(name=f"➢ CONHEÇA O REPOSITÓRIO DOS DESENVOLVEDORES", value=f"https://github.com/victorftrdba | https://github.com/ALIENxp", inline=False)
+
+    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+   
+    await ctx.send(embed=embed)
 
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
