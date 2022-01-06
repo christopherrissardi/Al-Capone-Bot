@@ -804,7 +804,7 @@ async def traduzir(ctx):
     #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
-async def traduzir(ctx, phrase, *, lang):    
+async def tradutor(ctx, phrase, *, lang):    
     embed = discord.Embed(
         title='TRADUÇÃO DE MENSAGENS - UTILIZE /traduzir "texto a ser traduzido"',
         colour=29695
