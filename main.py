@@ -303,7 +303,7 @@ async def cnpj(ctx, cnpj = 0):
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤㅤㅤㅤ⚠️ CNPJ NÃO ENCONTRADO ⚠️ㅤㅤㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤㅤㅤㅤㅤCNPJ NÃO ENCONTRADOㅤㅤㅤㅤ', icon_url='')
        embed.add_field(name="ㅤ", value="*O CNPJ ACIMA NÃO FOI ENCONTRADO EM NOSSA BASE DE DADOS!*", inline=False)
        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
        return await ctx.send(embed=embed)
@@ -311,7 +311,7 @@ async def cnpj(ctx, cnpj = 0):
 #--------------------------------------------------------[𝐼𝑃]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐼𝑃
-async def ip(ctx, ip = 0):
+async def ip(ctx, ip = None):
     data = requests.get(f"http://ipwhois.app/json/{ip}").json()
     
     try:
@@ -346,18 +346,18 @@ async def ip(ctx, ip = 0):
 
          
     embed = discord.Embed(
-        title='⚠️ IP NÃO ENCONTRADO ⚠️',
+        title='',
         description='',
         colour=16777215
     )
     
-    if (ip == 0):
+    if (ip == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO IPㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/ip` e o {IP} que deseja.", value='*Exemplo: /ip 127.0.0.1*', inline=False)
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤㅤㅤㅤ⚠️ IP NÃO ENCONTRADO ⚠️ㅤㅤㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤㅤㅤㅤㅤIP NÃO ENCONTRADOㅤㅤㅤㅤ', icon_url='')
        embed.add_field(name="ㅤ", value="*O IP ACIMA NÃO FOI ENCONTRADO EM NOSSA BASE DE DADOS!*", inline=False)
        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
        return await ctx.send(embed=embed)
