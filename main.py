@@ -293,7 +293,7 @@ async def cnpj(ctx, cnpj = 0):
         return await ctx.send(embed=embed)
     else:
        embed.set_author(name='ㅤㅤㅤㅤㅤCNPJ NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
-       embed.add_field(name="ㅤ", value="*O CNPJ ACIMA NÃO FOI ENCONTRADO EM NOSSA BASE DE DADOS!*", inline=False)
+       embed.add_field(name="ㅤ", value="*O CNPJ ACIMA NÃO FOI ENCONTRADO!*", inline=False)
        embed.set_footer(text='Artic Bot v2', icon_url='')
        return await ctx.send(embed=embed)
     
@@ -442,49 +442,55 @@ async def cep(ctx, cep = None):
         return await ctx.send(embed=embed)
     else:
        embed.set_author(name='ㅤㅤㅤㅤㅤCEP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
-       embed.add_field(name="ㅤ", value="*ㅤㅤO CEP ACIMA NÃO FOI ENCONTRADO!* ", inline=False)
+       embed.add_field(name="ㅤ", value="*O CEP ACIMA NÃO FOI ENCONTRADO!* ", inline=False)
        embed.set_footer(text='Artic Bot v2', icon_url='')
        return await ctx.send(embed=embed)
    
 #--------------------------------------------------------[𝐵𝐴𝑁𝐶𝐴́𝑅𝐼𝑂]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐶𝑂́𝐷𝐼𝐺𝑂 𝐵𝐴𝑁𝐶𝐴́𝑅𝐼𝑂
-async def banco(ctx, banco):
+async def banco(ctx, banco = None):
     data = requests.get(f"https://brasilapi.com.br/api/banks/v1/{banco}").json()
 
     try:
-        error = data["message"]
-        embed = discord.Embed(
-            title='⚠️ CÓDIGO BANCÁRIO NÃO ENCONTRADO ⚠️',
-            description='',
-            colour=16766976
-        )
-
-        embed.set_author(name='', icon_url='')
-
-        await ctx.send(embed=embed)
-
-        return
-    except Exception:
-        pass
-
         embed = discord.Embed(
             title='',
             colour=7667888
         )
 
-    embed.add_field(name="➢ ISPB", value=data['ispb'], inline=False)
-    embed.add_field(name="➢ NOME DO BANCO", value=data['name'], inline=False)
-    embed.add_field(name="➢ CÓDIGO BANCÁRIO", value=data['code'], inline=False)
-    embed.add_field(name="➢ INFORMAÇÕES ADICIONAIS", value=data['fullName'], inline=False)
-    embed.add_field(name="ㅤ", value='➢ **By Artic Bot v2**', inline=False)        
+        embed.add_field(name="➢ ISPB", value=data['ispb'], inline=False)
+        embed.add_field(name="➢ NOME DO BANCO", value=data['name'], inline=False)
+        embed.add_field(name="➢ CÓDIGO BANCÁRIO", value=data['code'], inline=False)
+        embed.add_field(name="➢ INFORMAÇÕES ADICIONAIS", value=data['fullName'], inline=False)
+        embed.add_field(name="ㅤ", value='➢ **By Artic Bot v2**', inline=False)        
 
 
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BANCOㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BANCOㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
-    await ctx.send(embed=embed)
+        await ctx.send(embed=embed)
+        
+        return
+    except Exception:
+        pass
+
+    embed = discord.Embed(
+        title='',
+        colour=7667888
+    )
+
+    if (banco == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO BANCOㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/banco` e o {CÓDIGO DO BANCO} que deseja.", value='*Exemplo*: `/banco 237`', inline=False)
+        embed.add_field(name="Observação:", value='*Utilize apenas o código bancário correspondente!*', inline=False)        
+        embed.set_footer(text='Artic Bot v2', icon_url='')
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤㅤㅤㅤCÓDIGO BANCÁRIO INVÁLIDOㅤㅤㅤ', icon_url='')
+       embed.add_field(name="ㅤ", value="*O BANCO ACIMA É INVALIDO* ", inline=False)
+       embed.set_footer(text='Artic Bot v2', icon_url='')
+       return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝐵𝐼𝑁]-------------------------------------------------------------#
 
