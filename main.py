@@ -298,7 +298,7 @@ async def cnpj(ctx, cnpj = 0):
         colour=16766976
     )
         
-    embed.add_field(name="Use `/cnpj` {cnpj} ", value='Exemplo: /cnpj 12345678901234', inline=False)
+    embed.add_field(name="Use `/cnpj` {cnpj} que deseja ", value='Exemplo: /cnpj 12345678901234', inline=False)
 
     embed.set_author(name='⚠️ CNPJ NÃO ENCONTRADO ⚠️', icon_url='')
 
