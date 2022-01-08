@@ -307,6 +307,9 @@ async def cnpj(ctx, cnpj = 0):
     )
     
     embed.add_field(name="Use `/cnpj` {cnpj} que deseja ", value='Exemplo: /cnpj 12345678901234', inline=False)
+    
+    await ctx.send(embed=embed)
+
 
 #--------------------------------------------------------[𝐼𝑃]-------------------------------------------------------------#
 
