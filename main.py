@@ -296,14 +296,14 @@ async def cnpj(ctx, cnpj = 0):
         title='',
         colour=16766976
     )
-    
-    embed.set_author(name='⚠️ CNPJ NÃO ENCONTRADO ⚠️', icon_url='')
-        
+            
     if (cnpj == 0):
+        embed.set_author(name='⚠️ COMANDO ⚠️', icon_url='')
         embed.add_field(name="Use `/cnpj` {cnpj} que deseja ", value='Exemplo: /cnpj 12345678901234', inline=False)
         return await ctx.send(embed=embed)
     else:
-       embed.add_field(name="ERRO", value="⚠️ CNPJ NÃO ENCONTRADO ⚠️", inline=False)
+       embed.set_author(name='⚠️ CNPJ NÃO ENCONTRADO ⚠️', icon_url='')
+       embed.add_field(name="ERRO", value="Digite /cnpj para ver o comando correto", inline=False)
        return await ctx.send(embed=embed)
     
 #--------------------------------------------------------[𝐼𝑃]-------------------------------------------------------------#
