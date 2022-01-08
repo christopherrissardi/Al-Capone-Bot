@@ -299,7 +299,7 @@ async def cnpj(ctx, cnpj = 0):
             
     if (cnpj == 0):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO CNPJㅤㅤㅤ', icon_url='')
-        embed.add_field(name="Use o comando: `/cnpj` e o {CNPJ} que deseja.", value='*Exemplo: /cnpj 12345678901234*', inline=False)
+        embed.add_field(name="Use o comando: `/cnpj` e o {CNPJ} que deseja.", value='*Exemplo: `/cnpj` 12345678901234*', inline=False)
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         return await ctx.send(embed=embed)
     else:
@@ -351,7 +351,7 @@ async def ip(ctx, ip = None):
     
     if (ip == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO IPㅤㅤㅤ', icon_url='')
-        embed.add_field(name="Use o comando: `/ip` e o {IP} que deseja.", value='*Exemplo: /ip 127.0.0.1*', inline=False)
+        embed.add_field(name="Use o comando: `/ip` e o {IP} que deseja.", value='*Exemplo: `/ip` 127.0.0.1*', inline=False)
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         return await ctx.send(embed=embed)
     else:
