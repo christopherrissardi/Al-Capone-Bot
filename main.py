@@ -300,7 +300,6 @@ async def cnpj(ctx, cnpj = 0):
     validateMessageError = data["message"] if data["message"] != 0 else "⚠️ CNPJ NÃO ENCONTRADO ⚠️"
         
     embed.add_field(name="TESTE ", value=validateMessageError, inline=False)
-
     embed.set_author(name='⚠️ CNPJ NÃO ENCONTRADO ⚠️', icon_url='')
 
     await ctx.send(embed=embed)
@@ -311,6 +310,9 @@ async def cnpj(ctx, cnpj = 0):
     )
     
     embed.add_field(name="Use `/cnpj` {cnpj} que deseja ", value='Exemplo: /cnpj 12345678901234', inline=False)
+    embed.set_author(name='COMANDO CNPJ', icon_url='')
+
+    await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝐼𝑃]-------------------------------------------------------------#
 
