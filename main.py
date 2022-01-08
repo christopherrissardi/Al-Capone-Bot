@@ -84,7 +84,7 @@ async def nome(ctx):
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE NOMEㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -129,7 +129,7 @@ async def cpf(ctx):
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CPFㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -156,7 +156,7 @@ async def telefone(ctx):
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE TELEFONEㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -212,7 +212,7 @@ async def placa(ctx):
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE PLACAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -284,7 +284,7 @@ async def cnpj(ctx, cnpj = 0):
 
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CNPJㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
     
-        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=embed)
     
@@ -294,42 +294,27 @@ async def cnpj(ctx, cnpj = 0):
 
     embed = discord.Embed(
         title='',
-        colour=16766976
+        colour=8978176
     )
             
     if (cnpj == 0):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO CNPJㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/cnpj` e o {CNPJ} que deseja.", value='*Exemplo: /cnpj 12345678901234*', inline=False)
-        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤㅤ⚠️ CNPJ NÃO ENCONTRADO ⚠️ㅤㅤㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤㅤㅤㅤㅤ⚠️ CNPJ NÃO ENCONTRADO ⚠️ㅤㅤㅤㅤ', icon_url='')
        embed.add_field(name="ㅤ", value="*O CNPJ ACIMA NÃO FOI ENCONTRADO EM NOSSA BASE DE DADOS!*", inline=False)
-       embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+       embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
        return await ctx.send(embed=embed)
     
 #--------------------------------------------------------[𝐼𝑃]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐼𝑃
-async def ip(ctx, ip):
+async def ip(ctx, ip = 0):
     data = requests.get(f"http://ipwhois.app/json/{ip}").json()
     
     try:
-        error = data["message"]
-        embed = discord.Embed(
-            title='⚠️ IP NÃO ENCONTRADO ⚠️',
-            description='',
-            colour=16766976
-        )
-
-        embed.set_author(name='', icon_url='')
-
-        await ctx.send(embed=embed)
-
-        return
-    except Exception:
-        pass
-
         embed = discord.Embed(
             title='',
             colour=16777215
@@ -337,23 +322,45 @@ async def ip(ctx, ip):
 
         validateAsn = data["asn"] if data["asn"] != "" else "Não encontrado"
 
-    embed.add_field(name="➢ IP", value=data['ip'], inline=False)
-    embed.add_field(name="➢ CIDADE", value=data['city'], inline=False)
-    embed.add_field(name="➢ ESTADO", value=data['region'], inline=False)
-    embed.add_field(name="➢ PAÍS", value=data['country'], inline=False)
-    embed.add_field(name="➢ CONTINENTE", value=data["continent"], inline=False)
-    embed.add_field(name="➢ LATITUDE", value=data['latitude'], inline=False)
-    embed.add_field(name="➢ LONGITUDE", value=data['longitude'], inline=False)
-    embed.add_field(name="➢ PROVEDOR", value=data['isp'], inline=False)
-    embed.add_field(name="➢ ASN", value=validateAsn, inline=False)
-    embed.add_field(name="➢ EMPRESA RESPONSÁVEL", value=data['org'], inline=False)
-    embed.add_field(name="➢ TIPO DE CONEXÃO", value=data['type'], inline=False)
+        embed.add_field(name="➢ IP", value=data['ip'], inline=False)
+        embed.add_field(name="➢ CIDADE", value=data['city'], inline=False)
+        embed.add_field(name="➢ ESTADO", value=data['region'], inline=False)
+        embed.add_field(name="➢ PAÍS", value=data['country'], inline=False)
+        embed.add_field(name="➢ CONTINENTE", value=data["continent"], inline=False)
+        embed.add_field(name="➢ LATITUDE", value=data['latitude'], inline=False)
+        embed.add_field(name="➢ LONGITUDE", value=data['longitude'], inline=False)
+        embed.add_field(name="➢ PROVEDOR", value=data['isp'], inline=False)
+        embed.add_field(name="➢ ASN", value=validateAsn, inline=False)
+        embed.add_field(name="➢ EMPRESA RESPONSÁVEL", value=data['org'], inline=False)
+        embed.add_field(name="➢ TIPO DE CONEXÃO", value=data['type'], inline=False)
 
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE IPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE IPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
-    await ctx.send(embed=embed)
+        await ctx.send(embed=embed)
+
+        return
+    except Exception:
+        pass
+
+         
+    embed = discord.Embed(
+        title='⚠️ IP NÃO ENCONTRADO ⚠️',
+        description='',
+        colour=16777215
+    )
+    
+    if (ip == 0):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO IPㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/ip` e o {IP} que deseja.", value='*Exemplo: /ip 127.0.0.1*', inline=False)
+        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤㅤㅤㅤㅤ⚠️ IP NÃO ENCONTRADO ⚠️ㅤㅤㅤㅤ', icon_url='')
+       embed.add_field(name="ㅤ", value="*O IP ACIMA NÃO FOI ENCONTRADO EM NOSSA BASE DE DADOS!*", inline=False)
+       embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+       return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝐶𝑂𝑉𝐼𝐷19]-------------------------------------------------------------#
 
