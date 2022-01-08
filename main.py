@@ -247,7 +247,6 @@ async def cnpj(ctx, cnpj = 0):
         validateJuridica = data["codigo_natureza_juridica"] if data["codigo_natureza_juridica"] != "" else "Não encontrado"
         validateLogradouro = data["logradouro"] if data["logradouro"] != "" else "Não encontrado"
         validateTelefone1 = data["ddd_telefone_1"] if data["ddd_telefone_1"] != "" else "Não encontrado"
-        validateTelefone2 = data["ddd_telefone_2"] if data["ddd_telefone_2"] != "" else "Não encontrado"
         validateQualificacao = data["qualificacao_do_responsavel"] if data["qualificacao_do_responsavel"] != "" else "Não encontrado"
         validateCapital = data["capital_social"] if data["capital_social"] != "" else "Não encontrado"
         validateDescricaoPorte = data["descricao_porte"] if data["descricao_porte"] != "" else "Não encontrado"
@@ -276,16 +275,15 @@ async def cnpj(ctx, cnpj = 0):
         embed.add_field(name="➢ COMPLEMENTO", value=validateComplemento, inline=False)
         embed.add_field(name="➢ CEP", value=validateCep, inline=False)
         embed.add_field(name="➢ UF - Unidade Federativa", value=validateUf, inline=False)
-        embed.add_field(name="➢ TELEFONE 1", value=validateTelefone1, inline=False)
-        embed.add_field(name="➢ TELEFONE 2", value=validateTelefone2, inline=False)
+        embed.add_field(name="➢ TELEFONE ", value=validateTelefone1, inline=False)
         embed.add_field(name="➢ DATA DE ABERTURA", value=validateData, inline=False)
         embed.add_field(name="➢ CNAE", value=validateCnae, inline=False)
         embed.add_field(name="➢ CNAE FISCAL", value=validateCnaeCod, inline=False)
-        embed.add_field(name="Usuário: {}'.format(ctx.author)", value='ㅤ', inline=False)
+        embed.add_field(name="`By Artic Bot v2`", value='ㅤ', inline=False)
 
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CNPJㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
     
-        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        embed.set_footer(text='User: {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=embed)
     
