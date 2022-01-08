@@ -292,25 +292,20 @@ async def cnpj(ctx, cnpj = 0):
     except Exception:
         pass
 
-    error = ["message"]
-    embed = discord.Embed(
-        title='⚠️ CNPJ NÃO ENCONTRADO ⚠️',
-        colour=16766976
-    )
-
-    await ctx.send(embed=embed)
-    
-    sucess = cnpj
     embed = discord.Embed(
         title='',
-        colour=4388326
+        colour=16766976
     )
     
-    embed.add_field(name="Use `/cnpj` {cnpj} que deseja ", value='Exemplo: /cnpj 12345678901234', inline=False)
+    embed.set_author(name='⚠️ CNPJ NÃO ENCONTRADO ⚠️', icon_url='')
+        
+    if (cnpj == 0):
+        embed.add_field(name="Use `/cnpj` {cnpj} que deseja ", value='Exemplo: /cnpj 12345678901234', inline=False)
+        return await ctx.send(embed=embed)
+    else:
+       embed.add_field(name="ERRO", value="⚠️ CNPJ NÃO ENCONTRADO ⚠️", inline=False)
+       return await ctx.send(embed=embed)
     
-    await ctx.send(embed=embed)
-
-
 #--------------------------------------------------------[𝐼𝑃]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐼𝑃
