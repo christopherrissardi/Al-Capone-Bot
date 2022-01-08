@@ -6,12 +6,12 @@ from googletrans import Translator
 from typing import Text
 from discord.ext import commands
 
-client = commands.Bot(command_prefix="/", case_insensitive=False, help_command=None)
+client = commands.Bot(command_prefix="/", case_insensitive=False)
 
 
 @client.event
 async def on_ready():
-    activity = discord.Game(name='Pinga com Polenta 🥃', type=3)
+    activity = discord.Game(name='Artic idle', type=3)
     await client.change_presence(status=discord.Status.dnd, activity=activity)
     print("Conectando, por favor, aguarde...")
 
@@ -45,46 +45,30 @@ async def consulta(ctx):
     )
 
     embed.add_field(name="🕵🏻‍♂️ CONSULTA POR NOME",
-                    value="Use o comando ***a!nome*** {Nome Completo} para realizar a consulta.", inline=False)
-
+                    value="Use o comando `/nome` {Nome Completo} para realizar a consulta.", inline=False)
     embed.add_field(name="👽 CONSULTA POR CPF",
-                    value="Use o comando ***a!cpf*** {CPF da Pessoa} para a consultar os dados.", inline=False)
-
+                    value="Use o comando `/cpf` {CPF da Pessoa} para a consultar os dados.", inline=False)
     embed.add_field(name="📵 CONSULTA POR TELEFONE",
-                    value="Use o comando ***a!telefone*** {Telefone} para realizar a consulta.", inline=False)
-
+                    value="Use o comando `/telefone` {Telefone} para realizar a consulta.", inline=False)
     embed.add_field(name="🏨 CONSULTA DE CNPJ",
-                    value="Use o comando ***a!cnpj*** {CNPJ} para consultar os dados.", inline=False)
-
+                    value="Use o comando `/cnpj` {CNPJ} para consultar os dados.", inline=False)
     embed.add_field(name="🚘 CONSULTA POR PLACA",
-                    value="Use o comando ***a!placa*** {Placa do veículo} para realizar a consulta.", inline=False)
-
+                    value="Use o comando `/placa` {Placa do veículo} para realizar a consulta.", inline=False)
     embed.add_field(name="📌 CONSULTA DE IP",
-                    value="Use o comando ***a!ip*** {IP} para realizar a consulta do IP.", inline=False)
-
+                    value="Use o comando `/ip` {IP} para realizar a consulta do IP.", inline=False)
     embed.add_field(name="💳 CONSULTA DE BIN",
-                    value="Use o comando ***a!bin*** {Número da BIN} para realizar a consulta.", inline=False)
-
+                    value="Use o comando `/bin` {Número da BIN} para realizar a consulta.", inline=False)
     embed.add_field(name="📫 CONSULTA DE CEP",
-                    value="Use o comando ***a!cep*** {CEP da Rua} para realizar a consulta.", inline=False)
-
+                    value="Use o comando `/cep` {CEP da Rua} para realizar a consulta.", inline=False)
     embed.add_field(name="🦠 CONSULTA DE COVID19",
-                    value="Use o comando ***a!covid*** {Sigla do Estado} para realizar a consulta.", inline=False)
-
+                    value="Use o comando `/covid` {Sigla do Estado} para realizar a consulta.", inline=False)
     embed.add_field(name="🏦 CONSULTA DE CÓDIGO BANCÁRIO",
-                    value="Use o comando ***a!banco*** {Código do Banco} para realizar a consulta.", inline=False)
-
+                    value="Use o comando `/banco` {Código do Banco} para realizar a consulta.", inline=False)
     embed.add_field(name="💾 CONSULTA DE SITES",
-                    value="Use o comando ***a!site*** {URL do site} para realizar a consulta.", inline=False)
-
-    embed.add_field(name="💰 CONSULTA DE COTAÇÃO DE MOEDA",
-                    value="Use o comando ***a!cotacao*** ex: {BRL-USD} para realizar a consulta.", inline=False)
-
+                    value="Use o comando `/site` {URL do site} para realizar a consulta.", inline=False)
     embed.set_image(url='https://i.gifer.com/Cewn.gif')
-
-    embed.set_author(name='ALIEN.py', icon_url='')
-
-    embed.set_footer(text='ALIEN.py © All Rights Reserved', icon_url='https://i.imgur.com/Pn0zQ5S.jpg')
+    embed.set_author(name='Artic', icon_url='')
+    embed.set_footer(text='Artic © All Rights Reserved', icon_url='https://i.imgur.com/KTXsLIQ.jpg')
 
     await ctx.send(embed=embed)
 
@@ -176,28 +160,70 @@ async def telefone(ctx):
 
     await ctx.send(embed=embed)
 
+#--------------------------------------------------------[𝑃𝐿𝐴𝐶𝐴]-------------------------------------------------------------#
+
+@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑃𝐿𝐴𝐶𝐴
+async def placa(ctx):
+    embed = discord.Embed(
+        title='',
+        description='A Consulta por ***PLACA*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***placa!***',
+        colour=6646071
+    )
+
+    embed.add_field(name="➢ PLACA", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ SITUAÇÃO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ MARCA", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ MODELO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ COR", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ ANO - FABRICAÇÃO.", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ ANO - MODELO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ MUNICIPIO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ ESTADO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ CHASSI", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ RENAVAM", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ FATURADO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ UF - FATURADO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ MUNICÍPIO - FABRICAÇÃO.", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ ESTADO - FABRICAÇÃO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ SEGMENTO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ SUB SEGMENTO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ GRUPO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ COMBUSTÍVEL", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ POTÊNCIA", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ CILINDRADAS", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ CAPACIDADE DE CARGA", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ NACIONALIDADE", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ LINHA", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ CARROCERIA", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ EIXO TRASEIRO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ MOTOR", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ TIPO DE PESSOA", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ TIPO DE VEÍCULO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ QUANTIDADE DE PASSAGEIROS", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ ID IMPORTADORA", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ DI", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ REGISTRO DI", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ UNIDADE LOCAL SRF", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ ÚLTIMA ATUALIZAÇÃO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ NOME DO PROPRIETÁRIO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ CPF/CNPJ DO PROPRIETÁRIO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ PLACA MODELO ANTIGO", value='SEM INFORMAÇÃO', inline=False)
+    embed.add_field(name="➢ PLACA MODELO NOVO", value='SEM INFORMAÇÃO', inline=False)
+
+    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE PLACAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+
+    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+
+    await ctx.send(embed=embed)
+
 #--------------------------------------------------------[𝐶𝑁𝑃𝐽]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑁𝑃𝐽
-async def cnpj(ctx, cnpj):
+async def cnpj(ctx, cnpj = 0):
     data = requests.get(f"https://brasilapi.com.br/api/cnpj/v1/{cnpj}").json()
 
 
     try:
-        error = data["message"]
-        embed = discord.Embed(
-            title='⚠️ CNPJ NÃO ENCONTRADO ⚠️',
-            colour=16766976
-        )
-
-        embed.set_author(name='', icon_url='')
-
-        await ctx.send(embed=embed)
-
-        return
-    except Exception:
-        pass
-
         embed = discord.Embed(
             title='',
             colour=8978176
@@ -230,37 +256,54 @@ async def cnpj(ctx, cnpj):
         validateCep = data["cep"] if data["cep"] != "" else "Não encontrado"
         
 
-    embed.add_field(name="➢ CNPJ", value=validateCnpj, inline=False)
-    embed.add_field(name="➢ NOME FANTASIA", value=validateNome, inline=False)
-    embed.add_field(name="➢ RAZÃO SOCIAL", value=validateRazao, inline=False)
-    embed.add_field(name="➢ MATRIZ FILIAL", value=validateMatriz, inline=False)
-    embed.add_field(name="➢ DESCRIÇÃO MATRIZ", value=validateFilial, inline=False)
-    embed.add_field(name="➢ DATA SITUAÇÃO CADASTRAL", value=validateDataSituacao, inline=False)
-    embed.add_field(name="➢ NATUREZA JURÍDICA", value=validateJuridica, inline=False)
-    embed.add_field(name="➢ QUALIFICAÇÃO DO RESPONSÁVEL", value=validateQualificacao, inline=False)
-    embed.add_field(name="➢ CAPITAL SOCIAL", value=validateCapital, inline=False)
-    embed.add_field(name="➢ DESCRIÇÃO DO PORTE", value=validateDescricaoPorte, inline=False)
-    embed.add_field(name="➢ OPÇÃO PELO SIMPLES", value=validateSimples, inline=False)
-    embed.add_field(name="➢ DATA OPÇÃO PELO SIMPLES", value=validateSimplesDate, inline=False)
-    embed.add_field(name="➢ STATUS", value=validateStatus, inline=False)
-    embed.add_field(name="➢ LOGRADOURO", value=validateLogradouro, inline=False)
-    embed.add_field(name="➢ NÚMERO", value=validateNumero, inline=False)
-    embed.add_field(name="➢ MUNICÍPIO", value=validateMunicipio, inline=False)
-    embed.add_field(name="➢ BAIRRO", value=validateBairro, inline=False)
-    embed.add_field(name="➢ COMPLEMENTO", value=validateComplemento, inline=False)
-    embed.add_field(name="➢ CEP", value=validateCep, inline=False)
-    embed.add_field(name="➢ UF - Unidade Federativa", value=validateUf, inline=False)
-    embed.add_field(name="➢ TELEFONE 1", value=validateTelefone1, inline=False)
-    embed.add_field(name="➢ TELEFONE 2", value=validateTelefone2, inline=False)
-    embed.add_field(name="➢ DATA DE ABERTURA", value=validateData, inline=False)
-    embed.add_field(name="➢ CNAE", value=validateCnae, inline=False)
-    embed.add_field(name="➢ CNAE FISCAL", value=validateCnaeCod, inline=False)
+        embed.add_field(name="➢ CNPJ", value=validateCnpj, inline=False)
+        embed.add_field(name="➢ NOME FANTASIA", value=validateNome, inline=False)
+        embed.add_field(name="➢ RAZÃO SOCIAL", value=validateRazao, inline=False)
+        embed.add_field(name="➢ MATRIZ FILIAL", value=validateMatriz, inline=False)
+        embed.add_field(name="➢ DESCRIÇÃO MATRIZ", value=validateFilial, inline=False)
+        embed.add_field(name="➢ DATA SITUAÇÃO CADASTRAL", value=validateDataSituacao, inline=False)
+        embed.add_field(name="➢ NATUREZA JURÍDICA", value=validateJuridica, inline=False)
+        embed.add_field(name="➢ QUALIFICAÇÃO DO RESPONSÁVEL", value=validateQualificacao, inline=False)
+        embed.add_field(name="➢ CAPITAL SOCIAL", value=validateCapital, inline=False)
+        embed.add_field(name="➢ DESCRIÇÃO DO PORTE", value=validateDescricaoPorte, inline=False)
+        embed.add_field(name="➢ OPÇÃO PELO SIMPLES", value=validateSimples, inline=False)
+        embed.add_field(name="➢ DATA OPÇÃO PELO SIMPLES", value=validateSimplesDate, inline=False)
+        embed.add_field(name="➢ STATUS", value=validateStatus, inline=False)
+        embed.add_field(name="➢ LOGRADOURO", value=validateLogradouro, inline=False)
+        embed.add_field(name="➢ NÚMERO", value=validateNumero, inline=False)
+        embed.add_field(name="➢ MUNICÍPIO", value=validateMunicipio, inline=False)
+        embed.add_field(name="➢ BAIRRO", value=validateBairro, inline=False)
+        embed.add_field(name="➢ COMPLEMENTO", value=validateComplemento, inline=False)
+        embed.add_field(name="➢ CEP", value=validateCep, inline=False)
+        embed.add_field(name="➢ UF - Unidade Federativa", value=validateUf, inline=False)
+        embed.add_field(name="➢ TELEFONE 1", value=validateTelefone1, inline=False)
+        embed.add_field(name="➢ TELEFONE 2", value=validateTelefone2, inline=False)
+        embed.add_field(name="➢ DATA DE ABERTURA", value=validateData, inline=False)
+        embed.add_field(name="➢ CNAE", value=validateCnae, inline=False)
+        embed.add_field(name="➢ CNAE FISCAL", value=validateCnaeCod, inline=False)
 
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CNPJㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CNPJㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
     
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+
+        await ctx.send(embed=embed)
+    
+        return
+    except Exception:
+        pass
+
+    error = data["message"]
+    embed = discord.Embed(
+        title='',
+        colour=16766976
+    )
+        
+    embed.add_field(name="Use `/cnpj` {cnpj} ", value='Exemplo: /cnpj 12345678901234', inline=False)
+
+    embed.set_author(name='⚠️ CNPJ NÃO ENCONTRADO ⚠️', icon_url='')
 
     await ctx.send(embed=embed)
+        
 
 #--------------------------------------------------------[𝐼𝑃]-------------------------------------------------------------#
 
@@ -728,11 +771,29 @@ async def ping(ctx):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
+
     
-#--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
+ #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
-async def traduzir(ctx, phrase, *, lang):    
+async def traduzir(ctx):    
+    embed = discord.Embed(
+        title='',
+        colour=29695
+    )
+    
+    embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/languages-1891105-1598018.png")
+
+    embed.add_field(name="➢ COMANDO PARA TRADUÇÃO", value='**/tradutor "Texto" LÍNGUA (Exemplo: en, es, pt)**', inline=False)
+
+    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+
+    await ctx.send(embed=embed)
+    
+    #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
+
+@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
+async def tradutor(ctx, phrase, *, lang):    
     embed = discord.Embed(
         title='',
         colour=29695
@@ -750,7 +811,7 @@ async def traduzir(ctx, phrase, *, lang):
    
     await ctx.send(embed=embed)
     
-#--------------------------------------------------------[GIT]-------------------------------------------------------------#
+    #--------------------------------------------------------[GIT]-------------------------------------------------------------#
     
 @client.command()
 async def git(ctx):
@@ -766,5 +827,26 @@ async def git(ctx):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
    
     await ctx.send(embed=embed)
+    
+       
+@client.command()
+async def ajuda(ctx):
+    embed = discord.Embed(
+        title='',
+        description='',
+        colour=16766208
+    )
+
+    embed.add_field(name="🔐 Moderação", value='Use o comando `/admin` para ver os comandos administrativos. Comando de moderação existentes: `/kick`, `/ban`, `unban`, `/unmute`, `/role`, `/mute`, `/clear` ', inline=False)
+    embed.add_field(name="🔍 Consultas", value='Use o comando `/consulta` para obter mais informações. Comandos de consultas disponíveis: `/nome`, `/cpf`, `/telefone`, `/cnpj`, `/placa`, `/ip` `/bin`, `/cep`, `/covid`, `/banco`, `/site`', inline=False)
+    embed.add_field(name="🎵 Músicas", value='Use o comando `/musica` para vizualizar os comandos. Comandos acessíveis a classe: `/play`, `/stop`, `/pause`, `/resume`, `/back/`, `/skip`, `/disconnect`', inline=False)
+    embed.add_field(name="🪐 Informações", value='Use o comando `/info` para ver os comandos disponíveis. Comandos existentes: `/ajuda`, `/ping`, `/git`, `/serverinfo`, `/userinfo`', inline=False)
+    embed.add_field(name="🉐 Tradutor", value='Use o comando `/traduzir` "Texto" Língua (Exemplo: en, es, pt, ru)', inline=False)
+    embed.add_field(name="🎓 Diversos", value='Use o comando `/diversos` para vizualizar os comandos. Comandos disponíveis: `/cotacao`, `/traduzir`', inline=False)
+
+    embed.set_author(name='🔮 Artic Helper', icon_url='')
+
+    await ctx.author.send(embed=embed); 
+
 
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
