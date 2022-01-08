@@ -452,7 +452,6 @@ async def banco(ctx, banco = None):
     try:
         embed = discord.Embed(
             title='',
-            colour=7667888
         )
 
         embed.add_field(name="➢ ISPB", value=data['ispb'], inline=False)
@@ -460,10 +459,7 @@ async def banco(ctx, banco = None):
         embed.add_field(name="➢ CÓDIGO BANCÁRIO", value=data['code'], inline=False)
         embed.add_field(name="➢ INFORMAÇÕES ADICIONAIS", value=data['fullName'], inline=False)
         embed.add_field(name="ㅤ", value='➢ **By Artic Bot v2**', inline=False)        
-
-
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BANCOㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=embed)
@@ -474,19 +470,16 @@ async def banco(ctx, banco = None):
 
     embed = discord.Embed(
         title='',
-        colour=7667888
     )
 
     if (banco == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO BANCOㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/banco` e o {CÓDIGO DO BANCO} que deseja.", value='*Exemplo*: `/banco 237`', inline=False)
         embed.add_field(name="Observação:", value='*Utilize apenas o código bancário correspondente!*', inline=False)        
-        embed.set_footer(text='Artic Bot v2', icon_url='')
+        embed.set_footer(text='Artic Bot v2', icon_url='https://imgur.com/Qkn02zM')
         return await ctx.send(embed=embed)
     else:
        embed.set_author(name='ㅤㅤㅤㅤㅤCÓDIGO BANCÁRIO INVÁLIDOㅤㅤㅤ', icon_url='')
-       embed.add_field(name="ㅤ", value="*O BANCO ACIMA É INVALIDO* ", inline=False)
-       embed.set_footer(text='Artic Bot v2', icon_url='')
        return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝐵𝐼𝑁]-------------------------------------------------------------#
