@@ -410,7 +410,7 @@ async def covid(ctx, covid = None):
 #--------------------------------------------------------[𝐶𝐸𝑃]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝐸𝑃
-async def cep(ctx, cep):
+async def cep(ctx, cep = None):
     data = requests.get(f"https://cep.awesomeapi.com.br/json/{cep}").json()
 
     try:
@@ -443,7 +443,7 @@ async def cep(ctx, cep):
         colour=16766208
     )
 
-    if (covid == None):
+    if (cep == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO CEPㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/cep` e o {CEP} que deseja.", value='*Exemplo*: `/cep 70150904`', inline=False)
         embed.add_field(name="Observação:", value='*Use o comando de forma padrão! Não utilize pontos, hifens e caracteres especiais*', inline=False)        
