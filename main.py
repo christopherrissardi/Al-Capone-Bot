@@ -402,7 +402,7 @@ async def covid(ctx, covid = 0):
     else:
        embed.set_author(name='ㅤㅤㅤㅤㅤESTADO INVÁLIDOㅤㅤㅤ', icon_url='')
        embed.add_field(name="ㅤ", value="*O ESTADO ACIMA É INVÁLIDO!* ", inline=False)
-       embed.add_field(name="ㅤ", value="*Ultilize o comando: `/covid` para obter mais informações* ", inline=False)
+       embed.add_field(name="ㅤ", value="*Ultilize o comando: `/covid` para obter mais informações.* ", inline=False)
        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
        return await ctx.send(embed=embed)
 
