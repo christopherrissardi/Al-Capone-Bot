@@ -291,15 +291,14 @@ async def cnpj(ctx, cnpj = 0):
         return
     except Exception:
         pass
-
+    
+    error = data["message"]
     embed = discord.Embed(
         title='',
         colour=16766976
     )
-    
-    validateMessageError = data["message"] if data["message"] != 0 else "⚠️ CNPJ NÃO ENCONTRADO ⚠️"
-        
-    embed.add_field(name="TESTE ", value=validateMessageError, inline=False)
+            
+    embed.add_field(name="TENTANDO AGORAAA", value=error, inline=False)
     embed.set_author(name='⚠️ CNPJ NÃO ENCONTRADO ⚠️', icon_url='')
 
     await ctx.send(embed=embed)
