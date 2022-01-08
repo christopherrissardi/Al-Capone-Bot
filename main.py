@@ -270,7 +270,7 @@ async def cnpj(ctx, cnpj = 0):
         embed.add_field(name="➢ DATA DE ABERTURA", value=validateData, inline=False)
         embed.add_field(name="➢ CNAE", value=validateCnae, inline=False)
         embed.add_field(name="➢ CNAE FISCAL", value=validateCnaeCod, inline=False)
-        embed.add_field(name="➢ `By Artic Bot v2`", value='ㅤ', inline=False)
+        embed.add_field(name="ㅤ", value='➢ By Artic Bot v2', inline=False)
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CNPJㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -289,12 +289,12 @@ async def cnpj(ctx, cnpj = 0):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO CNPJㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/cnpj` e o {CNPJ} que deseja.", value='*Exemplo: `/cnpj` 12345678901234*', inline=False)
         embed.add_field(name="Observação:", value='*Não utilize pontos, hifens e caracteres especiais*', inline=False)        
-        embed.set_footer(text='*Artic Bot v2*', icon_url='')
+        embed.set_footer(text='`Artic Bot v2`', icon_url='')
         return await ctx.send(embed=embed)
     else:
        embed.set_author(name='ㅤㅤㅤㅤㅤCNPJ NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        embed.add_field(name="ㅤ", value="*O CNPJ ACIMA NÃO FOI ENCONTRADO EM NOSSA BASE DE DADOS!*", inline=False)
-       embed.set_footer(text='*Artic Bot v2*', icon_url='')
+       embed.set_footer(text='`Artic Bot v2`', icon_url='')
        return await ctx.send(embed=embed)
     
 #--------------------------------------------------------[𝐼𝑃]-------------------------------------------------------------#
@@ -322,7 +322,7 @@ async def ip(ctx, ip = None):
         embed.add_field(name="➢ ASN", value=validateAsn, inline=False)
         embed.add_field(name="➢ EMPRESA RESPONSÁVEL", value=data['org'], inline=False)
         embed.add_field(name="➢ TIPO DE CONEXÃO", value=data['type'], inline=False)
-        embed.add_field(name="➢ `By Artic Bot v2`", value='ㅤ', inline=False)        
+        embed.add_field(name="ㅤ", value='➢ By Artic Bot v2', inline=False)
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE IPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -342,12 +342,12 @@ async def ip(ctx, ip = None):
     if (ip == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO IPㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/ip` e o {IP} que deseja.", value='*Exemplo: `/ip` 127.0.0.1*', inline=False)
-        embed.set_footer(text='*Artic Bot v2*', icon_url='')
+        embed.set_footer(text='`Artic Bot v2`', icon_url='')
         return await ctx.send(embed=embed)
     else:
        embed.set_author(name='ㅤㅤㅤㅤㅤIP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        embed.add_field(name="*O IP ACIMA NÃO FOI ENCONTRADO*", value="ㅤ", inline=False)
-       embed.set_footer(text='*Artic Bot v2*', icon_url='')
+       embed.set_footer(text='`Artic Bot v2`', icon_url='')
        return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝐶𝑂𝑉𝐼𝐷19]-------------------------------------------------------------#
@@ -368,7 +368,7 @@ async def covid(ctx, covid = None):
         embed.add_field(name="➢ SUSPEITOS", value=data['suspects'], inline=False)
         embed.add_field(name="➢ DESCARTADOS", value=data['refuses'], inline=False)
         embed.add_field(name="➢ DATA DE ATUALIZAÇÃO", value=data['datetime'], inline=False)
-        embed.add_field(name="ㅤ", value='➢ `By Artic Bot v2`', inline=False)
+        embed.add_field(name="ㅤ", value='➢ By Artic Bot v2', inline=False)
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE COVID19ㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         
@@ -419,6 +419,7 @@ async def cep(ctx, cep = None):
         embed.add_field(name="➢ LONGITUDE", value=data['lng'], inline=False)
         embed.add_field(name="➢ IBGE", value=data['city_ibge'], inline=False)
         embed.add_field(name="➢ DDD", value=data['ddd'], inline=False)
+        embed.add_field(name="ㅤ", value='➢ By Artic Bot v2', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CEPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         
@@ -442,7 +443,7 @@ async def cep(ctx, cep = None):
     else:
        embed.set_author(name='ㅤㅤㅤㅤㅤCEP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        embed.add_field(name="ㅤ", value="*ㅤㅤO CEP ACIMA NÃO FOI ENCONTRADO!* ", inline=False)
-       embed.set_footer(text='*Artic Bot v2*', icon_url='')
+       embed.set_footer(text='Artic Bot v2', icon_url='')
        return await ctx.send(embed=embed)
    
 #--------------------------------------------------------[𝐵𝐴𝑁𝐶𝐴́𝑅𝐼𝑂]-------------------------------------------------------------#
@@ -476,6 +477,8 @@ async def banco(ctx, banco):
     embed.add_field(name="➢ NOME DO BANCO", value=data['name'], inline=False)
     embed.add_field(name="➢ CÓDIGO BANCÁRIO", value=data['code'], inline=False)
     embed.add_field(name="➢ INFORMAÇÕES ADICIONAIS", value=data['fullName'], inline=False)
+    embed.add_field(name="ㅤ", value='➢ By Artic Bot v2', inline=False)        
+
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BANCOㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
