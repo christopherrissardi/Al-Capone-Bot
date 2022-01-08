@@ -300,6 +300,7 @@ async def cnpj(ctx, cnpj = 0):
     if (cnpj == 0):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO CNPJㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/cnpj` e o {CNPJ} que deseja.", value='*Exemplo: `/cnpj` 12345678901234*', inline=False)
+        embed.add_field(name="ㅤㅤㅤㅤObservação:", value='*Use o comando de forma padrão! Não utilize pontos, hifens e caracteres especiais*', inline=False)        
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         return await ctx.send(embed=embed)
     else:
@@ -356,7 +357,7 @@ async def ip(ctx, ip = None):
         return await ctx.send(embed=embed)
     else:
        embed.set_author(name='ㅤㅤㅤㅤㅤIP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
-       embed.add_field(name="ㅤ", value="*O IP ACIMA NÃO FOI ENCONTRADO EM NOSSA BASE DE DADOS!*", inline=False)
+       embed.add_field(name="*O IP ACIMA NÃO FOI ENCONTRADO*", value="ㅤ", inline=False)
        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
        return await ctx.send(embed=embed)
 
@@ -379,7 +380,6 @@ async def covid(ctx, covid = None):
         embed.add_field(name="➢ DESCARTADOS", value=data['refuses'], inline=False)
         embed.add_field(name="➢ DATA DE ATUALIZAÇÃO", value=data['datetime'], inline=False)
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE COVID19ㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         
         await ctx.send(embed=embed)
@@ -396,13 +396,14 @@ async def covid(ctx, covid = None):
     if (covid == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO COVIDㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/covid` e o {ESTADO} que deseja.", value='*Exemplo*: `/covid SP`', inline=False)
+        embed.add_field(name="ㅤㅤㅤㅤObservação:", value='*Utilize apenas a sigla do estado correspondente!`', inline=False)
         embed.add_field(name="Estados Brasileiros com suas respectivas siglas:", value='Acre - `AC`\nAlagoas - `AL`\nAmazonas - `AM`\nBahia - `BA`\nCeará - `CE`\nDistrito Federal - `DF`\nEspírito Santo - `ES`\nGoiás - `GO`\nMaranhão - `MA`\nMato Grosso - `MT`\nMato Grosso do Sul - `MS`\nMinas Gerais - `MG`\nPará - `PA`\nParaíba - `PB`\nParaná - `PR`\nPernambuco - `PE`\nPiauí - `PI`\nRio de Janeiro - `RJ`\nRio Grande do Norte - `RN`\nRio Grande do Sul - `RS`\nRondônia - `RO`\nRoraima	- `RR`\nSanta Catarina - `SC`\nSão Paulo - `SP`\nSergipe - `SE`\nTocantins - `TO`\n', inline=False)
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         return await ctx.send(embed=embed)
     else:
        embed.set_author(name='ㅤㅤㅤㅤㅤESTADO INVÁLIDOㅤㅤㅤ', icon_url='')
        embed.add_field(name="ㅤ", value="*O ESTADO ACIMA É INVÁLIDO!* ", inline=False)
-       embed.add_field(name="ㅤ", value="*Ultilize o comando: `/covid` para obter mais informações.* ", inline=False)
+       embed.add_field(name="ㅤ", value="*Utilize o comando: `/covid` para obter mais informações.* ", inline=False)
        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
        return await ctx.send(embed=embed)
 
@@ -413,40 +414,47 @@ async def cep(ctx, cep):
     data = requests.get(f"https://cep.awesomeapi.com.br/json/{cep}").json()
 
     try:
-        error = data["message"]
-        embed = discord.Embed(
-            title='⚠️ CEP NÃO ENCONTRADO ⚠️',
-            colour=16766976
-        )
-
-        await ctx.send(embed=embed)
-
-        return
-    except Exception:
-        pass
-
         embed = discord.Embed(
             title='',
             colour=16766208
         )
 
-    embed.add_field(name="➢ CEP", value=data['cep'], inline=False)
-    embed.add_field(name="➢ RUA", value=data['address'], inline=False)
-    embed.add_field(name="➢ BAIRRO", value=data['district'], inline=False)
-    embed.add_field(name="➢ CIDADE", value=data['city'], inline=False)
-    embed.add_field(name="➢ ESTADO", value=data['state'], inline=False)
-    embed.add_field(name="➢ LOGRADOURO", value=data['address_name'], inline=False)
-    embed.add_field(name="➢ LATITUDE", value=data['lat'], inline=False)
-    embed.add_field(name="➢ LONGITUDE", value=data['lng'], inline=False)
-    embed.add_field(name="➢ IBGE", value=data['city_ibge'], inline=False)
-    embed.add_field(name="➢ DDD", value=data['ddd'], inline=False)
+        embed.add_field(name="➢ CEP", value=data['cep'], inline=False)
+        embed.add_field(name="➢ RUA", value=data['address'], inline=False)
+        embed.add_field(name="➢ BAIRRO", value=data['district'], inline=False)
+        embed.add_field(name="➢ CIDADE", value=data['city'], inline=False)
+        embed.add_field(name="➢ ESTADO", value=data['state'], inline=False)
+        embed.add_field(name="➢ LOGRADOURO", value=data['address_name'], inline=False)
+        embed.add_field(name="➢ LATITUDE", value=data['lat'], inline=False)
+        embed.add_field(name="➢ LONGITUDE", value=data['lng'], inline=False)
+        embed.add_field(name="➢ IBGE", value=data['city_ibge'], inline=False)
+        embed.add_field(name="➢ DDD", value=data['ddd'], inline=False)
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CEPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        
+        await ctx.send(embed=embed)
 
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CEPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        return
+    except Exception:
+        pass
+    
+    embed = discord.Embed(
+        title='',
+        colour=16766208
+    )
 
-    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
-    await ctx.send(embed=embed)
-
+    if (covid == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO CEPㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/cep` e o {CEP} que deseja.", value='*Exemplo*: `/cep 70150904`', inline=False)
+        embed.add_field(name="Observação:", value='*Use o comando de forma padrão! Não utilize pontos, hifens e caracteres especiais*', inline=False)        
+        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤㅤㅤㅤCEP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
+       embed.add_field(name="ㅤ", value="*O CEP ACIMA NÃO FOI ENCONTRADO!* ", inline=False)
+       embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+       return await ctx.send(embed=embed)
+   
 #--------------------------------------------------------[𝐵𝐴𝑁𝐶𝐴́𝑅𝐼𝑂]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐶𝑂́𝐷𝐼𝐺𝑂 𝐵𝐴𝑁𝐶𝐴́𝑅𝐼𝑂
