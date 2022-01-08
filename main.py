@@ -41,7 +41,6 @@ async def consulta(ctx):
     embed = discord.Embed(
         title='',
         description='',
-        colour=16766976
     )
 
     embed.add_field(name="🕵🏻‍♂️ CONSULTA POR NOME",
@@ -79,7 +78,6 @@ async def nome(ctx):
     embed = discord.Embed(
         title='',
         description='A Consulta por ***NOME*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***nome***!',
-        colour=16737991
     )
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE NOMEㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
@@ -95,7 +93,6 @@ async def cpf(ctx):
     embed = discord.Embed(
         title='',
         description='A Consulta por ***CPF*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***CPF!***',
-        colour=16745472
     )
 
     embed.add_field(name="➢ CPF", value='SEM INFORMAÇÃO', inline=False)
@@ -135,7 +132,6 @@ async def telefone(ctx):
     embed = discord.Embed(
         title='',
         description='A Consulta por ***TELEFONE*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***telefone!***',
-        colour=6084221
     )
 
     embed.add_field(name="➢ TELEFONE", value='SEM INFORMAÇÃO', inline=False)
@@ -161,7 +157,6 @@ async def placa(ctx):
     embed = discord.Embed(
         title='',
         description='A Consulta por ***PLACA*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***placa!***',
-        colour=6646071
     )
 
     embed.add_field(name="➢ PLACA", value='SEM INFORMAÇÃO', inline=False)
@@ -217,7 +212,6 @@ async def cnpj(ctx, cnpj = 0):
     try:
         embed = discord.Embed(
             title='',
-            colour=8978176
         )
         
         validateCnpj = data["cnpj"] if data["cnpj"] != "" else "Não encontrado"
@@ -282,7 +276,6 @@ async def cnpj(ctx, cnpj = 0):
 
     embed = discord.Embed(
         title='',
-        colour=8978176
     )
             
     if (cnpj == 0):
@@ -306,7 +299,6 @@ async def ip(ctx, ip = None):
     try:
         embed = discord.Embed(
             title='',
-            colour=16777215
         )
 
         validateAsn = data["asn"] if data["asn"] != "" else "Não encontrado"
@@ -335,8 +327,6 @@ async def ip(ctx, ip = None):
          
     embed = discord.Embed(
         title='',
-        description='',
-        colour=16777215
     )
     
     if (ip == None):
@@ -359,7 +349,6 @@ async def covid(ctx, covid = None):
     try:
         embed = discord.Embed(
             title='',
-            colour=13841202
         )
 
         embed.add_field(name="➢ ESTADO", value=data['state'], inline=False)
@@ -380,7 +369,6 @@ async def covid(ctx, covid = None):
 
         embed = discord.Embed(
             title='',
-            colour=13841202
         )
 
     if (covid == None):
@@ -406,7 +394,6 @@ async def cep(ctx, cep = None):
     try:
         embed = discord.Embed(
             title='',
-            colour=16766208
         )
 
         embed.add_field(name="➢ CEP", value=data['cep'], inline=False)
@@ -458,7 +445,7 @@ async def banco(ctx, banco = None):
         embed.add_field(name="➢ NOME DO BANCO", value=data['name'], inline=False)
         embed.add_field(name="➢ CÓDIGO BANCÁRIO", value=data['code'], inline=False)
         embed.add_field(name="➢ INFORMAÇÕES ADICIONAIS", value=data['fullName'], inline=False)
-        embed.add_field(name="ㅤ", value='➢ **By Artic Bot v2**', inline=False)        
+        embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BANCOㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
@@ -474,12 +461,12 @@ async def banco(ctx, banco = None):
 
     if (banco == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO BANCOㅤㅤㅤ', icon_url='')
-        embed.add_field(name="Use o comando: `/banco` e o {CÓDIGO DO BANCO} que deseja.", value='*Exemplo*: `/banco 237`', inline=False)
+        embed.add_field(name="Use o comando: `/banco` e o {CÓDIGO DO BANCO}", value='*Exemplo*: `/banco 237`', inline=False)
         embed.add_field(name="Observação:", value='*Utilize apenas o código bancário correspondente!*', inline=False)        
         embed.set_footer(text='Artic Bot v2', icon_url='https://imgur.com/Qkn02zM')
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤㅤㅤCÓDIGO BANCÁRIO INVÁLIDOㅤㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤㅤㅤCÓDIGO BANCÁRIO INVÁLIDOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝐵𝐼𝑁]-------------------------------------------------------------#
