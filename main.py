@@ -431,7 +431,6 @@ async def cep(ctx, cep = None):
     
     embed = discord.Embed(
         title='',
-        colour=16766208
     )
 
     if (cep == None):
@@ -441,9 +440,7 @@ async def cep(ctx, cep = None):
         embed.set_footer(text='Artic Bot v2', icon_url='')
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤㅤㅤCEP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
-       embed.add_field(name="ㅤ", value="*O CEP ACIMA NÃO FOI ENCONTRADO!* ", inline=False)
-       embed.set_footer(text='Artic Bot v2', icon_url='')
+       embed.set_author(name='ㅤㅤㅤㅤCEP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
    
 #--------------------------------------------------------[𝐵𝐴𝑁𝐶𝐴́𝑅𝐼𝑂]-------------------------------------------------------------#
