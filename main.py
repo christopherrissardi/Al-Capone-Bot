@@ -281,6 +281,7 @@ async def cnpj(ctx, cnpj = 0):
         embed.add_field(name="➢ DATA DE ABERTURA", value=validateData, inline=False)
         embed.add_field(name="➢ CNAE", value=validateCnae, inline=False)
         embed.add_field(name="➢ CNAE FISCAL", value=validateCnaeCod, inline=False)
+        embed.add_field(name="Usuário: {}'.format(ctx.author)", value='ㅤ', inline=False)
 
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CNPJㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
     
