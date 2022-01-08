@@ -363,7 +363,7 @@ async def ip(ctx, ip = None):
 #--------------------------------------------------------[𝐶𝑂𝑉𝐼𝐷19]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑂𝑉𝐼𝐷19
-async def covid(ctx, covid = None):
+async def covid(ctx, covid = 0):
     data = requests.get(f"https://covid19-brazil-api.vercel.app/api/report/v1/brazil/uf/{covid}").json()
 
     try:
@@ -382,6 +382,8 @@ async def covid(ctx, covid = None):
 
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         
+        await ctx.send(embed=embed)
+        
         return
     except Exception:
         pass
@@ -391,10 +393,10 @@ async def covid(ctx, covid = None):
             colour=13841202
         )
 
-    if (covid == None):
+    if (covid == 0):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO COVIDㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/covid` e o {ESTADO} que deseja.", value='*Exemplo: /covid SP*', inline=False)
-        embed.add_field(name="ㅤㅤEstados Brasileiros com suas respectivas siglas:", value='Acre - AC\nAlagoas - AL\nAmazonas - AM\nBahia - BA\nCeará - CE\nDistrito Federal - DF\nEspírito Santo - ES\nGoiás - GO\nMaranhão - MA\nMato Grosso - MT\nMato Grosso do Sul - MS\nMinas Gerais - MG\nPará - PA\nParaíba	- PB\nParaná - PR\nPernambuco - PE\nPiauí - PI\nRio de Janeiro - RJ\nRio Grande do Norte - RN\nRio Grande do Sul - RS\nRondônia - RO\nRoraima	- RR\nSanta Catarina - SC\nSão Paulo - SP\nSergipe	- SE\nTocantins - TO\n', inline=False)
+        embed.add_field(name="Estados Brasileiros com suas respectivas siglas:", value='Acre - AC\nAlagoas - AL\nAmazonas - AM\nBahia - BA\nCeará - CE\nDistrito Federal - DF\nEspírito Santo - ES\nGoiás - GO\nMaranhão - MA\nMato Grosso - MT\nMato Grosso do Sul - MS\nMinas Gerais - MG\nPará - PA\nParaíba	- PB\nParaná - PR\nPernambuco - PE\nPiauí - PI\nRio de Janeiro - RJ\nRio Grande do Norte - RN\nRio Grande do Sul - RS\nRondônia - RO\nRoraima	- RR\nSanta Catarina - SC\nSão Paulo - SP\nSergipe	- SE\nTocantins - TO\n', inline=False)
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         return await ctx.send(embed=embed)
     else:
