@@ -303,7 +303,7 @@ async def cnpj(ctx, cnpj = 0):
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤㅤㅤㅤCNPJ NÃO ENCONTRADOㅤㅤㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤㅤㅤㅤCNPJ NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        embed.add_field(name="ㅤ", value="*O CNPJ ACIMA NÃO FOI ENCONTRADO EM NOSSA BASE DE DADOS!*", inline=False)
        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
        return await ctx.send(embed=embed)
@@ -333,9 +333,7 @@ async def ip(ctx, ip = None):
         embed.add_field(name="➢ ASN", value=validateAsn, inline=False)
         embed.add_field(name="➢ EMPRESA RESPONSÁVEL", value=data['org'], inline=False)
         embed.add_field(name="➢ TIPO DE CONEXÃO", value=data['type'], inline=False)
-
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE IPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=embed)
@@ -357,7 +355,7 @@ async def ip(ctx, ip = None):
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤㅤㅤㅤIP NÃO ENCONTRADOㅤㅤㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤㅤㅤㅤIP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        embed.add_field(name="ㅤ", value="*O IP ACIMA NÃO FOI ENCONTRADO EM NOSSA BASE DE DADOS!*", inline=False)
        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
        return await ctx.send(embed=embed)
@@ -365,20 +363,25 @@ async def ip(ctx, ip = None):
 #--------------------------------------------------------[𝐶𝑂𝑉𝐼𝐷19]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑂𝑉𝐼𝐷19
-async def covid(ctx, covid):
+async def covid(ctx, covid = None):
     data = requests.get(f"https://covid19-brazil-api.vercel.app/api/report/v1/brazil/uf/{covid}").json()
 
     try:
-        error = data["error"]
         embed = discord.Embed(
-            title='⚠️ ESTADO NÃO ENCONTRADO ⚠️',
-            colour=16766976
+            title='',
+            colour=13841202
         )
 
-        embed.set_author(name='', icon_url='')
+        embed.add_field(name="➢ ESTADO", value=data['state'], inline=False)
+        embed.add_field(name="➢ CASOS", value=data['cases'], inline=False)
+        embed.add_field(name="➢ MORTES", value=data['deaths'], inline=False)
+        embed.add_field(name="➢ SUSPEITOS", value=data['suspects'], inline=False)
+        embed.add_field(name="➢ DESCARTADOS", value=data['refuses'], inline=False)
+        embed.add_field(name="➢ DATA DE ATUALIZAÇÃO", value=data['datetime'], inline=False)
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE COVID19ㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-        await ctx.send(embed=embed)
-
+        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        
         return
     except Exception:
         pass
@@ -388,18 +391,18 @@ async def covid(ctx, covid):
             colour=13841202
         )
 
-    embed.add_field(name="➢ ESTADO", value=data['state'], inline=False)
-    embed.add_field(name="➢ CASOS", value=data['cases'], inline=False)
-    embed.add_field(name="➢ MORTES", value=data['deaths'], inline=False)
-    embed.add_field(name="➢ SUSPEITOS", value=data['suspects'], inline=False)
-    embed.add_field(name="➢ DESCARTADOS", value=data['refuses'], inline=False)
-    embed.add_field(name="➢ DATA DE ATUALIZAÇÃO", value=data['datetime'], inline=False)
-
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE COVID19ㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
-    await ctx.send(embed=embed)
+    if (covid == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO COVIDㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/covid` e o {ESTADO} que deseja.", value='*Exemplo: /covid SP*', inline=False)
+        embed.add_field(name="ㅤㅤEstados Brasileiros com suas respectivas siglas:", value='Acre - AC\nAlagoas - AL\nAmazonas - AM\nBahia - BA\nCeará - CE\nDistrito Federal - DF\nEspírito Santo - ES\nGoiás - GO\nMaranhão - MA\nMato Grosso - MT\nMato Grosso do Sul - MS\nMinas Gerais - MG\nPará - PA\nParaíba	- PB\nParaná - PR\nPernambuco - PE\nPiauí - PI\nRio de Janeiro - RJ\nRio Grande do Norte - RN\nRio Grande do Sul - RS\nRondônia - RO\nRoraima	- RR\nSanta Catarina - SC\nSão Paulo - SP\nSergipe	- SE\nTocantins - TO\n', inline=False)
+        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤㅤㅤㅤESTADO INVÁLIDOㅤㅤㅤ', icon_url='')
+       embed.add_field(name="ㅤ", value="*O ESTADO ACIMA É INVÁLIDO!* ", inline=False)
+       embed.add_field(name="ㅤ", value="*Ultilize o comando: `/covid` para obter mais informações* ", inline=False)
+       embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+       return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝐶𝐸𝑃]-------------------------------------------------------------#
 
@@ -438,7 +441,7 @@ async def cep(ctx, cep):
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CEPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -476,7 +479,7 @@ async def banco(ctx, banco):
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BANCOㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -515,7 +518,7 @@ async def bin(ctx, bin):
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BINㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -558,7 +561,7 @@ async def site(ctx, site):
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE SITEㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -601,7 +604,7 @@ async def operadora(ctx, operadora):
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE OPERADORAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -647,7 +650,7 @@ async def cotacao(ctx, cotacao):
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCOTAÇÃO DE MOEDASㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -682,7 +685,7 @@ async def ddd(ctx, ddd):
     embed.add_field(name="➢ CIDADES", value='\n'.join([f"{city}" for city in data["cities"]]), inline=False)
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CIDADES POR DDDㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -719,7 +722,7 @@ async def feriados(ctx, feriados):
 
     embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE FERIADOS {feriados}ㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
     
@@ -778,7 +781,7 @@ async def ping(ctx):
 
     embed.set_image(url='')
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
 
@@ -796,7 +799,7 @@ async def traduzir(ctx):
 
     embed.add_field(name="➢ COMANDO PARA TRADUÇÃO", value='**/tradutor "Texto" LÍNGUA (Exemplo: en, es, pt)**', inline=False)
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
     
@@ -817,7 +820,7 @@ async def tradutor(ctx, phrase, *, lang):
 
     embed.add_field(name=f"➢ TEXTO TRADUZIDO PARA {lang.upper()}", value=f"{phrase_translate.text}", inline=False)
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
    
     await ctx.send(embed=embed)
     
@@ -834,7 +837,7 @@ async def git(ctx):
 
     embed.add_field(name=f"LINKS", value=f"💣 Discord el Marlboro#8779: https://github.com/victorftrdba \n💣 Discord ALIEN#7278: https://github.com/ALIENxp", inline=False)
 
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+    embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
    
     await ctx.send(embed=embed)
     
