@@ -303,8 +303,8 @@ async def cnpj(ctx, cnpj = 0):
         embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤ⚠️ CNPJ NÃO ENCONTRADO ⚠️ㅤㅤㅤ', icon_url='')
-       embed.add_field(name="O CNPJ ACIMA NÃO FOI ENCONTRADO EM NOSSA BASE DE DADOS", value="ㅤ", inline=False)
+       embed.set_author(name='ㅤㅤㅤㅤ⚠️ CNPJ NÃO ENCONTRADO ⚠️ㅤㅤㅤㅤ', icon_url='')
+       embed.add_field(name="O CNPJ ACIMA NÃO FOI ENCONTRADO\nEM NOSSA BASE DE DADOS!", value="ㅤ", inline=False)
        embed.set_footer(text='By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
        return await ctx.send(embed=embed)
     
