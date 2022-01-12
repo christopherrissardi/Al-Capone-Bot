@@ -6,7 +6,7 @@ from googletrans import Translator
 from typing import Text
 from discord.ext import commands
 
-client = commands.Bot(command_prefix="/", case_insensitive=False)
+client = commands.Bot(command_prefix="/", case_insensitive=True)
 
 @client.event
 async def on_ready():
