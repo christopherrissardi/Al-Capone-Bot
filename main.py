@@ -62,8 +62,14 @@ async def consulta(ctx):
                     value="Use o comando `/site` {URL DO SITE} para realizar a consulta.", inline=False)
     embed.add_field(name="📴 CONSULTA DE OPERADORA",
                     value="Use o comando `/operadora` {NÚMERO DE CELULAR} para realizar a consulta.", inline=False)    
+    embed.add_field(name="💰 CONSULTA DE COTAÇÃO",
+                    value="Use o comando `/cotacao` {PAR DE MOEDA} para realizar a consulta.", inline=False)
+    embed.add_field(name="🏙️ CONSULTA DE CIDADE POR DDD",
+                    value="Use o comando `/ddd` {DDD} para realizar a consulta do IP.", inline=False)
+    embed.add_field(name="💼 CONSULTA DE FERIADOS",
+                    value="Use o comando `/feriados` {ANO} para realizar a consulta.", inline=False)
     embed.set_image(url='https://i.gifer.com/Cewn.gif')
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤArticㅤㅤㅤㅤ', icon_url='')
+    embed.set_author(name='Artic', icon_url='')
     embed.set_footer(text='Artic © All Rights Reserved', icon_url='')
 
     await ctx.send(embed=embed)
@@ -708,7 +714,7 @@ async def gerador(ctx):
                     value="Use o comando `/gerartel` para gerar um telefone.", inline=False)
     embed.add_field(name="📲 GERADOR DE IMEI", value="Use o comando `/gerarimei` para gerar um IMEI.",
                     inline=False)
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤArticㅤㅤㅤㅤㅤㅤ', icon_url='')
+    embed.set_author(name='Artic', icon_url='')
     embed.set_footer(text='Artic © All Rights Reserved', icon_url='')
     await ctx.send(embed=embed)
 
@@ -785,7 +791,7 @@ async def ajuda(ctx):
     
     embed.add_field(name="ㅤ", value='Olá, estou aqui para te ajudar! Aqui está algum dos comandos que o Artic possui. Ficou com alguma dúvida em relação aos comandos abaixo? Digite `/[NOME DO COMANDO]`. Exemplo: `/admin`  ', inline=False)
     embed.add_field(name="🔐 Moderação", value='Use o comando `/admin` para ver os comandos administrativos. Comando de moderação existentes: `/kick`, `/ban`, `unban`, `/unmute`, `/role`, `/mute`, `/clear` ', inline=False)
-    embed.add_field(name="🔍 Consultas", value='Use o comando `/consulta` para obter mais informações. Comandos de consultas disponíveis: `/nome`, `/cpf`, `/telefone`, `/placa`, `/cnpj`, `/ip` `/covid`, `/cep`, `/banco`, `/bin`, `/site`, `/operadora`, `/cotacao`, `/ddd` e `/feriados`.', inline=False)
+    embed.add_field(name="🔍 Consultas", value='Use o comando `/consulta` para obter mais informações. Comandos de consultas disponíveis: `/nome`, `/cpf`, `/telefone`, `/cnpj`, `/placa`, `/ip` `/bin`, `/cep`, `/covid`, `/banco`, `/site`, `/operadora`, `/cotacao`, `/ddd` e `/feriados`.', inline=False)
     embed.add_field(name="🎵 Músicas", value='Use o comando `/musica` para vizualizar os comandos. Comandos acessíveis a classe: `/play`, `/stop`, `/pause`, `/resume`, `/back`, `/skip`, `/disconnect`', inline=False)
     embed.add_field(name="🪐 Informações", value='Use o comando `/info` para ver os comandos disponíveis. Comandos existentes: `/ajuda`, `/ping`, `/git`, `/serverinfo`, `/userinfo`', inline=False)
     embed.add_field(name="🉐 Tradutor", value='Use o comando `/traduzir` "Texto" Língua (Exemplo: en, es, pt, ru)', inline=False)
