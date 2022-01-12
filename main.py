@@ -709,7 +709,6 @@ async def gerador(ctx):
                     value="Use o comando ***a!gerartel*** para gerar um telefone.", inline=False)
     embed.add_field(name="📲 GERADOR DE IMEI", value="Use o comando ***a!gerarimei*** para gerar um IMEI.",
                     inline=False)
-
     embed.set_image(url='')
 
     embed.set_author(name='ALIEN.py', icon_url='')
