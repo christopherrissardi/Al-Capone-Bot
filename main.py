@@ -29,7 +29,7 @@ async def clear_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArguments):
         await ctx.send('...')
 
-#--------------------------------------------------------[𝐷𝐼𝑆𝑃𝑂𝑁𝐼́𝑉𝐸𝐼𝑆]-------------------------------------------------------#
+    #--------------------------------------------------------[DISPONÍVEIS]-------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴𝑆 𝐷𝐼𝑆𝑃𝑂𝑁𝐼́𝑉𝐸𝐼𝑆
 async def consulta(ctx):
@@ -63,12 +63,12 @@ async def consulta(ctx):
     embed.add_field(name="📴 CONSULTA DE OPERADORA",
                     value="Use o comando `/operadora` {NÚMERO DE CELULAR} para realizar a consulta.", inline=False)    
     embed.set_image(url='https://i.gifer.com/Cewn.gif')
-    embed.set_author(name='Artic', icon_url='')
+    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤArticㅤㅤㅤㅤ', icon_url='')
     embed.set_footer(text='Artic © All Rights Reserved', icon_url='')
 
     await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝑁𝑂𝑀𝐸]-------------------------------------------------------#
+    #--------------------------------------------------------[NOME]-------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑁𝑂𝑀𝐸
 async def nome(ctx):
@@ -83,7 +83,7 @@ async def nome(ctx):
 
     await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝐶𝑃𝐹]---------------------------------------------------------#
+    #--------------------------------------------------------[CPF]---------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑃𝐹
 async def cpf(ctx):
@@ -121,7 +121,7 @@ async def cpf(ctx):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝑇𝐸𝐿𝐸𝐹𝑂𝑁𝐸]-------------------------------------------------------------#
+    #--------------------------------------------------------[TELEFONE]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑇𝐸𝐿𝐸𝐹𝑂𝑁𝐸
 async def telefone(ctx):
@@ -145,7 +145,7 @@ async def telefone(ctx):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝑃𝐿𝐴𝐶𝐴]-------------------------------------------------------------#
+    #--------------------------------------------------------[PLACA]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑃𝐿𝐴𝐶𝐴
 async def placa(ctx):
@@ -194,7 +194,7 @@ async def placa(ctx):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝐶𝑁𝑃𝐽]-------------------------------------------------------------#
+    #--------------------------------------------------------[CNPJ]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑁𝑃𝐽
 async def cnpj(ctx, cnpj = 0):
@@ -264,9 +264,9 @@ async def cnpj(ctx, cnpj = 0):
     except Exception:
         pass
 
-    embed = discord.Embed(
-        title='',
-    )
+        embed = discord.Embed(
+            title='',
+        )
             
     if (cnpj == 0):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO CNPJㅤㅤㅤ', icon_url='')
@@ -277,7 +277,7 @@ async def cnpj(ctx, cnpj = 0):
        embed.set_author(name='ㅤㅤㅤㅤCNPJ NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝐼𝑃]-------------------------------------------------------------#
+    #--------------------------------------------------------[IP]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐼𝑃
 async def ip(ctx, ip = None):
@@ -310,9 +310,9 @@ async def ip(ctx, ip = None):
     except Exception:
         pass
          
-    embed = discord.Embed(
-        title='',
-    )
+        embed = discord.Embed(
+            title='',
+        )
     
     if (ip == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO IPㅤㅤㅤ', icon_url='')
@@ -322,7 +322,7 @@ async def ip(ctx, ip = None):
        embed.set_author(name='ㅤㅤㅤIP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝐶𝑂𝑉𝐼𝐷19]-------------------------------------------------------------#
+    #--------------------------------------------------------[COVID19]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑂𝑉𝐼𝐷19
 async def covid(ctx, covid = None):
@@ -363,7 +363,7 @@ async def covid(ctx, covid = None):
        embed.add_field(name="ㅤ", value="*Utilize o comando: `/covid` para obter mais informações.* ", inline=False)
        return await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝐶𝐸𝑃]-------------------------------------------------------------#
+    #--------------------------------------------------------[CEP]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝐸𝑃
 async def cep(ctx, cep = None):
@@ -393,9 +393,9 @@ async def cep(ctx, cep = None):
     except Exception:
         pass
 
-    embed = discord.Embed(
-        title='',
-    )
+        embed = discord.Embed(
+            title='',
+        )
 
     if (cep == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO CEPㅤㅤㅤ', icon_url='')
@@ -406,7 +406,7 @@ async def cep(ctx, cep = None):
        embed.set_author(name='ㅤㅤㅤCEP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
    
-#--------------------------------------------------------[𝐵𝐴𝑁𝐶𝐴́𝑅𝐼𝑂]-------------------------------------------------------------#
+    #--------------------------------------------------------[BANCO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐶𝑂́𝐷𝐼𝐺𝑂 𝐵𝐴𝑁𝐶𝐴́𝑅𝐼𝑂
 async def banco(ctx, banco = None):
@@ -430,9 +430,9 @@ async def banco(ctx, banco = None):
     except Exception:
         pass
 
-    embed = discord.Embed(
-        title='',
-    )
+        embed = discord.Embed(
+            title='',
+        )
 
     if (banco == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO BANCOㅤㅤㅤ', icon_url='')
@@ -443,7 +443,7 @@ async def banco(ctx, banco = None):
        embed.set_author(name='ㅤㅤCÓDIGO BANCÁRIO NÃO ENCONTRADOㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝐵𝐼𝑁]-------------------------------------------------------------#
+    #--------------------------------------------------------[BIN]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐵𝐼𝑁
 async def bin(ctx, bin = None):
@@ -484,7 +484,7 @@ async def bin(ctx, bin = None):
        embed.set_author(name='ㅤㅤㅤBIN NÃO ENCONTRADAㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝑆𝐼𝑇𝐸]-------------------------------------------------------------#
+    #--------------------------------------------------------[SITE]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑆𝐼𝑇𝐸
 async def site(ctx, site = None):
@@ -525,7 +525,7 @@ async def site(ctx, site = None):
        embed.set_author(name='ㅤㅤㅤSITE NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝑂𝑃𝐸𝑅𝐴𝐷𝑂𝑅𝐴]-------------------------------------------------------------#
+    #--------------------------------------------------------[OPERADORA]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑂𝑃𝐸𝑅𝐴𝐷𝑂𝑅𝐴
 async def operadora(ctx, operadora = None):
@@ -567,7 +567,7 @@ async def operadora(ctx, operadora = None):
        embed.set_author(name='ㅤㅤㅤOPERADORA NÃO ENCONTRADAㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-#--------------------------------------------------------[𝑀𝑂𝐸𝐷𝐴𝑆]-------------------------------------------------------------#
+    #--------------------------------------------------------[CORAÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑇𝐴𝐶̧𝐴̃𝑂 𝐷𝐸 𝑀𝑂𝐸𝐷𝐴𝑆
 async def cotacao(ctx, cotacao = None):
@@ -612,7 +612,7 @@ async def cotacao(ctx, cotacao = None):
        embed.set_author(name='ㅤㅤCOTAÇÃO DE MOEDAS INVÁLIDAㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)        
 
-#--------------------------------------------------------[𝐷𝐷𝐷]-------------------------------------------------------------#
+    #--------------------------------------------------------[DDD]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝐼𝐷𝐴𝐷𝐸𝑆 𝑃𝑂𝑅 𝐷𝐷𝐷
 async def ddd(ctx, ddd = None):
@@ -646,7 +646,7 @@ async def ddd(ctx, ddd = None):
        embed.set_author(name='ㅤㅤDDD INVÁLIDOㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)        
 
-#--------------------------------------------------------[𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆]-------------------------------------------------------------#
+    #--------------------------------------------------------[FERIADOS]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
 async def feriados(ctx, feriados = None):
@@ -658,7 +658,7 @@ async def feriados(ctx, feriados = None):
         )
 
         embed.add_field(name="➢ FERIADOS", value='\n\n'.join([f"{holiday['name'].upper() + ' ★ ' + holiday['date'].replace('-', '/') + ' ★ ' + holiday['type'].replace('national', 'NACIONAL')}" for holiday in data]), inline=False)
-        embed.add_field(name="➢ INFOS", value='• As datas estão no formato Ano/Mês/Dia (Padrão ISO Date) (¬‿¬)', inline=False)
+        embed.add_field(name="➢ INFOS", value='• As datas estão no formato Ano/Mês/Dia (Padrão ISO Date)', inline=False)
         embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)                
         embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE FERIADOS {feriados}ㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
@@ -682,43 +682,37 @@ async def feriados(ctx, feriados = None):
        embed.add_field(name="ㅤ", value="*Utilize o comando: `/feriados` para obter mais informações.* ", inline=False)
        return await ctx.send(embed=embed)        
 
-##GERADORES
+    #--------------------------------------------------------[GERADOR]-------------------------------------------------------------#
     
 @client.command()
 async def gerador(ctx):
     embed = discord.Embed(
         title='',
-        description='',
     )
 
-    embed.add_field(name="👥 GERADOR DE PESSOA", value="Use o comando ***a!gerarpessoa*** para gerar uma pessoa.",
+    embed.add_field(name="👥 GERADOR DE PESSOA", value="Use o comando `/gerarpessoa` para gerar uma pessoa.",
                     inline=False)
     embed.add_field(name="💳 GERADOR DE CARTÃO",
-                    value="Use o comando ***a!gerarcartao*** para gerar um cartão Debito/Crédito.", inline=False)
+                    value="Use o comando `/gerarcartao` para gerar um cartão Debito/Crédito.", inline=False)
     embed.add_field(name="📁 GERADOR DE E-MAIL",
-                    value="Use o comando ***a!geraremail*** para gerar um e-mail aleatório.", inline=False)
-    embed.add_field(name="🔆 GERADOR DE CPF", value="Use o comando ***a!gerarcpf*** para gerar e validar um CPF.",
+                    value="Use o comando `/geraremail` para gerar um e-mail aleatório.", inline=False)
+    embed.add_field(name="🔆 GERADOR DE CPF", value="Use o comando `/gerarcpf` para gerar e validar um CPF.",
                     inline=False)
-    embed.add_field(name="🎮 GERADOR DE USERNAME", value="Use o comando ***a!gerarusr*** para gerar um username.",
+    embed.add_field(name="🎮 GERADOR DE USERNAME", value="Use o comando `/gerarusr` para gerar um username.",
                     inline=False)
-    embed.add_field(name="🔐 GERADOR DE SENHA", value="Use o comando ***a!gerarsenha*** para gerar uma senha.",
+    embed.add_field(name="🔐 GERADOR DE SENHA", value="Use o comando `/gerarsenha` para gerar uma senha.",
                     inline=False)
-    embed.add_field(name="🚙 GERADOR DE VEÍCULO", value="Use o comando ***a!gerarveiculo*** para gerar um veículo.",
+    embed.add_field(name="🚙 GERADOR DE VEÍCULO", value="Use o comando `/gerarveiculo` para gerar um veículo.",
                     inline=False)
     embed.add_field(name="📞 GERADOR DE NÚMERO TELEFONE",
-                    value="Use o comando ***a!gerartel*** para gerar um telefone.", inline=False)
-    embed.add_field(name="📲 GERADOR DE IMEI", value="Use o comando ***a!gerarimei*** para gerar um IMEI.",
+                    value="Use o comando `/gerartel` para gerar um telefone.", inline=False)
+    embed.add_field(name="📲 GERADOR DE IMEI", value="Use o comando `/gerarimei` para gerar um IMEI.",
                     inline=False)
-    embed.set_image(url='')
-
-    embed.set_author(name='ALIEN.py', icon_url='')
-
-    embed.set_footer(text='ALIEN.py © All Rights Reserved', icon_url='')
-
+    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤArticㅤㅤㅤㅤㅤㅤ', icon_url='')
+    embed.set_footer(text='Artic © All Rights Reserved', icon_url='')
     await ctx.send(embed=embed)
 
-
-##FERRAMENTE PARA TESTAR PING    
+    #--------------------------------------------------------[PING]-------------------------------------------------------------#
     
 @client.command()
 async def ping(ctx):
@@ -739,7 +733,7 @@ async def ping(ctx):
     await ctx.send(embed=embed)
 
     
- #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
+#--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
 async def traduzir(ctx):    
@@ -755,7 +749,7 @@ async def traduzir(ctx):
 
     await ctx.send(embed=embed)
     
-    #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
+#--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
 async def tradutor(ctx, phrase, *, lang):    
@@ -791,6 +785,7 @@ async def git(ctx):
    
     await ctx.send(embed=embed)
     
+    #--------------------------------------------------------[AJUDA]-------------------------------------------------------------#
        
 @client.command()
 async def ajuda(ctx):
@@ -800,13 +795,13 @@ async def ajuda(ctx):
     )
 
     embed.add_field(name="🔐 Moderação", value='Use o comando `/admin` para ver os comandos administrativos. Comando de moderação existentes: `/kick`, `/ban`, `unban`, `/unmute`, `/role`, `/mute`, `/clear` ', inline=False)
-    embed.add_field(name="🔍 Consultas", value='Use o comando `/consulta` para obter mais informações. Comandos de consultas disponíveis: `/nome`, `/cpf`, `/telefone`, `/cnpj`, `/placa`, `/ip` `/bin`, `/cep`, `/covid`, `/banco`, `/site`', inline=False)
-    embed.add_field(name="🎵 Músicas", value='Use o comando `/musica` para vizualizar os comandos. Comandos acessíveis a classe: `/play`, `/stop`, `/pause`, `/resume`, `/back/`, `/skip`, `/disconnect`', inline=False)
+    embed.add_field(name="🔍 Consultas", value='Use o comando `/consulta` para obter mais informações. Comandos de consultas disponíveis: `/nome`, `/cpf`, `/telefone`, `/cnpj`, `/placa`, `/ip` `/bin`, `/cep`, `/covid`, `/banco`, `/site`, e mais.', inline=False)
+    embed.add_field(name="🎵 Músicas", value='Use o comando `/musica` para vizualizar os comandos. Comandos acessíveis a classe: `/play`, `/stop`, `/pause`, `/resume`, `/back`, `/skip`, `/disconnect`', inline=False)
     embed.add_field(name="🪐 Informações", value='Use o comando `/info` para ver os comandos disponíveis. Comandos existentes: `/ajuda`, `/ping`, `/git`, `/serverinfo`, `/userinfo`', inline=False)
     embed.add_field(name="🉐 Tradutor", value='Use o comando `/traduzir` "Texto" Língua (Exemplo: en, es, pt, ru)', inline=False)
     embed.add_field(name="🎓 Diversos", value='Use o comando `/diversos` para vizualizar os comandos. Comandos disponíveis: `/cotacao`, `/traduzir`', inline=False)
 
-    embed.set_author(name='🔮 Artic Helper', icon_url='')
+    embed.set_author(name='ㅤㅤㅤArtic Helperㅤㅤㅤ', icon_url='')
 
     await ctx.author.send(embed=embed); 
 
