@@ -10,7 +10,7 @@ client = commands.Bot(command_prefix="/", case_insensitive=False)
 
 @client.event
 async def on_ready():
-    activity = discord.Game(name='Artic idle', type=3)
+    activity = discord.Game(name='Artic Bot | /ajuda', type=3)
     await client.change_presence(status=discord.Status.dnd, activity=activity)
     print("Conectando, por favor, aguarde...")
 
@@ -738,7 +738,7 @@ async def traduzir(ctx):
         title='',
     )
     
-    embed.add_field(name="Use o comando: `/tradutor [TEXTO] LÍNGUA`", value='*Exemplo*: `/tradutor Hello en', inline=False)
+    embed.add_field(name="Use o comando: `/tradutor [TEXTO] LÍNGUA`", value='*Exemplo*: `/tradutor Hello en`', inline=False)
     embed.set_author(name='ㅤㅤㅤCOMANDO PARA TRADUÇÃOㅤㅤㅤㅤ', icon_url='')
     embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/languages-1891105-1598018.png")
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
@@ -781,7 +781,6 @@ async def git(ctx):
 async def ajuda(ctx):
     embed = discord.Embed(
         title='',
-        colour=16777215,
     )
     
     embed.add_field(name="ㅤ", value='Olá, estou aqui para te ajudar! Aqui está algum dos comandos que o Artic possui. Ficou com alguma dúvida em relação aos comandos abaixo? Digite `/[NOME DO COMANDO]`. Exemplo: `/admin`  ', inline=False)
@@ -793,6 +792,5 @@ async def ajuda(ctx):
     embed.add_field(name="🎓 Diversos", value='Use o comando `/diversos` para vizualizar os comandos. Comandos disponíveis: `/cotacao`, `/traduzir`', inline=False)
     embed.set_author(name='Artic Helper', icon_url='')
     await ctx.author.send(embed=embed); 
-
 
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
