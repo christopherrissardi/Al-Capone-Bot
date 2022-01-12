@@ -8,13 +8,11 @@ from discord.ext import commands
 
 client = commands.Bot(command_prefix="/", case_insensitive=False)
 
-
 @client.event
 async def on_ready():
     activity = discord.Game(name='Artic idle', type=3)
     await client.change_presence(status=discord.Status.dnd, activity=activity)
     print("Conectando, por favor, aguarde...")
-
 
 @client.event
 async def on_message(message):
@@ -22,17 +20,14 @@ async def on_message(message):
         return
     await client.process_commands(message)
 
-
 @client.command()
 async def clear(ctx, amount: int):
     await ctx.channel.purge(limit=amount)
-
 
 @clear.error
 async def clear_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArguments):
         await ctx.send('...')
-
 
 #--------------------------------------------------------[𝐷𝐼𝑆𝑃𝑂𝑁𝐼́𝑉𝐸𝐼𝑆]-------------------------------------------------------#
 
@@ -44,27 +39,29 @@ async def consulta(ctx):
     )
 
     embed.add_field(name="🕵🏻‍♂️ CONSULTA POR NOME",
-                    value="Use o comando `/nome` {Nome Completo} para realizar a consulta.", inline=False)
+                    value="Use o comando `/nome` {NOME COMPLETO} para realizar a consulta.", inline=False)
     embed.add_field(name="👽 CONSULTA POR CPF",
-                    value="Use o comando `/cpf` {CPF da Pessoa} para a consultar os dados.", inline=False)
+                    value="Use o comando `/cpf` {CPF DA PESSOA} para a consultar os dados.", inline=False)
     embed.add_field(name="📵 CONSULTA POR TELEFONE",
-                    value="Use o comando `/telefone` {Telefone} para realizar a consulta.", inline=False)
+                    value="Use o comando `/telefone` {TELEFONE} para realizar a consulta.", inline=False)
     embed.add_field(name="🏨 CONSULTA DE CNPJ",
                     value="Use o comando `/cnpj` {CNPJ} para consultar os dados.", inline=False)
     embed.add_field(name="🚘 CONSULTA POR PLACA",
-                    value="Use o comando `/placa` {Placa do veículo} para realizar a consulta.", inline=False)
+                    value="Use o comando `/placa` {PLACA DO VEÍCULO} para realizar a consulta.", inline=False)
     embed.add_field(name="📌 CONSULTA DE IP",
                     value="Use o comando `/ip` {IP} para realizar a consulta do IP.", inline=False)
     embed.add_field(name="💳 CONSULTA DE BIN",
-                    value="Use o comando `/bin` {Número da BIN} para realizar a consulta.", inline=False)
+                    value="Use o comando `/bin` {NÚMERO DA BIN} para realizar a consulta.", inline=False)
     embed.add_field(name="📫 CONSULTA DE CEP",
-                    value="Use o comando `/cep` {CEP da Rua} para realizar a consulta.", inline=False)
+                    value="Use o comando `/cep` {CEP DA RUA} para realizar a consulta.", inline=False)
     embed.add_field(name="🦠 CONSULTA DE COVID19",
-                    value="Use o comando `/covid` {Sigla do Estado} para realizar a consulta.", inline=False)
+                    value="Use o comando `/covid` {SIGLA DO ESTADO} para realizar a consulta.", inline=False)
     embed.add_field(name="🏦 CONSULTA DE CÓDIGO BANCÁRIO",
-                    value="Use o comando `/banco` {Código do Banco} para realizar a consulta.", inline=False)
+                    value="Use o comando `/banco` {CÓDIGO DO BANCO} para realizar a consulta.", inline=False)
     embed.add_field(name="💾 CONSULTA DE SITES",
-                    value="Use o comando `/site` {URL do site} para realizar a consulta.", inline=False)
+                    value="Use o comando `/site` {URL DO SITE} para realizar a consulta.", inline=False)
+    embed.add_field(name="📴 CONSULTA DE OPERADORA",
+                    value="Use o comando `/operadora` {NÚMERO DE CELULAR} para realizar a consulta.", inline=False)    
     embed.set_image(url='https://i.gifer.com/Cewn.gif')
     embed.set_author(name='Artic', icon_url='')
     embed.set_footer(text='Artic © All Rights Reserved', icon_url='')
@@ -122,7 +119,6 @@ async def cpf(ctx):
     embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)        
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CPFㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
     await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝑇𝐸𝐿𝐸𝐹𝑂𝑁𝐸]-------------------------------------------------------------#
@@ -147,7 +143,6 @@ async def telefone(ctx):
     embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)        
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE TELEFONEㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
     await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝑃𝐿𝐴𝐶𝐴]-------------------------------------------------------------#
@@ -197,7 +192,6 @@ async def placa(ctx):
     embed.add_field(name="➢ PLACA MODELO NOVO", value='SEM INFORMAÇÃO', inline=False)
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE PLACAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
     await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝐶𝑁𝑃𝐽]-------------------------------------------------------------#
@@ -237,7 +231,6 @@ async def cnpj(ctx, cnpj = 0):
         validateSimplesDate = data["data_opcao_pelo_simples"] if data["data_opcao_pelo_simples"] != "" else "Não encontrado"
         validateCep = data["cep"] if data["cep"] != "" else "Não encontrado"
         
-
         embed.add_field(name="➢ CNPJ", value=validateCnpj, inline=False)
         embed.add_field(name="➢ NOME FANTASIA", value=validateNome, inline=False)
         embed.add_field(name="➢ RAZÃO SOCIAL", value=validateRazao, inline=False)
@@ -265,7 +258,6 @@ async def cnpj(ctx, cnpj = 0):
         embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CNPJㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
         await ctx.send(embed=embed)
     
         return
@@ -284,7 +276,7 @@ async def cnpj(ctx, cnpj = 0):
     else:
        embed.set_author(name='ㅤㅤㅤㅤCNPJ NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
-    
+
 #--------------------------------------------------------[𝐼𝑃]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐼𝑃
@@ -312,13 +304,11 @@ async def ip(ctx, ip = None):
         embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE IPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
         await ctx.send(embed=embed)
 
         return
     except Exception:
         pass
-
          
     embed = discord.Embed(
         title='',
@@ -329,7 +319,7 @@ async def ip(ctx, ip = None):
         embed.add_field(name="Use o comando: `/ip` e o {IP} que deseja.", value='*Exemplo: `/ip` 127.0.0.1*', inline=False)
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤㅤㅤIP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤㅤIP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝐶𝑂𝑉𝐼𝐷19]-------------------------------------------------------------#
@@ -352,7 +342,6 @@ async def covid(ctx, covid = None):
         embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE COVID19ㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-        
         await ctx.send(embed=embed)
         
         return
@@ -371,7 +360,6 @@ async def covid(ctx, covid = None):
         return await ctx.send(embed=embed)
     else:
        embed.set_author(name='ㅤㅤㅤㅤㅤESTADO INVÁLIDOㅤㅤㅤ', icon_url='')
-       embed.add_field(name="ㅤ", value="*O ESTADO ACIMA É INVÁLIDO!* ", inline=False)
        embed.add_field(name="ㅤ", value="*Utilize o comando: `/covid` para obter mais informações.* ", inline=False)
        return await ctx.send(embed=embed)
 
@@ -399,13 +387,12 @@ async def cep(ctx, cep = None):
         embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CEPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-        
         await ctx.send(embed=embed)
 
         return
     except Exception:
         pass
-    
+
     embed = discord.Embed(
         title='',
     )
@@ -416,7 +403,7 @@ async def cep(ctx, cep = None):
         embed.add_field(name="Observação:", value='*Não utilize pontos, hifens e caracteres especiais*', inline=False)        
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤㅤCEP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤㅤCEP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
    
 #--------------------------------------------------------[𝐵𝐴𝑁𝐶𝐴́𝑅𝐼𝑂]-------------------------------------------------------------#
@@ -437,7 +424,6 @@ async def banco(ctx, banco = None):
         embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BANCOㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
         await ctx.send(embed=embed)
         
         return
@@ -454,22 +440,31 @@ async def banco(ctx, banco = None):
         embed.add_field(name="Observação:", value='*Utilize apenas o código bancário correspondente!*', inline=False)        
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤCÓDIGO BANCÁRIO INVÁLIDOㅤㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤCÓDIGO BANCÁRIO NÃO ENCONTRADOㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝐵𝐼𝑁]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐵𝐼𝑁
-async def bin(ctx, bin):
+async def bin(ctx, bin = None):
     data = requests.get(
         f"https://api.bincodes.com/bin/?format=json&api_key=c0107d14acda7e1831dfe26ee8e8b3a5&bin={bin}").json()
 
     try:
-        error = data["message"]
         embed = discord.Embed(
-            title='⚠️ BIN NÃO ENCONTRADO ⚠️',
+            title='',
         )
 
+        embed.add_field(name="➢ BIN", value=data['bin'], inline=False)
+        embed.add_field(name="➢ MODELO", value=data['type'], inline=False)
+        embed.add_field(name="➢ NÍVEL", value=data['level'], inline=False)
+        embed.add_field(name="➢ BANDEIRA", value=data['card'], inline=False)
+        embed.add_field(name="➢ PAÍS", value=data['country'], inline=False)
+        embed.add_field(name="➢ SIGLA", value=data['countrycode'], inline=False)
+        embed.add_field(name="➢ BANCO", value=data['bank'], inline=False)
+        embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)                
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BINㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
 
         return
@@ -480,35 +475,38 @@ async def bin(ctx, bin):
             title='',
         )
 
-    embed.add_field(name="➢ BIN", value=data['bin'], inline=False)
-    embed.add_field(name="➢ MODELO", value=data['type'], inline=False)
-    embed.add_field(name="➢ NÍVEL", value=data['level'], inline=False)
-    embed.add_field(name="➢ BANDEIRA", value=data['card'], inline=False)
-    embed.add_field(name="➢ PAÍS", value=data['country'], inline=False)
-    embed.add_field(name="➢ SIGLA", value=data['countrycode'], inline=False)
-    embed.add_field(name="➢ BANCO", value=data['bank'], inline=False)
-
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BINㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
-    await ctx.send(embed=embed)
+    if (bin == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO BINㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/bin` e a {BIN} que deseja.", value='*Exemplo*: `/bin 522840`', inline=False)
+        embed.add_field(name="Observação:", value='*Não utilize pontos, hifens e caracteres especiais*', inline=False)        
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤㅤBIN NÃO ENCONTRADAㅤㅤㅤ', icon_url='')
+       return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝑆𝐼𝑇𝐸]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑆𝐼𝑇𝐸
-async def site(ctx, site):
+async def site(ctx, site = None):
     data = requests.get(f"http://ipwhois.app/json/{site}").json()
 
     try:
-        error = data["message"]
         embed = discord.Embed(
-            title='⚠️ SITE NÃO ENCONTRADO ⚠️',
-            description='',
+            title='',
         )
 
-        embed.set_author(name='', icon_url='')
-
+        embed.add_field(name="➢ IP", value=data['ip'], inline=False)
+        embed.add_field(name="➢ CIDADE", value=data['city'], inline=False)
+        embed.add_field(name="➢ ESTADO", value=data['region'], inline=False)
+        embed.add_field(name="➢ PAÍS", value=data['country'], inline=False)
+        embed.add_field(name="➢ LATITUDE", value=data['latitude'], inline=False)
+        embed.add_field(name="➢ LONGITUDE", value=data['longitude'], inline=False)
+        embed.add_field(name="➢ ORGANIZAÇÃO", value=data['isp'], inline=False)
+        embed.add_field(name="➢ EMPRESA", value=data['org'], inline=False)
+        embed.add_field(name="➢ FUSO HORÁRIO", value=data['timezone'], inline=False)
+        embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)                
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE SITEㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
 
         return
@@ -519,37 +517,37 @@ async def site(ctx, site):
             title='',
         )
 
-    embed.add_field(name="➢ IP", value=data['ip'], inline=False)
-    embed.add_field(name="➢ CIDADE", value=data['city'], inline=False)
-    embed.add_field(name="➢ ESTADO", value=data['region'], inline=False)
-    embed.add_field(name="➢ PAÍS", value=data['country'], inline=False)
-    embed.add_field(name="➢ LATITUDE", value=data['latitude'], inline=False)
-    embed.add_field(name="➢ LONGITUDE", value=data['longitude'], inline=False)
-    embed.add_field(name="➢ ORGANIZAÇÃO", value=data['isp'], inline=False)
-    embed.add_field(name="➢ EMPRESA", value=data['org'], inline=False)
-    embed.add_field(name="➢ FUSO HORÁRIO", value=data['timezone'], inline=False)
-
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE SITEㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
-    await ctx.send(embed=embed)
+    if (site == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO SITEㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/site` e a {SITE} que deseja.", value='*Exemplo*: `/site google.com`', inline=False)
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤㅤSITE NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
+       return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝑂𝑃𝐸𝑅𝐴𝐷𝑂𝑅𝐴]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑂𝑃𝐸𝑅𝐴𝐷𝑂𝑅𝐴
-async def operadora(ctx, operadora):
+async def operadora(ctx, operadora = None):
     data = requests.get(f"http://apilayer.net/api/validate?access_key=317fca6d1dc194d6c5e5d16898b63ddf&number={operadora}&country_code=&format=1").json()
-
+    
     try:
-        error = data["error"]
         embed = discord.Embed(
-            title='⚠️ FORMATO INVÁLIDO! ⚠️',
-            description='',
+            title='',
         )
 
-        embed.set_author(name='', icon_url='')
-
+        embed.add_field(name="➢ VÁLIDO", value=data['valid'], inline=False)
+        embed.add_field(name="➢ NÚMERO", value=data['number'], inline=False)
+        embed.add_field(name="➢ FORMATO INTERNACIONAL", value=data['international_format'], inline=False)
+        embed.add_field(name="➢ DDI DO PAÍS", value=data['country_prefix'], inline=False)
+        embed.add_field(name="➢ CÓDIGO DO PAÍS", value=data['country_code'], inline=False)
+        embed.add_field(name="➢ NOME DO PAÍS", value=data['country_name'], inline=False)
+        embed.add_field(name="➢ LOCALIZAÇÃO", value=data['location'], inline=False)
+        embed.add_field(name="➢ OPERADORA/PROVEDOR", value=data['carrier'], inline=False)
+        embed.add_field(name="➢ LINHA DE DISPOSITÍVO", value=data['line_type'], inline=False)
+        embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)                
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE OPERADORAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
 
         return
@@ -560,39 +558,41 @@ async def operadora(ctx, operadora):
             title='',
         )
 
-    embed.add_field(name="➢ VÁLIDO", value=data['valid'], inline=False)
-    embed.add_field(name="➢ NÚMERO", value=data['number'], inline=False)
-    embed.add_field(name="➢ FORMATO INTERNACIONAL", value=data['international_format'], inline=False)
-    embed.add_field(name="➢ DDI DO PAÍS", value=data['country_prefix'], inline=False)
-    embed.add_field(name="➢ CÓDIGO DO PAÍS", value=data['country_code'], inline=False)
-    embed.add_field(name="➢ NOME DO PAÍS", value=data['country_name'], inline=False)
-    embed.add_field(name="➢ LOCALIZAÇÃO", value=data['location'], inline=False)
-    embed.add_field(name="➢ OPERADORA/PROVEDOR", value=data['carrier'], inline=False)
-    embed.add_field(name="➢ LINHA DE DISPOSITÍVO", value=data['line_type'], inline=False)
-
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE OPERADORAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
-    await ctx.send(embed=embed)
+    if (operadora == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO OPERADORAㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/operadora` e a {NÚMERO}", value='*Exemplo*: `/operadora +5511987654321`', inline=False)
+        embed.add_field(name="Observação:", value='*utilize o padrão universal.*', inline=False)        
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤㅤOPERADORA NÃO ENCONTRADAㅤㅤㅤ', icon_url='')
+       return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[𝑀𝑂𝐸𝐷𝐴𝑆]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑇𝐴𝐶̧𝐴̃𝑂 𝐷𝐸 𝑀𝑂𝐸𝐷𝐴𝑆
-async def cotacao(ctx, cotacao):
+async def cotacao(ctx, cotacao = None):
     data = requests.get(f"https://economia.awesomeapi.com.br/last/{cotacao}").json()
     coin_name = cotacao.replace("-", "")
 
     try:
-        error = data["message"]
         embed = discord.Embed(
-            title='⚠️ MOEDA NÃO ENCONTRADA ⚠️',
-            description='',
+            title='',
         )
 
         
-        embed.set_author(name='', icon_url='')
-
+        embed.add_field(name="➢ MOEDA A COMPARAR", value=data[coin_name]["code"], inline=False)
+        embed.add_field(name="➢ MOEDA A SER COMPARADA", value=data[coin_name]["codein"], inline=False)
+        embed.add_field(name="➢ NOME DAS PARIEDADES", value=data[coin_name]["name"], inline=False)
+        embed.add_field(name="➢ MÁXIMA DO DIA", value=data[coin_name]["high"], inline=False)
+        embed.add_field(name="➢ MÍNIMA DO DIA", value=data[coin_name]["low"], inline=False)
+        embed.add_field(name="➢ VARIAÇÃO", value=data[coin_name]["varBid"], inline=False)
+        embed.add_field(name="➢ PORCENTAGEM DE VARIAÇÃO", value=data[coin_name]["pctChange"], inline=False)
+        embed.add_field(name="➢ COMPRA", value=data[coin_name]["bid"], inline=False)
+        embed.add_field(name="➢ VENDA", value=data[coin_name]["ask"], inline=False)
+        embed.add_field(name="➢ ATUALIZAÇÃO", value=data[coin_name]["create_date"], inline=False)
+        embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)                
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCOTAÇÃO DE MOEDASㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
 
         return
@@ -602,39 +602,32 @@ async def cotacao(ctx, cotacao):
         embed = discord.Embed(
             title='',
         )
-    
-    embed.add_field(name="➢ MOEDA A COMPARAR", value=data[coin_name]["code"], inline=False)
-    embed.add_field(name="➢ MOEDA A SER COMPARADA", value=data[coin_name]["codein"], inline=False)
-    embed.add_field(name="➢ NOME DAS PARIEDADES", value=data[coin_name]["name"], inline=False)
-    embed.add_field(name="➢ MÁXIMA DO DIA", value=data[coin_name]["high"], inline=False)
-    embed.add_field(name="➢ MÍNIMA DO DIA", value=data[coin_name]["low"], inline=False)
-    embed.add_field(name="➢ VARIAÇÃO", value=data[coin_name]["varBid"], inline=False)
-    embed.add_field(name="➢ PORCENTAGEM DE VARIAÇÃO", value=data[coin_name]["pctChange"], inline=False)
-    embed.add_field(name="➢ COMPRA", value=data[coin_name]["bid"], inline=False)
-    embed.add_field(name="➢ VENDA", value=data[coin_name]["ask"], inline=False)
-    embed.add_field(name="➢ ATUALIZAÇÃO", value=data[coin_name]["create_date"], inline=False)
-
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCOTAÇÃO DE MOEDASㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
-    await ctx.send(embed=embed)
+        
+    if (cotacao == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO COTAÇÃOㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/cotacao` e o {PAR DE MOEDA} que deseja", value='*Exemplo*: `/cotacao BRL-USD`', inline=False)
+        embed.add_field(name="Observação:", value='*O par precisa ser separado com hifen*', inline=False)        
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤCOTAÇÃO DE MOEDAS INVÁLIDAㅤㅤㅤ', icon_url='')
+       return await ctx.send(embed=embed)        
 
 #--------------------------------------------------------[𝐷𝐷𝐷]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝐼𝐷𝐴𝐷𝐸𝑆 𝑃𝑂𝑅 𝐷𝐷𝐷
-async def ddd(ctx, ddd):
+async def ddd(ctx, ddd = None):
     data = requests.get(f"https://brasilapi.com.br/api/ddd/v1/{ddd}").json()
 
     try:
-        error = data["message"]
         embed = discord.Embed(
-            title='⚠️ CIDADE INVÁLIDA ⚠️',
-            description='',
+            title='',
         )
 
-        embed.set_author(name='', icon_url='')
-
+        embed.add_field(name="➢ ESTADO", value=data['state'], inline=False)
+        embed.add_field(name="➢ CIDADES", value='\n'.join([f"{city}" for city in data["cities"]]), inline=False)
+        embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)                
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CIDADES POR DDDㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
 
         return
@@ -645,29 +638,30 @@ async def ddd(ctx, ddd):
             title='',
         )
 
-    embed.add_field(name="➢ ESTADO", value=data['state'], inline=False)
-    embed.add_field(name="➢ CIDADES", value='\n'.join([f"{city}" for city in data["cities"]]), inline=False)
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CIDADES POR DDDㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
-    await ctx.send(embed=embed)
+    if (ddd == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO DDDㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/ddd` e o {DDD} que deseja", value='*Exemplo*: `/ddd 11`', inline=False)
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤDDD INVÁLIDOㅤㅤ', icon_url='')
+       return await ctx.send(embed=embed)        
 
 #--------------------------------------------------------[𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
-async def feriados(ctx, feriados):
+async def feriados(ctx, feriados = None):
     data = requests.get(f"https://brasilapi.com.br/api/feriados/v1/{feriados}").json()
 
     try:
-        error = data["message"]
         embed = discord.Embed(
-            title='⚠️ ANO INVÁLIDO (SUPORTADO SOMENTE DE 1900 À 2199) ⚠️',
-            description='',
+            title='',
         )
 
-        embed.set_author(name='', icon_url='')
-
+        embed.add_field(name="➢ FERIADOS", value='\n\n'.join([f"{holiday['name'].upper() + ' ★ ' + holiday['date'].replace('-', '/') + ' ★ ' + holiday['type'].replace('national', 'NACIONAL')}" for holiday in data]), inline=False)
+        embed.add_field(name="➢ INFOS", value='• As datas estão no formato Ano/Mês/Dia (Padrão ISO Date) (¬‿¬)', inline=False)
+        embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)                
+        embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE FERIADOS {feriados}ㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
 
         return
@@ -678,16 +672,16 @@ async def feriados(ctx, feriados):
             title='',
         )
 
-    embed.add_field(name="➢ FERIADOS", value='\n\n'.join([f"{holiday['name'].upper() + ' ★ ' + holiday['date'].replace('-', '/') + ' ★ ' + holiday['type'].replace('national', 'NACIONAL')}" for holiday in data]), inline=False)
-    embed.add_field(name="➢ INFOS", value='• As datas estão no formato Ano/Mês/Dia (Padrão ISO Date) (¬‿¬)', inline=False)
+    if (feriados == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO FERIADOSㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/feriados` e o {ANO}", value='*Exemplo*: `/feriados 2022`', inline=False)
+        embed.add_field(name="Observação:", value='*Suportado entre os anos 1900 e 2199*', inline=False)
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤFORMATO DO ANO INVÁLIDOㅤㅤ', icon_url='')
+       embed.add_field(name="ㅤ", value="*Utilize o comando: `/feriados` para obter mais informações.* ", inline=False)
+       return await ctx.send(embed=embed)        
 
-
-    embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE FERIADOS {feriados}ㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
-
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
-    await ctx.send(embed=embed)
-    
 ##GERADORES
     
 @client.command()
