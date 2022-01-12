@@ -723,11 +723,8 @@ async def ping(ctx):
 
     embed.add_field(name='➢ Ping do usuário', value=f"{round(client.latency * 500)} ms", inline=False)
     embed.add_field(name='➢ Ping do servidor', value=f"{round(client.latency * 1000)} ms", inline=False)
-
     embed.set_author(name='ㅤㅤㅤCONSULTA DE PINGㅤㅤㅤㅤ', icon_url='')
-
     embed.set_image(url='')
-
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
 
     await ctx.send(embed=embed)
@@ -741,12 +738,10 @@ async def traduzir(ctx):
         title='',
     )
     
+    embed.add_field(name="Use o comando: `/tradutor "Texto" LÍNGUA`", value='*Exemplo*: `/tradutor Oi en`', inline=False)
+    embed.set_author(name='ㅤㅤㅤCOMANDO PARA TRADUÇÃOㅤㅤㅤㅤ', icon_url='')
     embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/languages-1891105-1598018.png")
-
-    embed.add_field(name="➢ COMANDO PARA TRADUÇÃO", value='**/tradutor "Texto" LÍNGUA (Exemplo: en, es, pt)**', inline=False)
-
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
     await ctx.send(embed=embed)
     
 #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
@@ -762,11 +757,8 @@ async def tradutor(ctx, phrase, *, lang):
     phrase_translate = translator.translate(f"{phrase}", dest=lang)
     
     embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/languages-1891105-1598018.png")
-
     embed.add_field(name=f"➢ TEXTO TRADUZIDO PARA {lang.upper()}", value=f"{phrase_translate.text}", inline=False)
-
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-   
     await ctx.send(embed=embed)
     
     #--------------------------------------------------------[GIT]-------------------------------------------------------------#
@@ -774,15 +766,13 @@ async def tradutor(ctx, phrase, *, lang):
 @client.command()
 async def git(ctx):
     embed = discord.Embed(
-        title='➢ CONHEÇA O REPOSITÓRIO DOS DESENVOLVEDORES',
+        title='',
     )
     
     embed.set_thumbnail(url="https://img.icons8.com/ios-glyphs/60/ffffff/github.png")
-
+    embed.set_author(name='CONHEÇA O REPOSITÓRIO DOS DESENVOLVEDORES', icon_url='')
     embed.add_field(name=f"LINKS", value=f"💣 Discord el Marlboro#8779: https://github.com/victorftrdba \n💣 Discord ALIEN#7278: https://github.com/ALIENxp", inline=False)
-
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-   
     await ctx.send(embed=embed)
     
     #--------------------------------------------------------[AJUDA]-------------------------------------------------------------#
@@ -791,18 +781,17 @@ async def git(ctx):
 async def ajuda(ctx):
     embed = discord.Embed(
         title='',
-        description='',
+        colour=16777215,
     )
-
+    
+    embed.add_field(name="ㅤ", value='Olá, estou aqui para te ajudar! Aqui está algum dos comandos que o Artic possui. Ficou com alguma dúvida em relação aos comandos abaixo? Digite `/[NOME DO COMANDO]`. Exemplo: `/admin`  ', inline=False)
     embed.add_field(name="🔐 Moderação", value='Use o comando `/admin` para ver os comandos administrativos. Comando de moderação existentes: `/kick`, `/ban`, `unban`, `/unmute`, `/role`, `/mute`, `/clear` ', inline=False)
-    embed.add_field(name="🔍 Consultas", value='Use o comando `/consulta` para obter mais informações. Comandos de consultas disponíveis: `/nome`, `/cpf`, `/telefone`, `/cnpj`, `/placa`, `/ip` `/bin`, `/cep`, `/covid`, `/banco`, `/site`, e mais.', inline=False)
+    embed.add_field(name="🔍 Consultas", value='Use o comando `/consulta` para obter mais informações. Comandos de consultas disponíveis: `/nome`, `/cpf`, `/telefone`, `/placa`, `/cnpj`, `/ip` `/covid`, `/cep`, `/banco`, `/bin`, `/site`, `/operadora`, `/cotacao`, `/ddd` e `/feriados`.', inline=False)
     embed.add_field(name="🎵 Músicas", value='Use o comando `/musica` para vizualizar os comandos. Comandos acessíveis a classe: `/play`, `/stop`, `/pause`, `/resume`, `/back`, `/skip`, `/disconnect`', inline=False)
     embed.add_field(name="🪐 Informações", value='Use o comando `/info` para ver os comandos disponíveis. Comandos existentes: `/ajuda`, `/ping`, `/git`, `/serverinfo`, `/userinfo`', inline=False)
     embed.add_field(name="🉐 Tradutor", value='Use o comando `/traduzir` "Texto" Língua (Exemplo: en, es, pt, ru)', inline=False)
     embed.add_field(name="🎓 Diversos", value='Use o comando `/diversos` para vizualizar os comandos. Comandos disponíveis: `/cotacao`, `/traduzir`', inline=False)
-
-    embed.set_author(name='ㅤㅤㅤArtic Helperㅤㅤㅤ', icon_url='')
-
+    embed.set_author(name='Artic Helper', icon_url='')
     await ctx.author.send(embed=embed); 
 
 
