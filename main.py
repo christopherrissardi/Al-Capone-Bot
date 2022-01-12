@@ -35,7 +35,6 @@ async def clear_error(ctx, error):
 async def consulta(ctx):
     embed = discord.Embed(
         title='',
-        description='',
     )
 
     embed.add_field(name="🕵🏻‍♂️ CONSULTA POR NOME",
@@ -62,17 +61,48 @@ async def consulta(ctx):
                     value="Use o comando `/site` {URL DO SITE} para realizar a consulta.", inline=False)
     embed.add_field(name="📴 CONSULTA DE OPERADORA",
                     value="Use o comando `/operadora` {NÚMERO DE CELULAR} para realizar a consulta.", inline=False)    
+    embed.add_field(name="🤖 CONSULTA DE E-MAIL",
+                    value="Use o comando `/email` {EMAIL} para realizar a consulta.", inline=False)    
+    embed.set_image(url='https://i.gifer.com/Cewn.gif')
+    embed.set_author(name='Artic', icon_url='')
+    embed.set_footer(text='Artic © All Rights Reserved', icon_url='')
+    await ctx.send(embed=embed)
+
+    #--------------------------------------------------------[AJUDA]-------------------------------------------------------#
+
+@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴𝑆 𝐷𝐼𝑆𝑃𝑂𝑁𝐼́𝑉𝐸𝐼𝑆
+async def diversos(ctx):
+    embed = discord.Embed(
+        title='',
+    )
+
     embed.add_field(name="💰 CONSULTA DE COTAÇÃO",
                     value="Use o comando `/cotacao` {PAR DE MOEDA} para realizar a consulta.", inline=False)
     embed.add_field(name="🏙️ CONSULTA DE CIDADE POR DDD",
                     value="Use o comando `/ddd` {DDD} para realizar a consulta do IP.", inline=False)
     embed.add_field(name="💼 CONSULTA DE FERIADOS",
                     value="Use o comando `/feriados` {ANO} para realizar a consulta.", inline=False)
-    embed.set_image(url='https://i.gifer.com/Cewn.gif')
     embed.set_author(name='Artic', icon_url='')
     embed.set_footer(text='Artic © All Rights Reserved', icon_url='')
-
     await ctx.send(embed=embed)
+
+    #--------------------------------------------------------[AJUDA]-------------------------------------------------------#
+
+@client.command()
+async def ajuda(ctx):
+    embed = discord.Embed(
+        title='',
+    )
+    
+    embed.add_field(name="ㅤ", value='Olá, estou aqui para te ajudar! Aqui está algum dos comandos que o Artic possui. Ficou com alguma dúvida em relação aos comandos abaixo? Digite `/[NOME DO COMANDO]`. Exemplo: `/admin`  ', inline=False)
+    embed.add_field(name="🔐 Moderação", value='Use o comando `/admin` para ver os comandos administrativos. Comando de moderação existentes: `/kick`, `/ban`, `unban`, `/unmute`, `/role`, `/mute`, `/clear` ', inline=False)
+    embed.add_field(name="🔍 Consultas", value='Use o comando `/consulta` para obter mais informações. Comandos de consultas disponíveis: `/nome`, `/cpf`, `/telefone`, `/cnpj`, `/placa`, `/ip` `/bin`, `/cep`, `/covid`, `/banco`, `/site`, `/operadora`, `/email`.', inline=False)
+    embed.add_field(name="🎵 Músicas", value='Use o comando `/musica` para vizualizar os comandos. Comandos acessíveis a classe: `/play`, `/stop`, `/pause`, `/resume`, `/back`, `/skip`, `/disconnect`', inline=False)
+    embed.add_field(name="🪐 Informações", value='Use o comando `/info` para ver os comandos disponíveis. Comandos existentes: `/ajuda`, `/ping`, `/git`, `/serverinfo`, `/userinfo`', inline=False)
+    embed.add_field(name="🎓 Diversos", value='Use o comando `/diversos` para vizualizar os comandos. Comandos disponíveis: `/cotacao`, `/ddd`, `/feriados`, `/traduzir`', inline=False)    
+    embed.add_field(name="🉐 Tradutor", value='Use o comando `/traduzir` "Texto" Língua (Exemplo: en, es, pt, ru)', inline=False)
+    embed.set_author(name='Artic Helper', icon_url='')
+    await ctx.author.send(embed=embed); 
 
     #--------------------------------------------------------[NOME]-------------------------------------------------------#
 
@@ -552,7 +582,7 @@ async def operadora(ctx, operadora = None):
         embed.add_field(name="➢ OPERADORA/PROVEDOR", value=data['carrier'], inline=False)
         embed.add_field(name="➢ LINHA DE DISPOSITÍVO", value=data['line_type'], inline=False)
         embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)                
-        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE OPERADORAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCHECKER DE OPERADORAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
 
@@ -574,6 +604,48 @@ async def operadora(ctx, operadora = None):
        return await ctx.send(embed=embed)
 
     #--------------------------------------------------------[CORAÇÃO]-------------------------------------------------------------#
+
+@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑂𝑃𝐸𝑅𝐴𝐷𝑂𝑅𝐴
+async def email(ctx, email = None):
+    data = requests.get(f"http://apilayer.net/api/check?access_key=e3d07653b28027265c15d3218aaaa4c9&email={email}&smtp=1&format=1").json()
+    
+    try:
+        embed = discord.Embed(
+            title='',
+        )
+
+        embed.add_field(name="➢ E-MAIL", value=data['email'], inline=False)
+        embed.add_field(name="➢ USUÁRIO", value=data['user'], inline=False)
+        embed.add_field(name="➢ DOMÍNIO", value=data['domain'], inline=False)
+        embed.add_field(name="➢ FORMATO VALIDO", value=data['format_valid'], inline=False)
+        embed.add_field(name="➢ CORREIO ATIVO", value=data['mx_found'], inline=False)
+        embed.add_field(name="➢ SMTP DISPONÍVEL", value=data['smtp_check'], inline=False)
+        embed.add_field(name="➢ FUNÇÃO", value=data['role'], inline=False)
+        embed.add_field(name="➢ E-MAIL DISPONÍVEL", value=data['disposable'], inline=False)
+        embed.add_field(name="➢ GRATUITO", value=data['free'], inline=False)
+        embed.add_field(name="➢ PONTUAÇÃO", value=data['score'], inline=False)
+        
+        embed.add_field(name="ㅤ", value='➢ **BY ARTIC BOT V2**', inline=False)                
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCHECKER DE E-MAILㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        await ctx.send(embed=embed)
+
+        return
+    except Exception:
+        pass
+
+        embed = discord.Embed(
+            title='',
+        )
+
+    if (email == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO EMAILㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/email` e a {E-MAIL}", value='*Exemplo*: `/email google@gmail.com`', inline=False)
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='E-MAIL NÃO ENCONTRADAㅤㅤㅤ', icon_url='')
+       return await ctx.send(embed=embed)
+   
 
 @client.command() #𝐶𝑂𝑇𝐴𝐶̧𝐴̃𝑂 𝐷𝐸 𝑀𝑂𝐸𝐷𝐴𝑆
 async def cotacao(ctx, cotacao = None):
@@ -782,21 +854,7 @@ async def git(ctx):
     await ctx.send(embed=embed)
     
     #--------------------------------------------------------[AJUDA]-------------------------------------------------------------#
-       
-@client.command()
-async def ajuda(ctx):
-    embed = discord.Embed(
-        title='',
-    )
-    
-    embed.add_field(name="ㅤ", value='Olá, estou aqui para te ajudar! Aqui está algum dos comandos que o Artic possui. Ficou com alguma dúvida em relação aos comandos abaixo? Digite `/[NOME DO COMANDO]`. Exemplo: `/admin`  ', inline=False)
-    embed.add_field(name="🔐 Moderação", value='Use o comando `/admin` para ver os comandos administrativos. Comando de moderação existentes: `/kick`, `/ban`, `unban`, `/unmute`, `/role`, `/mute`, `/clear` ', inline=False)
-    embed.add_field(name="🔍 Consultas", value='Use o comando `/consulta` para obter mais informações. Comandos de consultas disponíveis: `/nome`, `/cpf`, `/telefone`, `/cnpj`, `/placa`, `/ip` `/bin`, `/cep`, `/covid`, `/banco`, `/site`, `/operadora`, `/cotacao`, `/ddd` e `/feriados`.', inline=False)
-    embed.add_field(name="🎵 Músicas", value='Use o comando `/musica` para vizualizar os comandos. Comandos acessíveis a classe: `/play`, `/stop`, `/pause`, `/resume`, `/back`, `/skip`, `/disconnect`', inline=False)
-    embed.add_field(name="🪐 Informações", value='Use o comando `/info` para ver os comandos disponíveis. Comandos existentes: `/ajuda`, `/ping`, `/git`, `/serverinfo`, `/userinfo`', inline=False)
-    embed.add_field(name="🉐 Tradutor", value='Use o comando `/traduzir` "Texto" Língua (Exemplo: en, es, pt, ru)', inline=False)
-    embed.add_field(name="🎓 Diversos", value='Use o comando `/diversos` para vizualizar os comandos. Comandos disponíveis: `/cotacao`, `/traduzir`', inline=False)
-    embed.set_author(name='Artic Helper', icon_url='')
-    await ctx.author.send(embed=embed); 
+
+
 
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
