@@ -861,12 +861,11 @@ async def git(ctx):
 async def thalinhogay(ctx):
     embed = discord.Embed(
         title='',
+        colour=15542407
     )
     
-    embed.add_field(name="ㅤ", value='THALISSON É MEIO GAYZINHO, EU SEI', inline=False)
-    embed.add_field(name="ㅤ", value='QUEM CONCORDA, FAVOR REAJIR COM: 🏳️‍🌈', inline=False)
-    embed.set_footer(text='Requested By T H A L I S S O N#3412')
-      
-
+    embed.add_field(name="THALISSON É MEIO GAYZINHO, EU SEI!", value='QUEM CONCORDA, FAVOR REAJIR COM: 🏳️‍🌈', inline=False)
+    embed.set_footer(text='O T H A L I S S O N#3412', icon_url='')
+    embed.set_image(url='https://i.imgur.com/H6AEOTb.jpg')
 
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
