@@ -867,5 +867,7 @@ async def thalinhogay(ctx):
     embed.add_field(name="THALISSON É MEIO GAYZINHO, EU SEI!", value='QUEM CONCORDA, FAVOR REAJIR COM: 🏳️‍🌈', inline=False)
     embed.set_footer(text='O T H A L I S S O N#3412', icon_url='')
     embed.set_image(url='https://i.imgur.com/H6AEOTb.jpg')
+    await ctx.send(embed=embed)
+
 
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
