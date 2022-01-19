@@ -865,7 +865,7 @@ async def thalinhogay(ctx):
     
     embed.add_field(name="ㅤ", value='THALISSON É MEIO GAYZINHO, EU SEI', inline=False)
     embed.add_field(name="ㅤ", value='QUEM CONCORDA, FAVOR REAJIR COM: 🏳️‍🌈', inline=False)
-    embed.set_footer(text='Requested By T H A L I S S O N#3412)
+    embed.set_footer(text='Requested By T H A L I S S O N#3412')
       
 
 
