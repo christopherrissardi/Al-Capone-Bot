@@ -603,7 +603,7 @@ async def operadora(ctx, operadora = None):
        embed.set_author(name='ㅤㅤㅤOPERADORA NÃO ENCONTRADAㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[CORAÇÃO]-------------------------------------------------------------#
+    #--------------------------------------------------------[EMAIL]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑂𝑃𝐸𝑅𝐴𝐷𝑂𝑅𝐴
 async def email(ctx, email = None):
@@ -620,7 +620,7 @@ async def email(ctx, email = None):
         embed.add_field(name="➢ FORMATO VALIDO", value=data['format_valid'], inline=False)
         embed.add_field(name="➢ CORREIO ATIVO", value=data['mx_found'], inline=False)
         embed.add_field(name="➢ SMTP DISPONÍVEL", value=data['smtp_check'], inline=False)
-        embed.add_field(name="➢ FUNÇÃO", value=data['role'], inline=False)
+        embed.add_field(name="➢ FUNÇÕES ATIVAS", value=data['role'], inline=False)
         embed.add_field(name="➢ E-MAIL DISPONÍVEL", value=data['disposable'], inline=False)
         embed.add_field(name="➢ GRATUITO", value=data['free'], inline=False)
         embed.add_field(name="➢ PONTUAÇÃO", value=data['score'], inline=False)
@@ -646,6 +646,8 @@ async def email(ctx, email = None):
        embed.set_author(name='E-MAIL NÃO ENCONTRADAㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
    
+    #--------------------------------------------------------[C0TAÇÃO]-------------------------------------------------------------#
+
 
 @client.command() #𝐶𝑂𝑇𝐴𝐶̧𝐴̃𝑂 𝐷𝐸 𝑀𝑂𝐸𝐷𝐴𝑆
 async def cotacao(ctx, cotacao = None):
@@ -855,6 +857,16 @@ async def git(ctx):
     
     #--------------------------------------------------------[AJUDA]-------------------------------------------------------------#
 
+@client.command()
+async def thalinhogay(ctx):
+    embed = discord.Embed(
+        title='',
+    )
+    
+    embed.add_field(name="ㅤ", value='THALISSON É MEIO GAYZINHO, EU SEI', inline=False)
+    embed.add_field(name="ㅤ", value='QUEM CONCORDA, FAVOR REAJIR COM: 🏳️‍🌈', inline=False)
+    embed.set_footer(text='Requested By T H A L I S S O N#3412)
+      
 
 
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
