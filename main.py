@@ -870,4 +870,37 @@ async def thalinhogay(ctx):
     await ctx.send(embed=embed)
 
 
+@client.command() #𝐶𝑂𝑇𝐴𝐶̧𝐴̃𝑂 𝐷𝐸 𝑀𝑂𝐸𝐷𝐴𝑆
+async def meuip(ctx, meuip = None):
+    data = requests.get(f"https://api.myip.com/").json()
+    
+    try:
+        embed = discord.Embed(
+            title='',
+        )
+
+        
+        embed.add_field(name="➢ MEU IP", value=data["ip"], inline=False)
+        embed.add_field(name="➢ PAÍS", value=data["country"], inline=False)
+        embed.add_field(name="➢ SIGLA", value=data["cc"], inline=False)
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        await ctx.send(embed=embed)
+
+        return
+    except Exception:
+        pass
+
+        embed = discord.Embed(
+            title='',
+        )
+        
+    if (meuip == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO MEU IPㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/meuip`", value='*Exemplo*: `/meuip`', inline=False)
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤIP NÃO ENCONTRAADOㅤㅤㅤ', icon_url='')
+       return await ctx.send(embed=embed)        
+   
+        
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
