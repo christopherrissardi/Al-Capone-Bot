@@ -797,30 +797,6 @@ async def gerador(ctx):
     #--------------------------------------------------------[PING]-------------------------------------------------------------#
     
 @client.command()
-async def gerarpessoa(ctx, gerarpessoa):
-    data = requests.get(f"https://api.invertexto.com/v1/faker?token=330%7Cj5OPUjVwN6E7YYwSObfKVwM3u0Aq1qdn").json()
-
-    embed = discord.Embed(
-        title='',
-    )
-    
-    embed.add_field(name="➢ NOME", value=data['name'], inline=False)
-    embed.add_field(name="➢ CPF", value=data['cpf'], inline=False)
-    embed.add_field(name="➢ DATA DE NASCIMENTO", value=data['birth_date'], inline=False)
-    embed.add_field(name="➢ NÚMERO DE TELEFONE", value=data['phone_number'], inline=False)
-    embed.add_field(name="➢ NOME DE USUÁRIO", value=data['username'], inline=False)
-    embed.add_field(name="➢ E-MAIL", value=data['email'], inline=False)
-    embed.add_field(name="➢ SENHA", value=data['password'], inline=False)
-    embed.add_field(name="➢ CNPJ", value=data['cnpj'], inline=False)
-    embed.add_field(name="➢ SITE", value=data['domain_name'], inline=False)
-    embed.add_field(name="➢ COMPANHIA", value=data['company'], inline=False)
-    embed.add_field(name="➢ IP", value=data['ipv4'], inline=False)
-    embed.add_field(name="➢ NAVEGADOR", value=data['user_agent'], inline=False)
-    await ctx.send(embed=embed)
-    
-     #--------------------------------------------------------[GERADOR]-------------------------------------------------------------#
-
-@client.command()
 async def ping(ctx):
     embed = discord.Embed(
         title='',
