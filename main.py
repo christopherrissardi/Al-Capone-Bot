@@ -1,3 +1,4 @@
+from turtle import title
 import discord
 import json
 import requests
@@ -123,6 +124,7 @@ async def nome(ctx):
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑃𝐹
 async def cpf(ctx):
+
     embed = discord.Embed(
         title='',
         description='A Consulta por ***CPF*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***CPF!***',
@@ -795,6 +797,30 @@ async def gerador(ctx):
     #--------------------------------------------------------[PING]-------------------------------------------------------------#
     
 @client.command()
+async def gerarpessoa(ctx, gerarpessoa):
+    data = requests.get(f"https://api.invertexto.com/v1/faker?token=330%7Cj5OPUjVwN6E7YYwSObfKVwM3u0Aq1qdn").json()
+
+    embed = discord.Embed(
+        title='',
+    )
+    
+    embed.add_field(name="➢ NOME", value=data['name'], inline=False)
+    embed.add_field(name="➢ CPF", value=data['cpf'], inline=False)
+    embed.add_field(name="➢ DATA DE NASCIMENTO", value=data['birth_date'], inline=False)
+    embed.add_field(name="➢ NÚMERO DE TELEFONE", value=data['phone_number'], inline=False)
+    embed.add_field(name="➢ NOME DE USUÁRIO", value=data['username'], inline=False)
+    embed.add_field(name="➢ E-MAIL", value=data['email'], inline=False)
+    embed.add_field(name="➢ SENHA", value=data['password'], inline=False)
+    embed.add_field(name="➢ CNPJ", value=data['cnpj'], inline=False)
+    embed.add_field(name="➢ SITE", value=data['domain_name'], inline=False)
+    embed.add_field(name="➢ COMPANHIA", value=data['company'], inline=False)
+    embed.add_field(name="➢ IP", value=data['ipv4'], inline=False)
+    embed.add_field(name="➢ NAVEGADOR", value=data['user_agent'], inline=False)
+    await ctx.send(embed=embed)
+    
+     #--------------------------------------------------------[GERADOR]-------------------------------------------------------------#
+
+@client.command()
 async def ping(ctx):
     embed = discord.Embed(
         title='',
@@ -868,39 +894,7 @@ async def thalinhogay(ctx):
     embed.set_footer(text=' Requerido por: T H A L I S S O N#3412', icon_url='')
     embed.set_image(url='https://i.imgur.com/H6AEOTb.jpg')
     await ctx.send(embed=embed)
-
-
-@client.command() #𝐶𝑂𝑇𝐴𝐶̧𝐴̃𝑂 𝐷𝐸 𝑀𝑂𝐸𝐷𝐴𝑆
-async def meuip(ctx, meuip = None):
-    data = requests.get(f"https://api.myip.com/").json()
-    
-    try:
-        embed = discord.Embed(
-            title='',
-        )
-
-        
-        embed.add_field(name="➢ MEU IP", value=data["ip"], inline=False)
-        embed.add_field(name="➢ PAÍS", value=data["country"], inline=False)
-        embed.add_field(name="➢ SIGLA", value=data["cc"], inline=False)
-        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-        await ctx.send(embed=embed)
-
-        return
-    except Exception:
-        pass
-
-        embed = discord.Embed(
-            title='',
-        )
-        
-    if (meuip == None):
-        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO MEU IPㅤㅤㅤ', icon_url='')
-        embed.add_field(name="Use o comando: `/meuip`", value='*Exemplo*: `/meuip`', inline=False)
-        return await ctx.send(embed=embed)
-    else:
-       embed.set_author(name='ㅤㅤIP NÃO ENCONTRAADOㅤㅤㅤ', icon_url='')
-       return await ctx.send(embed=embed)        
    
+
         
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
