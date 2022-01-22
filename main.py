@@ -95,7 +95,7 @@ async def ajuda(ctx):
     )
     
     embed.add_field(name="ㅤ", value='Olá, estou aqui para te ajudar! Aqui está algum dos comandos que o Artic possui. Ficou com alguma dúvida em relação aos comandos abaixo? Digite `/[NOME DO COMANDO]`. Exemplo: `/admin`  ', inline=False)
-    embed.add_field(name="🔐 Moderação", value='Use o comando `/admin` para ver os comandos administrativos. Comando de moderação existentes: `/kick`, `/ban`, `unban`, `/unmute`, `/role`, `/mute`, `/clear` ', inline=False)
+    embed.add_field(name="🔐 Moderação", value='Use o comando `/admin` para ver os comandos administrativos. Comando de moderação existentes: `/kick`, `/ban`, `/unban`, `/unmute`, `/role`, `/mute`, `/clear` ', inline=False)
     embed.add_field(name="🔍 Consultas", value='Use o comando `/consulta` para obter mais informações. Comandos de consultas disponíveis: `/nome`, `/cpf`, `/telefone`, `/cnpj`, `/placa`, `/ip` `/bin`, `/cep`, `/covid`, `/banco`, `/site`, `/operadora`, `/email`.', inline=False)
     embed.add_field(name="🎵 Músicas", value='Use o comando `/musica` para vizualizar os comandos. Comandos acessíveis a classe: `/play`, `/stop`, `/pause`, `/resume`, `/back`, `/skip`, `/disconnect`', inline=False)
     embed.add_field(name="🪐 Informações", value='Use o comando `/info` para ver os comandos disponíveis. Comandos existentes: `/ajuda`, `/ping`, `/git`, `/serverinfo`, `/userinfo`', inline=False)
@@ -760,7 +760,7 @@ async def feriados(ctx, feriados = None):
         embed.add_field(name="Observação:", value='*Suportado entre os anos 1900 e 2199*', inline=False)
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤFORMATO DO ANO INVÁLIDOㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤㅤㅤFORMATO DO ANO INVÁLIDOㅤㅤ', icon_url='')
        embed.add_field(name="ㅤ", value="*Utilize o comando: `/feriados` para obter mais informações.* ", inline=False)
        return await ctx.send(embed=embed)        
 
