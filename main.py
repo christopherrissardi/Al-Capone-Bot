@@ -810,7 +810,6 @@ async def ping(ctx):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
 
-    
 #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
@@ -870,4 +869,5 @@ async def thalinhogay(ctx):
     embed.set_image(url='https://i.imgur.com/H6AEOTb.jpg')
     await ctx.send(embed=embed)
         
-client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
+
+client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ._9s0Rju0_2S1FJu33zohezmyc_M')
