@@ -1,4 +1,3 @@
-from turtle import title
 import discord
 import json
 import requests
