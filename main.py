@@ -30,7 +30,7 @@ async def clear_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArguments):
         await ctx.send('...')
 
-    #--------------------------------------------------------[DISPONÍVEIS]-------------------------------------------------------#
+#--------------------------------------------------------[DISPONÍVEIS]-------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴𝑆 𝐷𝐼𝑆𝑃𝑂𝑁𝐼́𝑉𝐸𝐼𝑆
 async def consulta(ctx):
@@ -69,7 +69,7 @@ async def consulta(ctx):
     embed.set_footer(text='Artic © All Rights Reserved', icon_url='')
     await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[AJUDA]-------------------------------------------------------#
+#--------------------------------------------------------[AJUDA]-------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴𝑆 𝐷𝐼𝑆𝑃𝑂𝑁𝐼́𝑉𝐸𝐼𝑆
 async def diversos(ctx):
@@ -87,7 +87,7 @@ async def diversos(ctx):
     embed.set_footer(text='Artic © All Rights Reserved', icon_url='')
     await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[AJUDA]-------------------------------------------------------#
+#--------------------------------------------------------[AJUDA]-------------------------------------------------------#
 
 @client.command()
 async def ajuda(ctx):
@@ -105,7 +105,7 @@ async def ajuda(ctx):
     embed.set_author(name='Artic Helper', icon_url='')
     await ctx.author.send(embed=embed); 
 
-    #--------------------------------------------------------[NOME]-------------------------------------------------------#
+#--------------------------------------------------------[NOME]-------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑁𝑂𝑀𝐸
 async def nome(ctx):
@@ -120,7 +120,7 @@ async def nome(ctx):
 
     await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[CPF]---------------------------------------------------------#
+#--------------------------------------------------------[CPF]---------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑃𝐹
 async def cpf(ctx):
@@ -159,7 +159,7 @@ async def cpf(ctx):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[TELEFONE]-------------------------------------------------------------#
+#--------------------------------------------------------[TELEFONE]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑇𝐸𝐿𝐸𝐹𝑂𝑁𝐸
 async def telefone(ctx):
@@ -183,7 +183,7 @@ async def telefone(ctx):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[PLACA]-------------------------------------------------------------#
+#--------------------------------------------------------[PLACA]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑃𝐿𝐴𝐶𝐴
 async def placa(ctx):
@@ -232,7 +232,7 @@ async def placa(ctx):
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[CNPJ]-------------------------------------------------------------#
+#--------------------------------------------------------[CNPJ]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑁𝑃𝐽
 async def cnpj(ctx, cnpj = 0):
@@ -315,7 +315,7 @@ async def cnpj(ctx, cnpj = 0):
        embed.set_author(name='ㅤㅤㅤㅤCNPJ NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[IP]-------------------------------------------------------------#
+#--------------------------------------------------------[IP]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐼𝑃
 async def ip(ctx, ip = None):
@@ -360,7 +360,7 @@ async def ip(ctx, ip = None):
        embed.set_author(name='ㅤㅤㅤIP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[COVID19]-------------------------------------------------------------#
+#--------------------------------------------------------[COVID19]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑂𝑉𝐼𝐷19
 async def covid(ctx, covid = None):
@@ -401,7 +401,7 @@ async def covid(ctx, covid = None):
        embed.add_field(name="ㅤ", value="*Utilize o comando: `/covid` para obter mais informações.* ", inline=False)
        return await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[CEP]-------------------------------------------------------------#
+#--------------------------------------------------------[CEP]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝐸𝑃
 async def cep(ctx, cep = None):
@@ -444,7 +444,7 @@ async def cep(ctx, cep = None):
        embed.set_author(name='ㅤㅤㅤCEP NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
    
-    #--------------------------------------------------------[BANCO]-------------------------------------------------------------#
+#--------------------------------------------------------[BANCO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐶𝑂́𝐷𝐼𝐺𝑂 𝐵𝐴𝑁𝐶𝐴́𝑅𝐼𝑂
 async def banco(ctx, banco = None):
@@ -481,7 +481,7 @@ async def banco(ctx, banco = None):
        embed.set_author(name='ㅤㅤCÓDIGO BANCÁRIO NÃO ENCONTRADOㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[BIN]-------------------------------------------------------------#
+#--------------------------------------------------------[BIN]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐵𝐼𝑁
 async def bin(ctx, bin = None):
@@ -522,7 +522,7 @@ async def bin(ctx, bin = None):
        embed.set_author(name='ㅤㅤㅤBIN NÃO ENCONTRADAㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[SITE]-------------------------------------------------------------#
+#--------------------------------------------------------[SITE]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑆𝐼𝑇𝐸
 async def site(ctx, site = None):
@@ -563,7 +563,7 @@ async def site(ctx, site = None):
        embed.set_author(name='ㅤㅤㅤSITE NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[OPERADORA]-------------------------------------------------------------#
+#--------------------------------------------------------[OPERADORA]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑂𝑃𝐸𝑅𝐴𝐷𝑂𝑅𝐴
 async def operadora(ctx, operadora = None):
@@ -605,7 +605,7 @@ async def operadora(ctx, operadora = None):
        embed.set_author(name='ㅤㅤㅤOPERADORA NÃO ENCONTRADAㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[EMAIL]-------------------------------------------------------------#
+#--------------------------------------------------------[EMAIL]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑂𝑃𝐸𝑅𝐴𝐷𝑂𝑅𝐴
 async def email(ctx, email = None):
@@ -648,7 +648,7 @@ async def email(ctx, email = None):
        embed.set_author(name='E-MAIL NÃO ENCONTRADAㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
    
-    #--------------------------------------------------------[C0TAÇÃO]-------------------------------------------------------------#
+#--------------------------------------------------------[C0TAÇÃO]-------------------------------------------------------------#
 
 
 @client.command() #𝐶𝑂𝑇𝐴𝐶̧𝐴̃𝑂 𝐷𝐸 𝑀𝑂𝐸𝐷𝐴𝑆
@@ -694,7 +694,7 @@ async def cotacao(ctx, cotacao = None):
        embed.set_author(name='ㅤㅤCOTAÇÃO DE MOEDAS INVÁLIDAㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)        
 
-    #--------------------------------------------------------[DDD]-------------------------------------------------------------#
+#--------------------------------------------------------[DDD]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝐼𝐷𝐴𝐷𝐸𝑆 𝑃𝑂𝑅 𝐷𝐷𝐷
 async def ddd(ctx, ddd = None):
@@ -728,7 +728,7 @@ async def ddd(ctx, ddd = None):
        embed.set_author(name='ㅤㅤDDD INVÁLIDOㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)        
 
-    #--------------------------------------------------------[FERIADOS]-------------------------------------------------------------#
+#--------------------------------------------------------[FERIADOS]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
 async def feriados(ctx, feriados = None):
@@ -764,7 +764,7 @@ async def feriados(ctx, feriados = None):
        embed.add_field(name="ㅤ", value="*Utilize o comando: `/feriados` para obter mais informações.* ", inline=False)
        return await ctx.send(embed=embed)        
 
-    #--------------------------------------------------------[GERADOR]-------------------------------------------------------------#
+#--------------------------------------------------------[GERADOR]-------------------------------------------------------------#
     
 @client.command()
 async def gerador(ctx):
@@ -794,7 +794,7 @@ async def gerador(ctx):
     embed.set_footer(text='Artic © All Rights Reserved', icon_url='')
     await ctx.send(embed=embed)
 
-    #--------------------------------------------------------[PING]-------------------------------------------------------------#
+#--------------------------------------------------------[PING]-------------------------------------------------------------#
 
 @client.command()
 async def ping(ctx):
@@ -808,7 +808,6 @@ async def ping(ctx):
     embed.set_author(name='ㅤㅤㅤCONSULTA DE PINGㅤㅤㅤㅤ', icon_url='')
     embed.set_image(url='')
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
     await ctx.send(embed=embed)
 
     
@@ -842,9 +841,9 @@ async def tradutor(ctx, phrase, *, lang):
     embed.add_field(name=f"➢ TEXTO TRADUZIDO PARA {lang.upper()}", value=f"{phrase_translate.text}", inline=False)
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
-    
-    #--------------------------------------------------------[GIT]-------------------------------------------------------------#
-    
+
+#--------------------------------------------------------[GIT]-------------------------------------------------------------#
+
 @client.command()
 async def git(ctx):
     embed = discord.Embed(
@@ -856,9 +855,9 @@ async def git(ctx):
     embed.add_field(name=f"LINKS", value=f"💣 Discord el Marlboro#8779: https://github.com/victorftrdba \n💣 Discord ALIEN#7278: https://github.com/ALIENxp", inline=False)
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
-    
-    #--------------------------------------------------------[AJUDA]-------------------------------------------------------------#
 
+#--------------------------------------------------------[AJUDA]-------------------------------------------------------------#
+    
 @client.command()
 async def thalinhogay(ctx):
     embed = discord.Embed(
@@ -870,7 +869,5 @@ async def thalinhogay(ctx):
     embed.set_footer(text=' Requerido por: T H A L I S S O N#3412', icon_url='')
     embed.set_image(url='https://i.imgur.com/H6AEOTb.jpg')
     await ctx.send(embed=embed)
-   
-
         
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ.jzB9TOCJsECFmCg66yXf7VMPPk4')
