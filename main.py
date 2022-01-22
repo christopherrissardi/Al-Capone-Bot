@@ -795,7 +795,7 @@ async def gerador(ctx):
     await ctx.send(embed=embed)
 
     #--------------------------------------------------------[PING]-------------------------------------------------------------#
-    
+
 @client.command()
 async def ping(ctx):
     embed = discord.Embed(
