@@ -102,6 +102,7 @@ async def ajuda(ctx):
     embed.add_field(name="🪐 Informações", value='Use o comando `/info` para ver os comandos disponíveis. Comandos existentes: `/ajuda`, `/ping`, `/git`, `/serverinfo`, `/userinfo`', inline=False)
     embed.add_field(name="🎓 Diversos", value='Use o comando `/diversos` para vizualizar os comandos. Comandos disponíveis: `/cotacao`, `/ddd`, `/feriados`, `/traduzir`', inline=False)    
     embed.add_field(name="🉐 Tradutor", value='Use o comando `/traduzir` "Texto" Língua (Exemplo: en, es, pt, ru)', inline=False)
+    embed.set_image(url="https://i.imgur.com/Qkn02zM.jpg")
     embed.set_author(name='Artic Helper', icon_url='')
     await ctx.author.send(embed=embed); 
 
