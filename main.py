@@ -29,13 +29,18 @@ async def clear_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArguments):
         await ctx.send('...')
 
+@client.event
+async def on_member_join(member):
+    embed=discord.Embed(
+        title="Bem vindo!",
+        description="{member.mention} "
+    )
+    
 #--------------------------------------------------------[DISPONÍVEIS]-------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴𝑆 𝐷𝐼𝑆𝑃𝑂𝑁𝐼́𝑉𝐸𝐼𝑆
 async def consulta(ctx):
-    embed = discord.Embed(
-        title='',
-    )
+    embed = discord.Embed(title='',)
 
     embed.add_field(name="🕵🏻‍♂️ CONSULTA POR NOME",
                     value="Use o comando `/nome` {NOME COMPLETO} para realizar a consulta.", inline=False)
@@ -72,10 +77,8 @@ async def consulta(ctx):
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴𝑆 𝐷𝐼𝑆𝑃𝑂𝑁𝐼́𝑉𝐸𝐼𝑆
 async def diversos(ctx):
-    embed = discord.Embed(
-        title='',
-    )
-
+    embed = discord.Embed(title='')
+    
     embed.add_field(name="💰 CONSULTA DE COTAÇÃO",
                     value="Use o comando `/cotacao` {PAR DE MOEDA} para realizar a consulta.", inline=False)
     embed.add_field(name="🏙️ CONSULTA DE CIDADE POR DDD",
@@ -90,9 +93,7 @@ async def diversos(ctx):
 
 @client.command()
 async def ajuda(ctx):
-    embed = discord.Embed(
-        title='',
-    )
+    embed = discord.Embed(title='')
     
     embed.add_field(name="ㅤ", value='Olá, estou aqui para te ajudar! Aqui está algum dos comandos que o Arctic possui. Ficou com alguma dúvida em relação aos comandos abaixo? Digite `/[NOME DO COMANDO]`. Exemplo: `/admin`  ', inline=False)
     embed.add_field(name="🔐 Moderação", value='Use o comando `/admin` para ver os comandos administrativos. Comando de moderação existentes: `/kick`, `/ban`, `/unban`, `/unmute`, `/role`, `/mute`, `/clear` ', inline=False)
@@ -109,15 +110,10 @@ async def ajuda(ctx):
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑁𝑂𝑀𝐸
 async def nome(ctx):
-    embed = discord.Embed(
-        title='',
-        description='A Consulta por ***NOME*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***nome***!',
-    )
+    embed = discord.Embed(title='', description='A Consulta por ***NOME*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***nome***!',)
 
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE NOMEㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-
     await ctx.send(embed=embed)
 
 #--------------------------------------------------------[CPF]---------------------------------------------------------#
@@ -125,10 +121,7 @@ async def nome(ctx):
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑃𝐹
 async def cpf(ctx):
 
-    embed = discord.Embed(
-        title='',
-        description='A Consulta por ***CPF*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***CPF!***',
-    )
+    embed = discord.Embed(title='', description='A Consulta por ***CPF*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***CPF!***',)
 
     embed.add_field(name="• CPF", value='SEM INFORMAÇÃO', inline=False)
     embed.add_field(name="• CNS", value='SEM INFORMAÇÃO', inline=False)
@@ -163,10 +156,7 @@ async def cpf(ctx):
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑇𝐸𝐿𝐸𝐹𝑂𝑁𝐸
 async def telefone(ctx):
-    embed = discord.Embed(
-        title='',
-        description='A Consulta por ***TELEFONE*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***telefone!***',
-    )
+    embed = discord.Embed(title='', description='A Consulta por ***TELEFONE*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***telefone!***',)
 
     embed.add_field(name="• TELEFONE", value='SEM INFORMAÇÃO', inline=False)
     embed.add_field(name="• NOME", value='SEM INFORMAÇÃO', inline=False)
@@ -187,10 +177,7 @@ async def telefone(ctx):
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑃𝐿𝐴𝐶𝐴
 async def placa(ctx):
-    embed = discord.Embed(
-        title='',
-        description='A Consulta por ***PLACA*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***placa!***',
-    )
+    embed = discord.Embed(title='', description='A Consulta por ***PLACA*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***placa!***',)
 
     embed.add_field(name="• PLACA", value='SEM INFORMAÇÃO', inline=False)
     embed.add_field(name="• SITUAÇÃO", value='SEM INFORMAÇÃO', inline=False)
@@ -240,9 +227,7 @@ async def cnpj(ctx, cnpj = 0):
 
 
     try:
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
         
         validateCnpj = data["cnpj"] if data["cnpj"] != "" else "Não encontrado"
         validateNome = data["nome_fantasia"] if data["nome_fantasia"] != "" else "Não encontrado"
@@ -302,10 +287,8 @@ async def cnpj(ctx, cnpj = 0):
     except Exception:
         pass
 
-        embed = discord.Embed(
-            title='',
-        )
-            
+        embed = discord.Embed(title='')
+
     if (cnpj == 0):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO CNPJㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/cnpj` e o {CNPJ} que deseja.", value='*Exemplo: `/cnpj` 12345678901234*', inline=False)
@@ -322,9 +305,7 @@ async def ip(ctx, ip = None):
     data = requests.get(f"http://ipwhois.app/json/{ip}").json()
     
     try:
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
         validateAsn = data["asn"] if data["asn"] != "" else "Não encontrado"
 
@@ -348,9 +329,7 @@ async def ip(ctx, ip = None):
     except Exception:
         pass
          
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
     
     if (ip == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO IPㅤㅤㅤ', icon_url='')
@@ -367,9 +346,7 @@ async def covid(ctx, covid = None):
     data = requests.get(f"https://covid19-brazil-api.vercel.app/api/report/v1/brazil/uf/{covid}").json()
 
     try:
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
         embed.add_field(name="• ESTADO", value=data['state'], inline=False)
         embed.add_field(name="• CASOS", value=data['cases'], inline=False)
@@ -386,9 +363,7 @@ async def covid(ctx, covid = None):
     except Exception:
         pass
 
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
     if (covid == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO COVIDㅤㅤㅤ', icon_url='')
@@ -408,9 +383,7 @@ async def cep(ctx, cep = None):
     data = requests.get(f"https://cep.awesomeapi.com.br/json/{cep}").json()
 
     try:
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
         embed.add_field(name="• CEP", value=data['cep'], inline=False)
         embed.add_field(name="• RUA", value=data['address'], inline=False)
@@ -431,9 +404,7 @@ async def cep(ctx, cep = None):
     except Exception:
         pass
 
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
     if (cep == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO CEPㅤㅤㅤ', icon_url='')
@@ -451,9 +422,7 @@ async def banco(ctx, banco = None):
     data = requests.get(f"https://brasilapi.com.br/api/banks/v1/{banco}").json()
 
     try:
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
         embed.add_field(name="• ISPB", value=data['ispb'], inline=False)
         embed.add_field(name="• NOME DO BANCO", value=data['name'], inline=False)
@@ -468,9 +437,7 @@ async def banco(ctx, banco = None):
     except Exception:
         pass
 
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
     if (banco == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO BANCOㅤㅤㅤ', icon_url='')
@@ -489,9 +456,7 @@ async def bin(ctx, bin = None):
         f"https://api.bincodes.com/bin/?format=json&api_key=c0107d14acda7e1831dfe26ee8e8b3a5&bin={bin}").json()
 
     try:
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
         embed.add_field(name="• BIN", value=data['bin'], inline=False)
         embed.add_field(name="• MODELO", value=data['type'], inline=False)
@@ -509,9 +474,7 @@ async def bin(ctx, bin = None):
     except Exception:
         pass
 
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
     if (bin == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO BINㅤㅤㅤ', icon_url='')
@@ -529,9 +492,7 @@ async def site(ctx, site = None):
     data = requests.get(f"http://ipwhois.app/json/{site}").json()
 
     try:
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
         embed.add_field(name="• IP", value=data['ip'], inline=False)
         embed.add_field(name="• CIDADE", value=data['city'], inline=False)
@@ -551,9 +512,7 @@ async def site(ctx, site = None):
     except Exception:
         pass
 
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
     if (site == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO SITEㅤㅤㅤ', icon_url='')
@@ -570,9 +529,7 @@ async def operadora(ctx, operadora = None):
     data = requests.get(f"http://apilayer.net/api/validate?access_key=317fca6d1dc194d6c5e5d16898b63ddf&number={operadora}&country_code=&format=1").json()
     
     try:
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
         embed.add_field(name="• VÁLIDO", value=data['valid'], inline=False)
         embed.add_field(name="• NÚMERO", value=data['number'], inline=False)
@@ -592,9 +549,7 @@ async def operadora(ctx, operadora = None):
     except Exception:
         pass
 
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
     if (operadora == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO OPERADORAㅤㅤㅤ', icon_url='')
@@ -612,9 +567,7 @@ async def email(ctx, email = None):
     data = requests.get(f"http://apilayer.net/api/check?access_key=e3d07653b28027265c15d3218aaaa4c9&email={email}&smtp=1&format=1").json()
     
     try:
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
         embed.add_field(name="• E-MAIL", value=data['email'], inline=False)
         embed.add_field(name="• USUÁRIO", value=data['user'], inline=False)
@@ -635,9 +588,7 @@ async def email(ctx, email = None):
     except Exception:
         pass
 
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
     if (email == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO EMAILㅤㅤㅤ', icon_url='')
@@ -649,17 +600,13 @@ async def email(ctx, email = None):
    
 #--------------------------------------------------------[C0TAÇÃO]-------------------------------------------------------------#
 
-
 @client.command() #𝐶𝑂𝑇𝐴𝐶̧𝐴̃𝑂 𝐷𝐸 𝑀𝑂𝐸𝐷𝐴𝑆
 async def cotacao(ctx, cotacao = None):
     data = requests.get(f"https://economia.awesomeapi.com.br/last/{cotacao}").json()
     coin_name = cotacao.replace("-", "")
 
     try:
-        embed = discord.Embed(
-            title='',
-        )
-
+        embed = discord.Embed(title='')
         
         embed.add_field(name="• MOEDA A COMPARAR", value=data[coin_name]["code"], inline=False)
         embed.add_field(name="• MOEDA A SER COMPARADA", value=data[coin_name]["codein"], inline=False)
@@ -680,10 +627,8 @@ async def cotacao(ctx, cotacao = None):
     except Exception:
         pass
 
-        embed = discord.Embed(
-            title='',
-        )
-        
+        embed = discord.Embed(title='')
+    
     if (cotacao == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO COTAÇÃOㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/cotacao` e o {PAR DE MOEDA} que deseja", value='*Exemplo*: `/cotacao BRL-USD`', inline=False)
@@ -700,9 +645,7 @@ async def ddd(ctx, ddd = None):
     data = requests.get(f"https://brasilapi.com.br/api/ddd/v1/{ddd}").json()
 
     try:
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
         embed.add_field(name="• ESTADO", value=data['state'], inline=False)
         embed.add_field(name="• CIDADES", value='\n'.join([f"{city}" for city in data["cities"]]), inline=False)
@@ -715,9 +658,7 @@ async def ddd(ctx, ddd = None):
     except Exception:
         pass
 
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
     if (ddd == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO DDDㅤㅤㅤ', icon_url='')
@@ -734,9 +675,7 @@ async def feriados(ctx, feriados = None):
     data = requests.get(f"https://brasilapi.com.br/api/feriados/v1/{feriados}").json()
 
     try:
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
         embed.add_field(name="• FERIADOS", value='\n\n'.join([f"{holiday['name'].upper() + ' ★ ' + holiday['date'].replace('-', '/') + ' ★ ' + holiday['type'].replace('national', 'NACIONAL')}" for holiday in data]), inline=False)
         embed.add_field(name="• INFO", value='As datas estão no formato Ano/Mês/Dia (Padrão ISO Date)', inline=False)
@@ -749,9 +688,7 @@ async def feriados(ctx, feriados = None):
     except Exception:
         pass
 
-        embed = discord.Embed(
-            title='',
-        )
+        embed = discord.Embed(title='')
 
     if (feriados == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO FERIADOSㅤㅤㅤ', icon_url='')
@@ -768,9 +705,8 @@ async def feriados(ctx, feriados = None):
     
 @client.command()
 async def gerador(ctx):
-    embed = discord.Embed(
-        title='',
-    )
+
+    embed = discord.Embed(title='')
 
     embed.add_field(name="👥 GERADOR DE PESSOA", value="Use o comando `/gerarpessoa` para gerar uma pessoa.",
                     inline=False)
@@ -798,9 +734,7 @@ async def gerador(ctx):
 
 @client.command()
 async def ping(ctx):
-    embed = discord.Embed(
-        title='',
-    )
+    embed = discord.Embed(title='')
 
 
     embed.add_field(name='• Ping do usuário', value=f"{round(client.latency * 500)} ms", inline=False)
@@ -814,9 +748,7 @@ async def ping(ctx):
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
 async def traduzir(ctx):    
-    embed = discord.Embed(
-        title='',
-    )
+    embed = discord.Embed(title='')
     
     embed.add_field(name="Use o comando: `/tradutor [TEXTO] LÍNGUA`", value='*Exemplo*: `/tradutor Hello en`', inline=False)
     embed.set_author(name='ㅤㅤㅤCOMANDO PARA TRADUÇÃOㅤㅤㅤㅤ', icon_url='')
@@ -828,9 +760,7 @@ async def traduzir(ctx):
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
 async def tradutor(ctx, phrase, *, lang):    
-    embed = discord.Embed(
-        title='',
-    )
+    embed = discord.Embed(title='')
     
     translator = Translator()
 
@@ -845,9 +775,7 @@ async def tradutor(ctx, phrase, *, lang):
 
 @client.command()
 async def git(ctx):
-    embed = discord.Embed(
-        title='',
-    )
+    embed = discord.Embed(title='')
     
     embed.set_thumbnail(url="https://img.icons8.com/ios-glyphs/60/ffffff/github.png")
     embed.set_author(name='CONHEÇA O REPOSITÓRIO DOS DESENVOLVEDORES', icon_url='')
@@ -859,10 +787,7 @@ async def git(ctx):
     
 @client.command()
 async def thalinhogay(ctx):
-    embed = discord.Embed(
-        title='',
-        colour=15542407
-    )
+    embed = discord.Embed(title='', colour=15542407)
     
     embed.add_field(name="THALISSON É MEIO GAYZINHO, EU SEI!", value='QUEM CONCORDA, FAVOR REAJIR COM: 🏳️‍🌈', inline=False)
     embed.set_footer(text=' Requerido por: T H A L I S S O N#3412', icon_url='')
