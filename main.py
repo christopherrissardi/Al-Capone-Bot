@@ -1,3 +1,6 @@
+from dataclasses import replace
+from ntpath import join
+from optparse import Values
 import discord
 import json
 import requests
@@ -224,7 +227,6 @@ async def placa(ctx):
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑁𝑃𝐽
 async def cnpj(ctx, cnpj = 0):
     data = requests.get(f"https://brasilapi.com.br/api/cnpj/v1/{cnpj}").json()
-
 
     try:
         embed = discord.Embed(title='')
@@ -604,7 +606,7 @@ async def email(ctx, email = None):
 async def cotacao(ctx, cotacao = None):
     data = requests.get(f"https://economia.awesomeapi.com.br/last/{cotacao}").json()
     coin_name = cotacao.replace("-", "")
-
+    
     try:
         embed = discord.Embed(title='')
         
@@ -700,7 +702,6 @@ async def feriados(ctx, feriados = None):
        embed.add_field(name="ㅤ", value="*Utilize o comando: `/feriados` para obter mais informações.* ", inline=False)
        return await ctx.send(embed=embed)        
 
-
 #--------------------------------------------------------[GERADOR]-------------------------------------------------------------#
     
 @client.command()
@@ -755,7 +756,7 @@ async def traduzir(ctx):
     embed.set_thumbnail(url="https://cdn.iconscout.com/icon/free/png-256/languages-1891105-1598018.png")
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
-    
+
 #--------------------------------------------------------[TRADUÇÃO]-------------------------------------------------------------#
 
 @client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
@@ -784,7 +785,7 @@ async def git(ctx):
     await ctx.send(embed=embed)
 
 #--------------------------------------------------------[AJUDA]-------------------------------------------------------------#
-    
+
 @client.command()
 async def thalinhogay(ctx):
     embed = discord.Embed(title='', colour=15542407)
