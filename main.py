@@ -41,7 +41,7 @@ async def on_member_join(member):
     
 #--------------------------------------------------------[DISPONÍVEIS]-------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴𝑆 𝐷𝐼𝑆𝑃𝑂𝑁𝐼́𝑉𝐸𝐼𝑆
+@client.command() #CONSULTAS DISPONÍVEIS
 async def consulta(ctx):
     embed = discord.Embed(title='',)
 
@@ -78,7 +78,7 @@ async def consulta(ctx):
 
 #--------------------------------------------------------[AJUDA]-------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴𝑆 𝐷𝐼𝑆𝑃𝑂𝑁𝐼́𝑉𝐸𝐼𝑆
+@client.command() #DIVERSOS
 async def diversos(ctx):
     embed = discord.Embed(title='')
     
@@ -94,7 +94,7 @@ async def diversos(ctx):
 
 #--------------------------------------------------------[AJUDA]-------------------------------------------------------#
 
-@client.command()
+@client.command() #COMANDO DE AJUDA
 async def ajuda(ctx):
     embed = discord.Embed(title='')
     
@@ -111,7 +111,7 @@ async def ajuda(ctx):
 
 #--------------------------------------------------------[NOME]-------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑁𝑂𝑀𝐸
+@client.command() #CONSULTA DE NOME
 async def nome(ctx):
     embed = discord.Embed(title='', description='A Consulta por ***NOME*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***nome***!',)
 
@@ -121,7 +121,7 @@ async def nome(ctx):
 
 #--------------------------------------------------------[CPF]---------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑃𝐹
+@client.command() #CONSULTA DE CPF
 async def cpf(ctx):
 
     embed = discord.Embed(title='', description='A Consulta por ***CPF*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***CPF!***',)
@@ -157,7 +157,7 @@ async def cpf(ctx):
 
 #--------------------------------------------------------[TELEFONE]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑇𝐸𝐿𝐸𝐹𝑂𝑁𝐸
+@client.command() #CONSULTA DE TELEFONE
 async def telefone(ctx):
     embed = discord.Embed(title='', description='A Consulta por ***TELEFONE*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***telefone!***',)
 
@@ -178,7 +178,7 @@ async def telefone(ctx):
 
 #--------------------------------------------------------[PLACA]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑃𝐿𝐴𝐶𝐴
+@client.command() #CONSULTA DE PLACA
 async def placa(ctx):
     embed = discord.Embed(title='', description='A Consulta por ***PLACA*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***placa!***',)
 
@@ -224,7 +224,7 @@ async def placa(ctx):
 
 #--------------------------------------------------------[CNPJ]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑁𝑃𝐽
+@client.command() #CONSULTA DE CNPJ
 async def cnpj(ctx, cnpj = 0):
     data = requests.get(f"https://brasilapi.com.br/api/cnpj/v1/{cnpj}").json()
 
@@ -302,7 +302,7 @@ async def cnpj(ctx, cnpj = 0):
 
 #--------------------------------------------------------[IP]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐼𝑃
+@client.command() #CONSULTA DE IP
 async def ip(ctx, ip = None):
     data = requests.get(f"http://ipwhois.app/json/{ip}").json()
     
@@ -343,7 +343,7 @@ async def ip(ctx, ip = None):
 
 #--------------------------------------------------------[COVID19]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝑂𝑉𝐼𝐷19
+@client.command() #CONSULTA DE COVID19
 async def covid(ctx, covid = None):
     data = requests.get(f"https://covid19-brazil-api.vercel.app/api/report/v1/brazil/uf/{covid}").json()
 
@@ -380,7 +380,7 @@ async def covid(ctx, covid = None):
 
 #--------------------------------------------------------[CEP]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝐸𝑃
+@client.command() #CONSULTA DE CEP
 async def cep(ctx, cep = None):
     data = requests.get(f"https://cep.awesomeapi.com.br/json/{cep}").json()
 
@@ -388,11 +388,10 @@ async def cep(ctx, cep = None):
         embed = discord.Embed(title='')
 
         embed.add_field(name="• CEP", value=data['cep'], inline=False)
-        embed.add_field(name="• RUA", value=data['address'], inline=False)
+        embed.add_field(name="• LOGRADOURO", value=data['address'], inline=False)
         embed.add_field(name="• BAIRRO", value=data['district'], inline=False)
         embed.add_field(name="• CIDADE", value=data['city'], inline=False)
         embed.add_field(name="• ESTADO", value=data['state'], inline=False)
-        embed.add_field(name="• LOGRADOURO", value=data['address_name'], inline=False)
         embed.add_field(name="• LATITUDE", value=data['lat'], inline=False)
         embed.add_field(name="• LONGITUDE", value=data['lng'], inline=False)
         embed.add_field(name="• IBGE", value=data['city_ibge'], inline=False)
@@ -419,7 +418,7 @@ async def cep(ctx, cep = None):
    
 #--------------------------------------------------------[BANCO]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐶𝑂́𝐷𝐼𝐺𝑂 𝐵𝐴𝑁𝐶𝐴́𝑅𝐼𝑂
+@client.command() #CONSULTA DE CÓDIGO BANCÁRIO
 async def banco(ctx, banco = None):
     data = requests.get(f"https://brasilapi.com.br/api/banks/v1/{banco}").json()
 
@@ -452,7 +451,7 @@ async def banco(ctx, banco = None):
 
 #--------------------------------------------------------[BIN]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐵𝐼𝑁
+@client.command() #CONSULTA DE BIN
 async def bin(ctx, bin = None):
     data = requests.get(
         f"https://api.bincodes.com/bin/?format=json&api_key=c0107d14acda7e1831dfe26ee8e8b3a5&bin={bin}").json()
@@ -460,6 +459,9 @@ async def bin(ctx, bin = None):
     try:
         embed = discord.Embed(title='')
 
+        validateSiteBin = data["website"] if data["website"] != "" else "Não encontrado"
+        validateNumeroTelefoneBin = data["phone"] if data["phone"] != "" else "Não encontrado"
+        
         embed.add_field(name="• BIN", value=data['bin'], inline=False)
         embed.add_field(name="• MODELO", value=data['type'], inline=False)
         embed.add_field(name="• NÍVEL", value=data['level'], inline=False)
@@ -467,6 +469,8 @@ async def bin(ctx, bin = None):
         embed.add_field(name="• PAÍS", value=data['country'], inline=False)
         embed.add_field(name="• SIGLA", value=data['countrycode'], inline=False)
         embed.add_field(name="• BANCO", value=data['bank'], inline=False)
+        embed.add_field(name="• SITE", value=data['website'], inline=False)
+        embed.add_field(name="• TELEFONE", value=data['phone'], inline=False)
         embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)                
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BINㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
@@ -489,7 +493,7 @@ async def bin(ctx, bin = None):
 
 #--------------------------------------------------------[SITE]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑆𝐼𝑇𝐸
+@client.command() #CONSULTA DE SITE
 async def site(ctx, site = None):
     data = requests.get(f"http://ipwhois.app/json/{site}").json()
 
@@ -526,7 +530,7 @@ async def site(ctx, site = None):
 
 #--------------------------------------------------------[OPERADORA]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑂𝑃𝐸𝑅𝐴𝐷𝑂𝑅𝐴
+@client.command() #CONSULTA DE OPERADORA
 async def operadora(ctx, operadora = None):
     data = requests.get(f"http://apilayer.net/api/validate?access_key=317fca6d1dc194d6c5e5d16898b63ddf&number={operadora}&country_code=&format=1").json()
     
@@ -564,7 +568,7 @@ async def operadora(ctx, operadora = None):
 
 #--------------------------------------------------------[EMAIL]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝑂𝑃𝐸𝑅𝐴𝐷𝑂𝑅𝐴
+@client.command() #CONSULTA DE E-MAIL
 async def email(ctx, email = None):
     data = requests.get(f"http://apilayer.net/api/check?access_key=e3d07653b28027265c15d3218aaaa4c9&email={email}&smtp=1&format=1").json()
     
@@ -602,7 +606,7 @@ async def email(ctx, email = None):
    
 #--------------------------------------------------------[C0TAÇÃO]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑇𝐴𝐶̧𝐴̃𝑂 𝐷𝐸 𝑀𝑂𝐸𝐷𝐴𝑆
+@client.command() #COTAÇÃO DE MOEDAS
 async def cotacao(ctx, cotacao = None):
     data = requests.get(f"https://economia.awesomeapi.com.br/last/{cotacao}").json()
     coin_name = cotacao.replace("-", "")
@@ -642,7 +646,7 @@ async def cotacao(ctx, cotacao = None):
 
 #--------------------------------------------------------[DDD]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐶𝐼𝐷𝐴𝐷𝐸𝑆 𝑃𝑂𝑅 𝐷𝐷𝐷
+@client.command() #CONSULTAS DE CIDADES POR DDDD
 async def ddd(ctx, ddd = None):
     data = requests.get(f"https://brasilapi.com.br/api/ddd/v1/{ddd}").json()
 
@@ -672,7 +676,7 @@ async def ddd(ctx, ddd = None):
 
 #--------------------------------------------------------[FERIADOS]-------------------------------------------------------------#
 
-@client.command() #𝐶𝑂𝑁𝑆𝑈𝐿𝑇𝐴 𝐷𝐸 𝐹𝐸𝑅𝐼𝐴𝐷𝑂𝑆
+@client.command() #CONSULTA DE FERIADOS
 async def feriados(ctx, feriados = None):
     data = requests.get(f"https://brasilapi.com.br/api/feriados/v1/{feriados}").json()
 
@@ -704,7 +708,7 @@ async def feriados(ctx, feriados = None):
 
 #--------------------------------------------------------[GERADOR]-------------------------------------------------------------#
     
-@client.command()
+@client.command() #GERADORES
 async def gerador(ctx):
 
     embed = discord.Embed(title='')
@@ -730,6 +734,39 @@ async def gerador(ctx):
     embed.set_author(name='Arctic', icon_url='')
     embed.set_footer(text='Arctic © All Rights Reserved', icon_url='')
     await ctx.send(embed=embed)
+    
+#--------------------------------------------------------[GERADOR DE CC]-------------------------------------------------------------#
+    
+@client.command() #GERADOR DE CARTÃO
+async def gerarcartao(ctx, gerarcartao = None):
+    data = requests.get(
+        f"https://api.bincodes.com/cc-gen/?format=json&api_key=c0107d14acda7e1831dfe26ee8e8b3a5&input={gerarcartao}").json()
+
+    try:
+        embed = discord.Embed(title='')
+        
+        embed.add_field(name="• BANDEIRA", value=data['card'], inline=False)
+        embed.add_field(name="• CARTÃO", value=data['number'], inline=False)
+        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)                
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤGERADOR DE CARTÃOㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        await ctx.send(embed=embed)
+
+        return
+    except Exception:
+        pass
+
+        embed = discord.Embed(title='')
+
+    if (gerarcartao == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO GERADOR DE CARTÃOㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/gerarcartao` e a {BANDEIRA} que deseja.", value='*Exemplo*: `/gerarcartao visa`', inline=False)
+        embed.add_field(name="Observação:", value='*Utilize apenas a bandeira!*', inline=False)        
+        embed.add_field(name="Bandeiras disponíveis:", value='`VISA`\n`MASTERCARD`\n`AMEX`\n`JCB`\n`DINERS`\n`MAESTRO`\n', inline=False)
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤㅤERRO AO GERAR CARTÃOㅤㅤㅤ', icon_url='')
+       return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[PING]-------------------------------------------------------------#
 
@@ -786,14 +823,6 @@ async def git(ctx):
 
 #--------------------------------------------------------[AJUDA]-------------------------------------------------------------#
 
-@client.command()
-async def thalinhogay(ctx):
-    embed = discord.Embed(title='', colour=15542407)
-    
-    embed.add_field(name="THALISSON É MEIO GAYZINHO, EU SEI!", value='QUEM CONCORDA, FAVOR REAJIR COM: 🏳️‍🌈', inline=False)
-    embed.set_footer(text=' Requerido por: T H A L I S S O N#3412', icon_url='')
-    embed.set_image(url='https://i.imgur.com/H6AEOTb.jpg')
-    await ctx.send(embed=embed)
         
 
 client.run('OTI3OTgxNzc4NDE5OTk4NzUw.YdSIYQ._9s0Rju0_2S1FJu33zohezmyc_M')
