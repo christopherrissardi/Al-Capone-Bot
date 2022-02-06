@@ -225,9 +225,9 @@ async def placa(ctx):
 #--------------------------------------------------------[CNPJ]-------------------------------------------------------------#
 
 @client.command() #CONSULTA DE CNPJ
-async def cnpj(ctx, cnpj = 0):
+async def cnpj(ctx, cnpj = None):
     data = requests.get(f"https://brasilapi.com.br/api/cnpj/v1/{cnpj}").json()
-
+    
     try:
         embed = discord.Embed(title='')
         
@@ -244,7 +244,7 @@ async def cnpj(ctx, cnpj = 0):
         validateCnae = data["cnae_fiscal_descricao"] if data["cnae_fiscal_descricao"] != "" else "Não encontrado"
         validateCnaeCod = data["cnae_fiscal"] if data["cnae_fiscal"] != "" else "Não encontrado"
         validateMatriz = data["identificador_matriz_filial"] if data["identificador_matriz_filial"] != "" else "Não encontrado"
-        validateFilial = data["descricao_matriz_filial"] if data["descricao_matriz_filial"] != "" else "Não encontrado"
+        validateFilial = data["descricao_motivo_situacao_cadastral"] if data["descricao_motivo_situacao_cadastral"] != "" else "Não encontrado"
         validateDataSituacao = data["data_situacao_cadastral"] if data["data_situacao_cadastral"] != "" else "Não encontrado"
         validateJuridica = data["codigo_natureza_juridica"] if data["codigo_natureza_juridica"] != "" else "Não encontrado"
         validateLogradouro = data["logradouro"] if data["logradouro"] != "" else "Não encontrado"
@@ -260,7 +260,7 @@ async def cnpj(ctx, cnpj = 0):
         embed.add_field(name="• NOME FANTASIA", value=validateNome, inline=False)
         embed.add_field(name="• RAZÃO SOCIAL", value=validateRazao, inline=False)
         embed.add_field(name="• MATRIZ FILIAL", value=validateMatriz, inline=False)
-        embed.add_field(name="• DESCRIÇÃO MATRIZ", value=validateFilial, inline=False)
+        embed.add_field(name="• MOTIVO DA ABERTURA", value=validateFilial, inline=False)
         embed.add_field(name="• DATA SITUAÇÃO CADASTRAL", value=validateDataSituacao, inline=False)
         embed.add_field(name="• NATUREZA JURÍDICA", value=validateJuridica, inline=False)
         embed.add_field(name="• QUALIFICAÇÃO DO RESPONSÁVEL", value=validateQualificacao, inline=False)
@@ -291,7 +291,7 @@ async def cnpj(ctx, cnpj = 0):
 
         embed = discord.Embed(title='')
 
-    if (cnpj == 0):
+    if (cnpj == None):
         embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO CNPJㅤㅤㅤ', icon_url='')
         embed.add_field(name="Use o comando: `/cnpj` e o {CNPJ} que deseja.", value='*Exemplo: `/cnpj` 12345678901234*', inline=False)
         embed.add_field(name="Observação:", value='*Não utilize pontos, hifens e caracteres especiais*', inline=False)        
