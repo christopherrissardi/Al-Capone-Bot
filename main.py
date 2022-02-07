@@ -181,22 +181,22 @@ async def telefone(ctx):
 
 @client.command()
 async def placa(ctx, placa = None):
-    data = requests.get('https://apicarros.com/v1/consulta/{}/json', verify = False).json() # JSQ7436    
+    data = requests.get('https://apicarros.com/v1/consulta/{placa}/json', verify = False).json() # JSQ7436    
     
     try:
         embed = discord.Embed(title='')
         
         validatePlaca = data["placa"] if data["placa"] != "" else "Não encontrado"
-        validateMarca = data["marca"] if data["marca"] != "" "Contacte o suporte 44-991559009 ou wa.me/5544991559009 " else "Não encontrado"
+        validateMarca = data["marca"] if data["marca"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009 " else "Não encontrado"
         validateAno = data["ano"] if data["ano"] != "" else "Não encontrado"
         validateDataAtt = data["data"] if data["data"] != "" else "Não encontrado"
-        validateModelo = data["modelo"] if data["modelo"] != "" "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
+        validateModelo = data["modelo"] if data["modelo"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
         validateAnoModelo = data["anoModelo"] if data["anoModelo"] != "" else "Não encontrado"
-        validateCor = data["cor"] if data["cor"] != "" "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
+        validateCor = data["cor"] if data["cor"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
         validateChassi = data["chassi"] if data["chassi"] != "" else "Não encontrado"
-        validateMunicipioPlaca = data["municipio"] if data["municipio"] != "" "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
+        validateMunicipioPlaca = data["municipio"] if data["municipio"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
         validateUfPlaca = data["uf"] if data["uf"] != "" else "Não encontrado"
-        validateErrosPlaca = data["mensagemRetorno"] if data["mensagemRetorno"] != "" "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
+        validateErrosPlaca = data["mensagemRetorno"] if data["mensagemRetorno"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
         validateAlarmeAtt = data["dataAtualizacaoAlarme"] if data["dataAtualizacaoAlarme"] != "" else "Não encontrado"
         validateModificacao = data["dataAtualizacaoCaracteristicasVeiculo"] if data["dataAtualizacaoCaracteristicasVeiculo"] != "" else "Não encontrado"
         validateFurto = data["dataAtualizacaoRouboFurto"] if data["dataAtualizacaoRouboFurto"] != "" else "Não encontrado"
