@@ -181,40 +181,42 @@ async def telefone(ctx):
 
 @client.command()
 async def placa(ctx, placa = None):
-    data = requests.get('https://apicarros.com/v1/consulta/{placa}/json', verify = False).json() # JSQ7436    
+    placa_input = input("===>")
+    req = requests.get('https://apicarros.com/v1/consulta/{placa}/json'.format(placa_input), verify = False) # JSQ7436
+    placa_data = req.json()
     
     try:
         embed = discord.Embed(title='')
         
-        validatePlaca = data["placa"] if data["placa"] != "" else "Não encontrado"
-        validateMarca = data["marca"] if data["marca"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009 " else "Não encontrado"
-        validateAno = data["ano"] if data["ano"] != "" else "Não encontrado"
-        validateDataAtt = data["data"] if data["data"] != "" else "Não encontrado"
-        validateModelo = data["modelo"] if data["modelo"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
-        validateAnoModelo = data["anoModelo"] if data["anoModelo"] != "" else "Não encontrado"
-        validateCor = data["cor"] if data["cor"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
-        validateChassi = data["chassi"] if data["chassi"] != "" else "Não encontrado"
-        validateMunicipioPlaca = data["municipio"] if data["municipio"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
-        validateUfPlaca = data["uf"] if data["uf"] != "" else "Não encontrado"
-        validateErrosPlaca = data["mensagemRetorno"] if data["mensagemRetorno"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
-        validateAlarmeAtt = data["dataAtualizacaoAlarme"] if data["dataAtualizacaoAlarme"] != "" else "Não encontrado"
-        validateModificacao = data["dataAtualizacaoCaracteristicasVeiculo"] if data["dataAtualizacaoCaracteristicasVeiculo"] != "" else "Não encontrado"
-        validateFurto = data["dataAtualizacaoRouboFurto"] if data["dataAtualizacaoRouboFurto"] != "" else "Não encontrado"
+        placa_data = placa_data["placa"] if placa_data["placa"] != "" else "Não encontrado"
+        placa_data = placa_data["marca"] if placa_data["marca"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009 " else "Não encontrado"
+        placa_data = placa_data["ano"] if placa_data["ano"] != "" else "Não encontrado"
+        placa_data = placa_data["data"] if placa_data["data"] != "" else "Não encontrado"
+        placa_data = placa_data["modelo"] if placa_data["modelo"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
+        placa_data = placa_data["anoModelo"] if placa_data["anoModelo"] != "" else "Não encontrado"
+        placa_data = placa_data["cor"] if placa_data["cor"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
+        placa_data = placa_data["chassi"] if placa_data["chassi"] != "" else "Não encontrado"
+        placa_data = placa_data["municipio"] if placa_data["municipio"] != "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
+        placa_data = placa_data["uf"] if placa_data["uf"] != "" else "Não encontrado"
+        placa_data = placa_data["mensagemRetorno"] if placa_data["mensagemRetorno"] != "" else "Não encontrado"
+        placa_data = placa_data["dataAtualizacaoAlarme"] if placa_data["dataAtualizacaoAlarme"] != "" else "Não encontrado"
+        placa_data = placa_data["dataAtualizacaoCaracteristicasVeiculo"] if placa_data["dataAtualizacaoCaracteristicasVeiculo"] != "" else "Não encontrado"
+        placa_data = placa_data["dataAtualizacaoRouboFurto"] if placa_data["dataAtualizacaoRouboFurto"] != "" else "Não encontrado"
         
-        embed.add_field(name="• PLACA", value=validatePlaca, inline=False)
-        embed.add_field(name="• MARCA", value=validateMarca, inline=False)
-        embed.add_field(name="• ANO", value=validateAno, inline=False)
-        embed.add_field(name="• DATA DE ATUALIZAÇÃO ", value=validateDataAtt, inline=False)
-        embed.add_field(name="• MODELO", value=validateModelo, inline=False)
-        embed.add_field(name="• ANO DO MODELO", value=validateAnoModelo, inline=False)
-        embed.add_field(name="• COR", value=validateCor, inline=False)
-        embed.add_field(name="• CHASSI", value=validateChassi, inline=False)
-        embed.add_field(name="• CIDADE", value=validateMunicipioPlaca, inline=False)
-        embed.add_field(name="• ESTADO", value=validateUfPlaca, inline=False)
-        embed.add_field(name="• IRREGULARIDADE", value=validateErrosPlaca, inline=False)
-        embed.add_field(name="• ALARME ATUALIZADO EM", value=validateAlarmeAtt, inline=False)
-        embed.add_field(name="• DATA DE MODIFICAÇÃO", value=validateModificacao, inline=False)
-        embed.add_field(name="• ATUALIZAÇÃO DE FURTO", value=validateFurto, inline=False)
+        embed.add_field(name="• PLACA", value=placa_data, inline=False)
+        embed.add_field(name="• MARCA", value=placa_data, inline=False)
+        embed.add_field(name="• ANO", value=placa_data, inline=False)
+        embed.add_field(name="• DATA DE ATUALIZAÇÃO ", value=placa_data, inline=False)
+        embed.add_field(name="• MODELO", value=placa_data, inline=False)
+        embed.add_field(name="• ANO DO MODELO", value=placa_data, inline=False)
+        embed.add_field(name="• COR", value=placa_data, inline=False)
+        embed.add_field(name="• CHASSI", value=placa_data, inline=False)
+        embed.add_field(name="• CIDADE", value=placa_data, inline=False)
+        embed.add_field(name="• ESTADO", value=placa_data, inline=False)
+        embed.add_field(name="• IRREGULARIDADE", value=placa_data, inline=False)
+        embed.add_field(name="• ALARME ATUALIZADO EM", value=placa_data, inline=False)
+        embed.add_field(name="• DATA DE MODIFICAÇÃO", value=placa_data, inline=False)
+        embed.add_field(name="• ATUALIZAÇÃO DE FURTO", value=placa_data, inline=False)
         embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE PLACAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
