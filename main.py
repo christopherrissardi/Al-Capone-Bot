@@ -1,4 +1,5 @@
 from dataclasses import replace
+import dataclasses
 from ntpath import join
 from optparse import Values
 import discord
@@ -178,49 +179,61 @@ async def telefone(ctx):
 
 #--------------------------------------------------------[PLACA]-------------------------------------------------------------#
 
-@client.command() #CONSULTA DE PLACA
-async def placa(ctx):
-    embed = discord.Embed(title='', description='A Consulta por ***PLACA*** estará disponível em breve. No momento,\nestamos com ***ausência*** das APIs de consultas por ***placa!***',)
+@client.command()
+async def placa(ctx, placa = None):
+    data = requests.get('https://apicarros.com/v1/consulta/{}/json', verify = False).json() # JSQ7436    
+    
+    try:
+        embed = discord.Embed(title='')
+        
+        validatePlaca = data["placa"] if data["placa"] != "" else "Não encontrado"
+        validateMarca = data["marca"] if data["marca"] != "" "Contacte o suporte 44-991559009 ou wa.me/5544991559009 " else "Não encontrado"
+        validateAno = data["ano"] if data["ano"] != "" else "Não encontrado"
+        validateDataAtt = data["data"] if data["data"] != "" else "Não encontrado"
+        validateModelo = data["modelo"] if data["modelo"] != "" "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
+        validateAnoModelo = data["anoModelo"] if data["anoModelo"] != "" else "Não encontrado"
+        validateCor = data["cor"] if data["cor"] != "" "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
+        validateChassi = data["chassi"] if data["chassi"] != "" else "Não encontrado"
+        validateMunicipioPlaca = data["municipio"] if data["municipio"] != "" "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
+        validateUfPlaca = data["uf"] if data["uf"] != "" else "Não encontrado"
+        validateErrosPlaca = data["mensagemRetorno"] if data["mensagemRetorno"] != "" "Contacte o suporte 44-991559009 ou wa.me/5544991559009" else "Não encontrado"
+        validateAlarmeAtt = data["dataAtualizacaoAlarme"] if data["dataAtualizacaoAlarme"] != "" else "Não encontrado"
+        validateModificacao = data["dataAtualizacaoCaracteristicasVeiculo"] if data["dataAtualizacaoCaracteristicasVeiculo"] != "" else "Não encontrado"
+        validateFurto = data["dataAtualizacaoRouboFurto"] if data["dataAtualizacaoRouboFurto"] != "" else "Não encontrado"
+        
+        embed.add_field(name="• PLACA", value=validatePlaca, inline=False)
+        embed.add_field(name="• MARCA", value=validateMarca, inline=False)
+        embed.add_field(name="• ANO", value=validateAno, inline=False)
+        embed.add_field(name="• DATA DE ATUALIZAÇÃO ", value=validateDataAtt, inline=False)
+        embed.add_field(name="• MODELO", value=validateModelo, inline=False)
+        embed.add_field(name="• ANO DO MODELO", value=validateAnoModelo, inline=False)
+        embed.add_field(name="• COR", value=validateCor, inline=False)
+        embed.add_field(name="• CHASSI", value=validateChassi, inline=False)
+        embed.add_field(name="• CIDADE", value=validateMunicipioPlaca, inline=False)
+        embed.add_field(name="• ESTADO", value=validateUfPlaca, inline=False)
+        embed.add_field(name="• IRREGULARIDADE", value=validateErrosPlaca, inline=False)
+        embed.add_field(name="• ALARME ATUALIZADO EM", value=validateAlarmeAtt, inline=False)
+        embed.add_field(name="• DATA DE MODIFICAÇÃO", value=validateModificacao, inline=False)
+        embed.add_field(name="• ATUALIZAÇÃO DE FURTO", value=validateFurto, inline=False)
+        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)        
+        embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE PLACAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+        embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
+        await ctx.send(embed=embed)
+    
+        return
+    except Exception:
+        pass
 
-    embed.add_field(name="• PLACA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• SITUAÇÃO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• MARCA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• MODELO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• COR", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• ANO - FABRICAÇÃO.", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• ANO - MODELO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• MUNICIPIO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• ESTADO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• CHASSI", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• RENAVAM", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• FATURADO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• UF - FATURADO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• MUNICÍPIO - FABRICAÇÃO.", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• ESTADO - FABRICAÇÃO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• SEGMENTO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• SUB SEGMENTO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• GRUPO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• COMBUSTÍVEL", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• POTÊNCIA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• CILINDRADAS", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• CAPACIDADE DE CARGA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• NACIONALIDADE", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• LINHA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• CARROCERIA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• MOTOR", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• TIPO DE PESSOA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• TIPO DE VEÍCULO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• ID IMPORTADORA", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• DI", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• REGISTRO DI", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• UNIDADE LOCAL SRF", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• NOME DO PROPRIETÁRIO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• CPF/CNPJ DO PROPRIETÁRIO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• PLACA MODELO ANTIGO", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="• PLACA MODELO NOVO", value='SEM INFORMAÇÃO', inline=False)
-    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE PLACAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
-    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
-    await ctx.send(embed=embed)
+        embed = discord.Embed(title='')
+
+    if (placa == None):
+        embed.set_author(name='ㅤㅤㅤㅤ🤖 COMANDO PLACAㅤㅤㅤ', icon_url='')
+        embed.add_field(name="Use o comando: `/placa` e a {PLACA} que deseja.", value='*Exemplo: `/placa` AAA1234*', inline=False)
+        embed.add_field(name="Observação:", value='*Não utilize pontos, hifens e caracteres especiais*', inline=False)        
+        return await ctx.send(embed=embed)
+    else:
+       embed.set_author(name='ㅤㅤㅤㅤERRO AO CONSULTAR PLACAㅤㅤㅤ', icon_url='')
+       return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[CNPJ]-------------------------------------------------------------#
 
