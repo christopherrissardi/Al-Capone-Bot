@@ -181,40 +181,26 @@ async def telefone(ctx):
 
 @client.command()
 async def placa(ctx, placa = None):
-    data = requests.get('https://apicarros.com/v1/consulta/{placa}/json', verify = False).json() # JSQ7436    
-    
+    data = requests.get('https://apicarros.com/v1/consulta/{placa}/json').json()    
+
     try:
         embed = discord.Embed(title='')
+
         
-        validatePlaca = data["placa"] if data["placa"] != "" else "Não encontrado"
-        validateMarca = data["marca"] if data["marca"] != "" else "Não encontrado"
-        validateAno = data["ano"] if data["ano"] != "" else "Não encontrado"
-        validateDataAtt = data["data"] if data["data"] != "" else "Não encontrado"
-        validateModelo = data["modelo"] if data["modelo"] != "" else "Não encontrado"
-        validateAnoModelo = data["anoModelo"] if data["anoModelo"] != "" else "Não encontrado"
-        validateCor = data["cor"] if data["cor"] != "" else "Não encontrado"
-        validateChassi = data["chassi"] if data["chassi"] != "" else "Não encontrado"
-        validateMunicipioPlaca = data["municipio"] if data["municipio"] != "" else "Não encontrado"
-        validateUfPlaca = data["uf"] if data["uf"] != "" else "Não encontrado"
-        validateErrosPlaca = data["mensagemRetorno"] if data["mensagemRetorno"] != "" else "Não encontrado"
-        validateAlarmeAtt = data["dataAtualizacaoAlarme"] if data["dataAtualizacaoAlarme"] != "" else "Não encontrado"
-        validateModificacao = data["dataAtualizacaoCaracteristicasVeiculo"] if data["dataAtualizacaoCaracteristicasVeiculo"] != "" else "Não encontrado"
-        validateFurto = data["dataAtualizacaoRouboFurto"] if data["dataAtualizacaoRouboFurto"] != "" else "Não encontrado"
-        
-        embed.add_field(name="• PLACA", value=validatePlaca, inline=False)
-        embed.add_field(name="• MARCA", value=validateMarca, inline=False)
-        embed.add_field(name="• ANO", value=validateAno, inline=False)
-        embed.add_field(name="• DATA DE ATUALIZAÇÃO ", value=validateDataAtt, inline=False)
-        embed.add_field(name="• MODELO", value=validateModelo, inline=False)
-        embed.add_field(name="• ANO DO MODELO", value=validateAnoModelo, inline=False)
-        embed.add_field(name="• COR", value=validateCor, inline=False)
-        embed.add_field(name="• CHASSI", value=validateChassi, inline=False)
-        embed.add_field(name="• CIDADE", value=validateMunicipioPlaca, inline=False)
-        embed.add_field(name="• ESTADO", value=validateUfPlaca, inline=False)
-        embed.add_field(name="• IRREGULARIDADE", value=validateErrosPlaca, inline=False)
-        embed.add_field(name="• ALARME ATUALIZADO EM", value=validateAlarmeAtt, inline=False)
-        embed.add_field(name="• DATA DE MODIFICAÇÃO", value=validateModificacao, inline=False)
-        embed.add_field(name="• ATUALIZAÇÃO DE FURTO", value=validateFurto, inline=False)
+        embed.add_field(name="• PLACA", value=data["placa"], inline=False)
+        embed.add_field(name="• MARCA", value=data["marca"], inline=False)
+        embed.add_field(name="• ANO", value=data["ano"], inline=False)
+        embed.add_field(name="• DATA DE ATUALIZAÇÃO ", value=data["data"], inline=False)
+        embed.add_field(name="• MODELO", value=data["anoModelo"], inline=False)
+        embed.add_field(name="• ANO DO MODELO", value=data["anoModelo"], inline=False)
+        embed.add_field(name="• COR", value=data["cor"], inline=False)
+        embed.add_field(name="• CHASSI", value=data["chassi"], inline=False)
+        embed.add_field(name="• CIDADE", value=data["municipio"], inline=False)
+        embed.add_field(name="• ESTADO", value=data["municipio"], inline=False)
+        embed.add_field(name="• IRREGULARIDADE", value=data["mensagemRetorno"], inline=False)
+        embed.add_field(name="• ALARME ATUALIZADO EM", value=data["dataAtualizacaoAlarme"], inline=False)
+        embed.add_field(name="• DATA DE MODIFICAÇÃO", value=data["dataAtualizacaoAlarme"], inline=False)
+        embed.add_field(name="• ATUALIZAÇÃO DE FURTO", value=data["dataAtualizacaoRouboFurto"], inline=False)
         embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE PLACAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
@@ -232,7 +218,7 @@ async def placa(ctx, placa = None):
         embed.add_field(name="Observação:", value='*Não utilize pontos, hifens e caracteres especiais*', inline=False)        
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤㅤERRO AO CONSULTAR PLACAㅤㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤㅤㅤLIMITE DE CONSULTAS ATINGIDO\nㅤㅤPOR FAVOR, AGUARDE ALGUNS MINUTOSㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[CNPJ]-------------------------------------------------------------#
@@ -541,6 +527,34 @@ async def site(ctx, site = None):
        embed.set_author(name='ㅤㅤㅤSITE NÃO ENCONTRADOㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
+#-------------------------------------------------------[MEU IP]------------------------------------------------------------#
+
+@client.command() #CONSULTAR MEU IP
+async def meuip(ctx, meuip = None):
+    data = requests.get(f"https://ipwhois.app/json/").json()
+    
+    embed = discord.Embed(title='')
+    
+    validateAsnMeuIp = data["asn"] if data["asn"] != "" else "Não encontrado"
+    
+    embed.add_field(name="• IP", value=data['ip'], inline=False)
+    embed.add_field(name="• TIPO", value=data['type'], inline=False)
+    embed.add_field(name="• CIDADE", value=data['city'], inline=False)
+    embed.add_field(name="• ESTADO", value=data['region'], inline=False)
+    embed.add_field(name="• PAÍS", value=data['country'], inline=False)
+    embed.add_field(name="• CONTINENTE", value=data['continent'], inline=False)
+    embed.add_field(name="• LATITUDE", value=data['latitude'], inline=False)
+    embed.add_field(name="• LONGITUDE ", value=data['longitude'], inline=False)
+    embed.add_field(name="• PROVEDOR", value=data['isp'], inline=False)
+    embed.add_field(name="• ASN", value=validateAsnMeuIp, inline=False)
+    embed.add_field(name="• FUSO HORÁRIO", value=data['timezone'], inline=False)
+    embed.add_field(name="• GMT", value=data['timezone_gmt'], inline=False)
+    embed.add_field(name="• MOEDA LOCAL", value=data['currency'], inline=False)
+    embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)
+    embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤMEU IPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
+    embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)               
+    await ctx.send(embed=embed)
+        
 #--------------------------------------------------------[OPERADORA]-------------------------------------------------------------#
 
 @client.command() #CONSULTA DE OPERADORA
@@ -667,7 +681,7 @@ async def ddd(ctx, ddd = None):
         embed = discord.Embed(title='')
 
         embed.add_field(name="• ESTADO", value=data['state'], inline=False)
-        embed.add_field(name="• CIDADES", value='\n'.join([f"{city}" for city in data["cities"]]), inline=False)
+        embed.add_field(name="• CIDADES", value=','.join([f"`{city}`" for city in data["cities"]]), inline=False)
         embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)                
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CIDADES POR DDDㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
