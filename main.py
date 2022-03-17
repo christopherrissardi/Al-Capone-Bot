@@ -14,7 +14,7 @@ client = commands.Bot(command_prefix="/", case_insensitive=True, help_command=No
 
 @client.event
 async def on_ready():
-    activity = discord.Game(name='Arctic Bot | /ajuda', type=3)
+    activity = discord.Game(name='🇺🇦 | /ajuda', type=3)
     await client.change_presence(status=discord.Status.dnd, activity=activity)
     print("Conectando, por favor, aguarde...")
 
