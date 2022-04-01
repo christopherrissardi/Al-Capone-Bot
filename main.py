@@ -2,6 +2,7 @@ from dataclasses import replace
 import dataclasses
 from ntpath import join
 from optparse import Values
+from attr import validate
 import discord
 import json
 import requests
@@ -14,7 +15,7 @@ client = commands.Bot(command_prefix="/", case_insensitive=True, help_command=No
 
 @client.event
 async def on_ready():
-    activity = discord.Game(name='Arctic Bot | /ajuda', type=3)
+    activity = discord.Game(name='Created By Cristopher', type=3)
     await client.change_presence(status=discord.Status.dnd, activity=activity)
     print("Conectando, por favor, aguarde...")
 
@@ -73,8 +74,8 @@ async def consulta(ctx):
     embed.add_field(name="🤖 CONSULTA DE E-MAIL",
                     value="Use o comando `/email` {EMAIL} para realizar a consulta.", inline=False)    
     embed.set_image(url='https://i.gifer.com/Cewn.gif')
-    embed.set_author(name='Arctic', icon_url='')
-    embed.set_footer(text='Arctic © All Rights Reserved', icon_url='')
+    embed.set_author(name='Al Capone', icon_url='')
+    embed.set_footer(text='Al Capone © All Rights Reserved', icon_url='')
     await ctx.send(embed=embed)
 
 #--------------------------------------------------------[AJUDA]-------------------------------------------------------#
@@ -89,8 +90,8 @@ async def diversos(ctx):
                     value="Use o comando `/ddd` {DDD} para realizar a consulta do IP.", inline=False)
     embed.add_field(name="💼 CONSULTA DE FERIADOS",
                     value="Use o comando `/feriados` {ANO} para realizar a consulta.", inline=False)
-    embed.set_author(name='Arctic', icon_url='')
-    embed.set_footer(text='Arctic © All Rights Reserved', icon_url='')
+    embed.set_author(name='Al Capone', icon_url='')
+    embed.set_footer(text='Al Capone © All Rights Reserved', icon_url='')
     await ctx.send(embed=embed)
 
 #--------------------------------------------------------[AJUDA]-------------------------------------------------------#
@@ -99,15 +100,15 @@ async def diversos(ctx):
 async def ajuda(ctx):
     embed = discord.Embed(title='')
     
-    embed.add_field(name="ㅤ", value='Olá, estou aqui para te ajudar! Aqui está algum dos comandos que o Arctic possui. Ficou com alguma dúvida em relação aos comandos abaixo? Digite `/[NOME DO COMANDO]`. Exemplo: `/admin`  ', inline=False)
+    embed.add_field(name="ㅤ", value='Olá, estou aqui para te ajudar! Aqui está algum dos comandos que o Al Capone possui. Ficou com alguma dúvida em relação aos comandos abaixo? Digite `/[NOME DO COMANDO]`. Exemplo: `/admin`  ', inline=False)
     embed.add_field(name="🔐 Moderação", value='Use o comando `/admin` para ver os comandos administrativos. Comando de moderação existentes: `/kick`, `/ban`, `/unban`, `/unmute`, `/role`, `/mute`, `/clear` ', inline=False)
     embed.add_field(name="🔍 Consultas", value='Use o comando `/consulta` para obter mais informações. Comandos de consultas disponíveis: `/nome`, `/cpf`, `/telefone`, `/cnpj`, `/placa`, `/ip` `/bin`, `/cep`, `/covid`, `/banco`, `/site`, `/operadora`, `/email`.', inline=False)
     embed.add_field(name="🎵 Músicas", value='Use o comando `/musica` para vizualizar os comandos. Comandos acessíveis a classe: `/play`, `/stop`, `/pause`, `/resume`, `/back`, `/skip`, `/disconnect`', inline=False)
     embed.add_field(name="🪐 Informações", value='Use o comando `/info` para ver os comandos disponíveis. Comandos existentes: `/ajuda`, `/ping`, `/git`, `/serverinfo`, `/userinfo`', inline=False)
     embed.add_field(name="🎓 Diversos", value='Use o comando `/diversos` para vizualizar os comandos. Comandos disponíveis: `/cotacao`, `/ddd`, `/feriados`, `/traduzir`', inline=False)    
     embed.add_field(name="🉐 Tradutor", value='Use o comando `/traduzir` "Texto" Língua (Exemplo: en, es, pt, ru)', inline=False)
-    embed.set_image(url="https://i.imgur.com/Qkn02zM.jpg")
-    embed.set_author(name='Arctic Helper', icon_url='')
+    embed.set_image(url="https://i.imgur.com/Zdi3S2Z.png")
+    embed.set_author(name='Al Capone Helper', icon_url='')
     await ctx.author.send(embed=embed); 
 
 #--------------------------------------------------------[NOME]-------------------------------------------------------#
@@ -151,7 +152,7 @@ async def cpf(ctx):
     embed.add_field(name="• CEP", value='SEM INFORMAÇÃO', inline=False)
     embed.add_field(name="• E-MAIL", value='SEM INFORMAÇÃO', inline=False)
     embed.add_field(name="• TELEFONE", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)        
+    embed.add_field(name="ㅤ", value='🧭 **By Al Capone**', inline=False)      
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CPFㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
@@ -172,7 +173,7 @@ async def telefone(ctx):
     embed.add_field(name="• CIDADE", value='SEM INFORMAÇÃO', inline=False)
     embed.add_field(name="• ESTADO", value='SEM INFORMAÇÃO', inline=False)
     embed.add_field(name="• CEP", value='SEM INFORMAÇÃO', inline=False)
-    embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)        
+    embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)        
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE TELEFONEㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
     await ctx.send(embed=embed)
@@ -181,35 +182,49 @@ async def telefone(ctx):
 
 @client.command()
 async def placa(ctx, placa = None):
-    data = requests.get('https://apicarros.com/v1/consulta/{placa}/json').json()    
+    data = requests.get('https://apicarros.com/v1/consulta/{placa}/json').json() # JSQ7436    
 
     try:
         embed = discord.Embed(title='')
 
-        
-        embed.add_field(name="• PLACA", value=data["placa"], inline=False)
-        embed.add_field(name="• MARCA", value=data["marca"], inline=False)
-        embed.add_field(name="• ANO", value=data["ano"], inline=False)
-        embed.add_field(name="• DATA DE ATUALIZAÇÃO ", value=data["data"], inline=False)
-        embed.add_field(name="• MODELO", value=data["anoModelo"], inline=False)
-        embed.add_field(name="• ANO DO MODELO", value=data["anoModelo"], inline=False)
-        embed.add_field(name="• COR", value=data["cor"], inline=False)
-        embed.add_field(name="• CHASSI", value=data["chassi"], inline=False)
-        embed.add_field(name="• CIDADE", value=data["municipio"], inline=False)
-        embed.add_field(name="• ESTADO", value=data["municipio"], inline=False)
-        embed.add_field(name="• IRREGULARIDADE", value=data["mensagemRetorno"], inline=False)
-        embed.add_field(name="• ALARME ATUALIZADO EM", value=data["dataAtualizacaoAlarme"], inline=False)
-        embed.add_field(name="• DATA DE MODIFICAÇÃO", value=data["dataAtualizacaoAlarme"], inline=False)
-        embed.add_field(name="• ATUALIZAÇÃO DE FURTO", value=data["dataAtualizacaoRouboFurto"], inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)        
+        validatePlaca = data["placa"] if data["placa"] != "" else "Não encontrado"
+        validateMarca = data["marca"] if data["marca"] != "" else "Não encontrado"
+        validateAno = data["ano"] if data["ano"] != "" else "Não encontrado"
+        validateDataAtt = data["data"] if data["data"] != "" else "Não encontrado"
+        validateModelo = data["modelo"] if data["modelo"] != "" else "Não encontrado"
+        validateAnoModelo = data["anoModelo"] if data["anoModelo"] != "" else "Não encontrado"
+        validateCor = data["cor"] if data["cor"] != "" else "Não encontrado"
+        validateChassi = data["chassi"] if data["chassi"] != "" else "Não encontrado"
+        validateMunicipioPlaca = data["municipio"] if data["municipio"] != "" else "Não encontrado"
+        validateUfPlaca = data["uf"] if data["uf"] != "" else "Não encontrado"
+        validateErrosPlaca = data["mensagemRetorno"] if data["mensagemRetorno"] != "" else "Não encontrado"
+        validateAlarmeAtt = data["dataAtualizacaoAlarme"] if data["dataAtualizacaoAlarme"] != "" else "Não encontrado"
+        validateModificacao = data["dataAtualizacaoCaracteristicasVeiculo"] if data["dataAtualizacaoCaracteristicasVeiculo"] != "" else "Não encontrado"
+        validateFurto = data["dataAtualizacaoRouboFurto"] if data["dataAtualizacaoRouboFurto"] != "" else "Não encontrado"
+
+        embed.add_field(name="• PLACA", value=validatePlaca, inline=False)
+        embed.add_field(name="• MARCA", value=validateMarca, inline=False)
+        embed.add_field(name="• ANO", value=validateAno, inline=False)
+        embed.add_field(name="• DATA DE ATUALIZAÇÃO ", value=validateDataAtt, inline=False)
+        embed.add_field(name="• MODELO", value=validateModelo, inline=False)
+        embed.add_field(name="• ANO DO MODELO", value=validateAnoModelo, inline=False)
+        embed.add_field(name="• COR", value=validateCor, inline=False)
+        embed.add_field(name="• CHASSI", value=validateChassi, inline=False)
+        embed.add_field(name="• CIDADE", value=validateMunicipioPlaca, inline=False)
+        embed.add_field(name="• ESTADO", value=validateUfPlaca, inline=False)
+        embed.add_field(name="• IRREGULARIDADE", value=validateErrosPlaca, inline=False)
+        embed.add_field(name="• ALARME ATUALIZADO EM", value=validateAlarmeAtt, inline=False)
+        embed.add_field(name="• DATA DE MODIFICAÇÃO", value=validateModificacao, inline=False)
+        embed.add_field(name="• ATUALIZAÇÃO DE FURTO", value=validateFurto, inline=False)
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE PLACAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
-    
+
         return
     except Exception:
         pass
-
+    
         embed = discord.Embed(title='')
 
     if (placa == None):
@@ -218,7 +233,7 @@ async def placa(ctx, placa = None):
         embed.add_field(name="Observação:", value='*Não utilize pontos, hifens e caracteres especiais*', inline=False)        
         return await ctx.send(embed=embed)
     else:
-       embed.set_author(name='ㅤㅤㅤㅤLIMITE DE CONSULTAS ATINGIDO\nㅤㅤPOR FAVOR, AGUARDE ALGUNS MINUTOSㅤㅤㅤ', icon_url='')
+       embed.set_author(name='ㅤㅤㅤㅤERRO AO CONSULTAR PLACAㅤㅤㅤ', icon_url='')
        return await ctx.send(embed=embed)
 
 #--------------------------------------------------------[CNPJ]-------------------------------------------------------------#
@@ -279,7 +294,7 @@ async def cnpj(ctx, cnpj = None):
         embed.add_field(name="• DATA DE ABERTURA", value=validateData, inline=False)
         embed.add_field(name="• CNAE", value=validateCnae, inline=False)
         embed.add_field(name="• CNAE FISCAL", value=validateCnaeCod, inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)        
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CNPJㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -321,7 +336,7 @@ async def ip(ctx, ip = None):
         embed.add_field(name="• ASN", value=validateAsn, inline=False)
         embed.add_field(name="• EMPRESA RESPONSÁVEL", value=data['org'], inline=False)
         embed.add_field(name="• TIPO DE CONEXÃO", value=data['type'], inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)        
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE IPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -355,7 +370,7 @@ async def covid(ctx, covid = None):
         embed.add_field(name="• SUSPEITOS", value=data['suspects'], inline=False)
         embed.add_field(name="• DESCARTADOS", value=data['refuses'], inline=False)
         embed.add_field(name="• DATA DE ATUALIZAÇÃO", value=data['datetime'], inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)        
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE COVID19ㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -395,7 +410,7 @@ async def cep(ctx, cep = None):
         embed.add_field(name="• LONGITUDE", value=data['lng'], inline=False)
         embed.add_field(name="• IBGE", value=data['city_ibge'], inline=False)
         embed.add_field(name="• DDD", value=data['ddd'], inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)        
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CEPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -428,7 +443,7 @@ async def banco(ctx, banco = None):
         embed.add_field(name="• NOME DO BANCO", value=data['name'], inline=False)
         embed.add_field(name="• CÓDIGO BANCÁRIO", value=data['code'], inline=False)
         embed.add_field(name="• INFORMAÇÕES ADICIONAIS", value=data['fullName'], inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)        
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)        
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BANCOㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -470,7 +485,7 @@ async def bin(ctx, bin = None):
         embed.add_field(name="• BANCO", value=data['bank'], inline=False)
         embed.add_field(name="• SITE", value=data['website'], inline=False)
         embed.add_field(name="• TELEFONE", value=data['phone'], inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)                
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)                
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE BINㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -508,7 +523,7 @@ async def site(ctx, site = None):
         embed.add_field(name="• ORGANIZAÇÃO", value=data['isp'], inline=False)
         embed.add_field(name="• EMPRESA", value=data['org'], inline=False)
         embed.add_field(name="• FUSO HORÁRIO", value=data['timezone'], inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)                
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)                
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE SITEㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -550,7 +565,7 @@ async def meuip(ctx, meuip = None):
     embed.add_field(name="• FUSO HORÁRIO", value=data['timezone'], inline=False)
     embed.add_field(name="• GMT", value=data['timezone_gmt'], inline=False)
     embed.add_field(name="• MOEDA LOCAL", value=data['currency'], inline=False)
-    embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)
+    embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**By Al Capone**', inline=False)
     embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤMEU IPㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
     embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)               
     await ctx.send(embed=embed)
@@ -573,7 +588,7 @@ async def operadora(ctx, operadora = None):
         embed.add_field(name="• LOCALIZAÇÃO", value=data['location'], inline=False)
         embed.add_field(name="• OPERADORA/PROVEDOR", value=data['carrier'], inline=False)
         embed.add_field(name="• LINHA DE DISPOSITÍVO", value=data['line_type'], inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)                
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)                
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCHECKER DE OPERADORAㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -612,7 +627,7 @@ async def email(ctx, email = None):
         embed.add_field(name="• E-MAIL DISPONÍVEL", value=data['disposable'], inline=False)
         embed.add_field(name="• GRATUITO", value=data['free'], inline=False)
         embed.add_field(name="• PONTUAÇÃO", value=data['score'], inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)                
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)                
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCHECKER DE E-MAILㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -651,7 +666,7 @@ async def cotacao(ctx, cotacao = None):
         embed.add_field(name="• COMPRA", value=data[coin_name]["bid"], inline=False)
         embed.add_field(name="• VENDA", value=data[coin_name]["ask"], inline=False)
         embed.add_field(name="• ATUALIZAÇÃO", value=data[coin_name]["create_date"], inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)                
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)                
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCOTAÇÃO DE MOEDASㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -682,7 +697,7 @@ async def ddd(ctx, ddd = None):
 
         embed.add_field(name="• ESTADO", value=data['state'], inline=False)
         embed.add_field(name="• CIDADES", value=','.join([f"`{city}`" for city in data["cities"]]), inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)                
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)                
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE CIDADES POR DDDㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -712,7 +727,7 @@ async def feriados(ctx, feriados = None):
 
         embed.add_field(name="• FERIADOS", value='\n\n'.join([f"{holiday['name'].upper() + ' ★ ' + holiday['date'].replace('-', '/') + ' ★ ' + holiday['type'].replace('national', 'NACIONAL')}" for holiday in data]), inline=False)
         embed.add_field(name="• INFO", value='As datas estão no formato Ano/Mês/Dia (Padrão ISO Date)', inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)                
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)                
         embed.set_author(name=f"ㅤㅤㅤㅤㅤㅤㅤㅤCONSULTA DE FERIADOS {feriados}ㅤㅤㅤㅤㅤㅤㅤㅤ", icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
@@ -758,8 +773,8 @@ async def gerador(ctx):
                     value="Use o comando `/gerartel` para gerar um telefone.", inline=False)
     embed.add_field(name="📲 GERADOR DE IMEI", value="Use o comando `/gerarimei` para gerar um IMEI.",
                     inline=False)
-    embed.set_author(name='Arctic', icon_url='')
-    embed.set_footer(text='Arctic © All Rights Reserved', icon_url='')
+    embed.set_author(name='Al Capone', icon_url='')
+    embed.set_footer(text='Al Capone © All Rights Reserved', icon_url='')
     await ctx.send(embed=embed)
     
 #--------------------------------------------------------[GERADOR DE CC]-------------------------------------------------------------#
@@ -774,7 +789,7 @@ async def gerarcartao(ctx, gerarcartao = None):
         
         embed.add_field(name="• BANDEIRA", value=data['card'], inline=False)
         embed.add_field(name="• CARTÃO", value=data['number'], inline=False)
-        embed.add_field(name="ㅤ", value='🐻‍❄️ﾠ**BY ARCTIC BOT**', inline=False)                
+        embed.add_field(name="ㅤ", value='🧭ﾠ**By Al Capone**', inline=False)                
         embed.set_author(name='ㅤㅤㅤㅤㅤㅤㅤㅤGERADOR DE CARTÃOㅤㅤㅤㅤㅤㅤㅤㅤ', icon_url='')
         embed.set_footer(text='Requested By {}'.format(ctx.author), icon_url=ctx.author.avatar_url)
         await ctx.send(embed=embed)
