@@ -1,5 +1,5 @@
 
-# 🎩 Al Capone - Discord Bot [PROJETO DESCONTINUADO]
+# 🎩 Al Capone [PROJETO DESCONTINUADO]
 
 ![undefined - Imgur(1)](https://github.com/cristopherrissardi/Al-Capone-Bot/assets/93612872/e8843a00-7d22-4cb6-bfb5-376ce4b5b95a)
 
