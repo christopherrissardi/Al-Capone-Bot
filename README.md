@@ -4,7 +4,7 @@
 ![undefined - Imgur(1)](https://github.com/cristopherrissardi/Al-Capone-Bot/assets/93612872/e8843a00-7d22-4cb6-bfb5-376ce4b5b95a)
 
 
-O atual projeto é referente a um bot do discord iniciado em Janeiro de 2022 com intuito de ser o sucessor do bot Alien.py. O projeto também foi descontinuado para ser implementado em outro Bot posteriormente.
+O atual projeto é referente a um bot do discord iniciado em Janeiro de 2022 com intuito de ser o sucessor do bot [Alien.py](https://github.com/cristopherrissardi/Alien.py). O projeto também foi descontinuado para ser implementado em outro Bot posteriormente.
 
 A última atualização foi apenas para corrigir algumas falhas que o bot apresentava devido ao tempo e a não atualização do mesmo por vários anos. 
 
