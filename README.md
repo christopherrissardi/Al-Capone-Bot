@@ -12,17 +12,18 @@ A última atualização foi apenas para corrigir algumas falhas que o bot aprese
 
 ## 📃 Change Log - 23/06/2024
 
-Foi efetuado a correção do código fonte principal do bot `main.py` para que voltasse a funcionar.
+Foi efetuado a correção do código fonte principal do bot main.py para que voltasse a funcionar.
 
 Itens corrigidos:
 
 - Correção do rodapé de todos os embeds.
 - Correção dos Intents faltantes
 
-Correção feita apenas para organizar o repositório e deixar o projeto guardado como recordação.
+Correção feita apenas para organizar o repositório e deixar o projeto guardado como recordação do meu primeiro bot desenvolvido "parcialmente".
+OBSERVAÇÃO:
 
-## OBSERVAÇÃO:
+- Todas as APIS usadas no projeto são APIS públicas, mesmo aquelas que possuem APIKEY. Algumas das APIs que possuem chave de autenticação estão desativadas!!!
+- O Projeto por si só foi apenas alterado/corrigido itens para que voltasse a funcionar, o resto permanece integro e não foi alterado.
 
-- Todas as APIS usadas no projeto são APIS públicas mesmo aquelas que possuem APIKEY. Algumas das APIs que possuem chave de autenticação estão desativadas!!!
-- O Projeto em si só foi alterado/corrigido itens para que voltasse a funcionar, o resto permanece da forma que está para manter a integridade do bot e que possa ficar como lembranças. 
+Fiquem a vontade para usar o bot como fonte de inspiração para novos projetos ou até mesmo para estudos.
 
